@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locale>
+  <Backend>
+     <Core>
+      <item type="label" name="EloRating">
+        <translation language="en"><![CDATA[elo-rating]]></translation>
+        <translation language="nl"><![CDATA[elo-rating]]></translation>
+      </item>
+     </Core>
+     <Pages>
+      <item type="label" name="Games">
+        <translation language="en"><![CDATA[games]]></translation>
+        <translation language="nl"><![CDATA[partijen]]></translation>
+      </item>
+      <item type="label" name="GamesPlayed">
+        <translation language="en"><![CDATA[games played]]></translation>
+        <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
+      </item>
+      
+      <item type="label" name="Players">
+        <translation language="en"><![CDATA[players]]></translation>
+        <translation language="nl"><![CDATA[spelers]]></translation>
+      </item>
+      <item type="label" name="Ranking">
+        <translation language="en"><![CDATA[ranking]]></translation>
+        <translation language="nl"><![CDATA[ranking]]></translation>
+      </item>
+      
+      <item type="label" name="TopRanking">
+        <translation language="en"><![CDATA[top ranking]]></translation>
+        <translation language="nl"><![CDATA[top ranking]]></translation>
+      </item>
+    </Pages>
+    <EloRating>
+      <item type="message" name="Active">
+        <translation language="en"><![CDATA[Should a player suddenly disappear (other school, company ...) you can hide him/her here by unchecking. The player won't show up anywhere on the website but the games that he/she played still count for the Elo-ratings of the players who are active.]]></translation>
+        <translation language="nl"><![CDATA[Je kan een speler deactiveren door het vinkje alhier uit te vinken. Dit zorgt ervoor dat de speler nergens meer op de website verschijnt, maar zijn/haar partijen wel blijven meetellen voor de ratings van andere spelers.]]></translation>
+      </item>
+      <item type="message" name="ConfirmDeletePlayer">
+        <translation language="en"><![CDATA[Are you sure you want to delete %1$s?
+
+If you do, all %1$s's games will be deleted too. That way all the Elo-ratings of the other players will change like they would have never played against %1$s.
+
+Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain unchanged but %1$s won't be visible on the site anymore too.]]></translation>
+        <translation language="nl"><![CDATA[Ben je zeker dat je %1$s wil verwijderen? Als je dat doet worden ook al %1$s zijn/haar partijen verwijderd wat als gevolg heeft dat de Elo-ratings van alle andere spelers ook zullen veranderen alsof ze nooit tegen %1$s gespeeld zouden hebben. Tip: Misschien is beter om %1$s te deactiveren? Dan wordt %1$s onzichtbaar op de site, maar blijven alle ratings behouden.]]></translation>
+      </item>
+      <item type="message" name="CurrentElo">
+        <translation language="en"><![CDATA[The current Elo-rating of %1$s is %2$s. It's not possible to change this rating directly because it's a calculated value.]]></translation>
+        <translation language="nl"><![CDATA[De huidige Elo-rating van %1$s is %2$s. Je kan deze niet handmatig veranderen daar deze wordt berekend op basis van de gespeelde partijen.]]></translation>
+      </item>
+      <item type="message" name="MinimumPlayedGames">
+        <translation language="en"><![CDATA[Players have to play a certain number of games before they show up in the ranking.]]></translation>
+        <translation language="nl"><![CDATA[Spelers moeten een aantal partijen spelen alvorens ze in de de ranking verschijnen. Dit aantal stel je hier in.]]></translation>
+      </item>
+      <item type="message" name="NoGames">
+        <translation language="en"><![CDATA[Until now, no games have been played.]]></translation>
+        <translation language="nl"><![CDATA[Er werden nog geen partijen gespeeld.]]></translation>
+      </item>
+      <item type="message" name="NoPlayers">
+        <translation language="en"><![CDATA[There are no players yet.]]></translation>
+        <translation language="nl"><![CDATA[Er zijn nog geen spelers.]]></translation>
+      </item>
+      <item type="message" name="StartElo">
+        <translation language="en"><![CDATA[Normally this value should be %1$s for every player. However, should you want to give someone a head start it's possible to do this here.]]></translation>
+        <translation language="nl"><![CDATA[Normaal gezien moet deze waarde %1$s zijn voor elke speler. Wil je iemand echter een voorsprong geven, dan kan dat eventueel.]]></translation>
+      </item>
+      <item type="message" name="TopRankingCount">
+        <translation language="en"><![CDATA[The Top Ranking-Widget shows just the top of the ranking. Here you can set how big that top is.]]></translation>
+        <translation language="nl"><![CDATA[The Top Ranking Widget toont slecht de top van de ranking. Hier kan je instellen hoe groot die top is.]]></translation>
+      </item>
+      <item type="label" name="AddAGame">
+        <translation language="en"><![CDATA[add a game]]></translation>
+        <translation language="nl"><![CDATA[voeg een partij toe]]></translation>
+      </item>
+      <item type="label" name="AddAPlayer">
+        <translation language="en"><![CDATA[add a player]]></translation>
+        <translation language="nl"><![CDATA[voeg een speler toe]]></translation>
+      </item>
+      <item type="label" name="CurrentElo">
+        <translation language="en"><![CDATA[current Elo-rating]]></translation>
+        <translation language="nl"><![CDATA[huidige Elo-rating]]></translation>
+      </item>
+      <item type="label" name="DatePlayed">
+        <translation language="en"><![CDATA[date of game]]></translation>
+        <translation language="nl"><![CDATA[speeldatum]]></translation>
+      </item>
+      <item type="label" name="DeletePlayer">
+        <translation language="en"><![CDATA[delete player %1$s]]></translation>
+        <translation language="nl"><![CDATA[verwijder speler %1$s]]></translation>
+      </item>
+      <item type="label" name="Draws">
+        <translation language="en"><![CDATA[draws]]></translation>
+        <translation language="nl"><![CDATA[remises]]></translation>
+      </item>
+      <item type="label" name="EditGame">
+        <translation language="en"><![CDATA[edit game]]></translation>
+        <translation language="nl"><![CDATA[bewerk partij]]></translation>
+      </item>
+      <item type="label" name="EditPlayer">
+        <translation language="en"><![CDATA[edit player]]></translation>
+        <translation language="nl"><![CDATA[bewerk speler]]></translation>
+      </item>
+      <item type="label" name="EditPlayerName">
+        <translation language="en"><![CDATA[edit %1$s ]]></translation>
+        <translation language="nl"><![CDATA[bewerk %1$s]]></translation>
+      </item>
+      <item type="label" name="Games">
+        <translation language="en"><![CDATA[games]]></translation>
+        <translation language="nl"><![CDATA[partijen]]></translation>
+      </item>
+      <item type="label" name="GamesPlayed">
+        <translation language="en"><![CDATA[games played]]></translation>
+        <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
+      </item>
+      <item type="label" name="Lost">
+        <translation language="en"><![CDATA[lost]]></translation>
+        <translation language="nl"><![CDATA[verloren]]></translation>
+      </item>
+      <item type="label" name="MinimumPlayedGames">
+        <translation language="en"><![CDATA[Minimum number of games]]></translation>
+        <translation language="nl"><![CDATA[Minimum aantal games]]></translation>
+      </item>
+      <item type="label" name="Player1">
+        <translation language="en"><![CDATA[white]]></translation>
+        <translation language="nl"><![CDATA[wit]]></translation>
+      </item>
+      <item type="label" name="Player2">
+        <translation language="en"><![CDATA[black]]></translation>
+        <translation language="nl"><![CDATA[black]]></translation>
+      </item>
+      <item type="label" name="Players">
+        <translation language="en"><![CDATA[players]]></translation>
+        <translation language="nl"><![CDATA[spelers]]></translation>
+      </item>
+      <item type="label" name="Score1">
+        <translation language="en"><![CDATA[score white]]></translation>
+        <translation language="nl"><![CDATA[score wit]]></translation>
+      </item>
+      <item type="label" name="Score2">
+        <translation language="en"><![CDATA[score black]]></translation>
+        <translation language="nl"><![CDATA[score zwart]]></translation>
+      </item>
+      <item type="label" name="StartElo">
+        <translation language="en"><![CDATA[start Elo-rating]]></translation>
+        <translation language="nl"><![CDATA[start Elo-rating]]></translation>
+      </item>
+      <item type="label" name="TopRankingCount">
+        <translation language="en"><![CDATA[Number of players in the Top Ranking Widget]]></translation>
+        <translation language="nl"><![CDATA[Aantal spelers in the Top Ranking Widget]]></translation>
+      </item>
+      <item type="label" name="Won">
+        <translation language="en"><![CDATA[won]]></translation>
+        <translation language="nl"><![CDATA[gewonnen]]></translation>
+      </item>
+      <item type="error" name="DateIsRequired">
+        <translation language="en"><![CDATA[you need to fill in a valid date]]></translation>
+        <translation language="nl"><![CDATA[vul een geldige datum in]]></translation>
+      </item>
+      <item type="error" name="InvalidScoreEntered">
+        <translation language="en"><![CDATA[Invalid score entered]]></translation>
+        <translation language="nl"><![CDATA[ongeldige score ingevuld]]></translation>
+      </item>
+      <item type="error" name="Player1VsPlayer2">
+        <translation language="en"><![CDATA[One cannot play against him/herself.]]></translation>
+        <translation language="nl"><![CDATA[iemand kan niet tegen zichzelf spelen]]></translation>
+      </item>
+      <item type="error" name="PlayerIsRequired">
+        <translation language="en"><![CDATA[%1$s is a required field]]></translation>
+        <translation language="nl"><![CDATA[%1$s is een verplicht veld]]></translation>
+      </item>
+      <item type="error" name="StartEloRange">
+        <translation language="en"><![CDATA[The start Elo-rating has to be a value between %1$s and %2$s.]]></translation>
+        <translation language="nl"><![CDATA[de start Elo-rating moet een getal tussen %1$s en %2$s zijn]]></translation>
+      </item>
+      <item type="error" name="TimeIsRequired">
+        <translation language="en"><![CDATA[you need to fill in a valid time]]></translation>
+        <translation language="nl"><![CDATA[vul een geldige tijd in]]></translation>
+      </item>
+    </EloRating>
+  </Backend>
+  
+  <Frontend>
+    <Core>
+      
+      <item type="label" name="Draws">
+        <translation language="en"><![CDATA[draws]]></translation>
+        <translation language="nl"><![CDATA[remise]]></translation>
+      </item>
+      <item type="label" name="EloGamesPlayed">
+        <translation language="en"><![CDATA[games played]]></translation>
+        <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
+      </item>
+      <item type="label" name="EloRating">
+        <translation language="en"><![CDATA[elo-rating]]></translation>
+        <translation language="nl"><![CDATA[elo-rating]]></translation>
+      </item>
+      <item type="label" name="EloTopRanking">
+        <translation language="en"><![CDATA[top %1$s]]></translation>
+        <translation language="nl"><![CDATA[top %1$s]]></translation>
+      </item>
+     
+      <item type="label" name="GamesPlayed">
+        <translation language="en"><![CDATA[games played]]></translation>
+        <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
+      </item>
+      
+      <item type="label" name="Lost">
+        <translation language="en"><![CDATA[lost]]></translation>
+        <translation language="nl"><![CDATA[verloren]]></translation>
+      </item>
+     
+      <item type="label" name="Player">
+        <translation language="en"><![CDATA[player]]></translation>
+        <translation language="nl"><![CDATA[speler]]></translation>
+      </item>
+      <item type="label" name="Player1">
+        <translation language="en"><![CDATA[white]]></translation>
+        <translation language="nl"><![CDATA[wit]]></translation>
+      </item>
+      <item type="label" name="Player2">
+        <translation language="en"><![CDATA[black]]></translation>
+        <translation language="nl"><![CDATA[zwart]]></translation>
+      </item>
+     
+      <item type="label" name="Ranking">
+        <translation language="en"><![CDATA[ranking]]></translation>
+        <translation language="nl"><![CDATA[ranking]]></translation>
+      </item>
+     
+      <item type="label" name="Won">
+        <translation language="en"><![CDATA[won]]></translation>
+        <translation language="nl"><![CDATA[gewonnen]]></translation>
+      </item>
+      
+      <item type="message" name="EloGamesPlayed">
+        <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played.<strong>%2$s</strong> of these games were won by %3$s, <strong>%4$s</strong> of the games were won by %5$s and <strong>%6$s</strong> games ended in a draw.]]></translation>
+        <translation language="nl"><![CDATA[Er werden al <strong>%1$s</strong> partijen gespeeld.<strong>%2$s</strong> daarvan werden wonnen door %3$s, <strong>%4$s</strong> door %5$s en <strong>%6$s</strong> partijen eindigde in remise.]]></translation>
+      </item>
+      
+      <item type="message" name="HasEloAndRanking">
+        <translation language="en"><![CDATA[%1$s has an Elo-rating of %2$s and is ranked at position %3$s.]]></translation>
+        <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rankschikking.]]></translation>
+      </item>
+      
+      <item type="message" name="NoPlayersYet">
+        <translation language="en"><![CDATA[There are no active players.]]></translation>
+        <translation language="nl"><![CDATA[Er zijn nog geen actieve spelers.]]></translation>
+      </item>
+      <item type="message" name="NoPlayersYetRanking">
+        <translation language="en"><![CDATA[There are no players yet with enough games (%1$s) to be shown in the ranking.]]></translation>
+        <translation language="nl"><![CDATA[Er zijn nog geen spelers die genoeg wedstrijden (%1$s) hebben gespeeld om opgenomen te worden in de rankschikking.]]></translation>
+      </item>
+      <item type="message" name="NoRankingYet">
+        <translation language="en"><![CDATA[%1$s hasn't got a ranking or Elo-rating because he/she played not enough games.]]></translation>
+        <translation language="nl"><![CDATA[%1$s heeft nog geen ranking omdat hij/zij nog niet genoeg partijen heeft gespeeld.]]></translation>
+      </item>
+    </Core>
+  </Frontend>
+</locale>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<name>EloRating</name>
+	<version>0.0.1</version>
+	<requirements>
+		<minimum_version>3.7.0</minimum_version>
+	</requirements>
+	<description>
+		<![CDATA[
+			With the Elo-rating Module you can organise ongoing tournaments in a club, school, company ... 
+			You can use it for every type of game that's played between two opponents: chess, football, snooker ... 
+
+			Every game played adds/subtracts points to a player's Elo-rating depending on the Elo-rating of his/hers oponent.
+			The more games are played, the more acurate the ratings become.
+			
+			The basic install is suited voor chess, checkers, go ... every game that uses 'black' and 'white'.
+			By adjusting the Locale/Translations you can change this to any game (f.e. Player 1 en Player 2).
+		]]>
+	</description>
+	<authors>
+		<author>
+			<name><![CDATA[Stef Bastiaansen]]></name>
+			<url><![CDATA[http://www.megasnort.com]]></url>
+		</author>
+	</authors>
+	<events>
+		<event application="backend" name="generate_ratings"><![CDATA[Triggered when the scores are recalculated.]]></event>
+	</events>
+	<cronjobs>
+	</cronjobs>
+</module>
