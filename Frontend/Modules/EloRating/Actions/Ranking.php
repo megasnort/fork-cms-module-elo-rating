@@ -15,7 +15,9 @@ use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 
 /**
- * This is the Ranking Action. It shows all the (active) players order by Elo-rating (and games played)
+ * This is the Ranking Action.
+ * It shows all the active players with enough games played
+ * ordered by Elo-rating (and games played)
  *
  * @author Stef Bastiaansen <stef@megasnort.com>
  */
@@ -24,9 +26,9 @@ class Ranking extends FrontendBaseBlock
 
     public function execute()
     {
-       parent::execute();
-       $this->loadTemplate();
-       $this->parse();
+        parent::execute();
+        $this->loadTemplate();
+        $this->parse();
     }
 
     
