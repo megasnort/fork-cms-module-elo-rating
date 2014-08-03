@@ -6,7 +6,7 @@ Imagine you're playing some game (chess, pool, football ...) regularly at your c
 Comes in: ***The Elo-rating Module for Fork CMS***
 
 ## What's inside?
-* Backend actions for organising your players and games
+* Backend actions for organizing your players and games
 * Automated calculation of the Elo-ratings
 * Three frontend actions (Ranking, Players en Games)
 * Two frontend widgets (Top Ranking and Games Played)
