@@ -2,12 +2,6 @@
 
 namespace Backend\Modules\EloRating\Actions;
 
-/*
- * This file is part of Fork CMS.
- *
- * For the full copyright and license information, please view the license
- * file that was distributed with this source code.
- */
 
 use Backend\Core\Engine\Base\ActionIndex as BackendBaseActionIndex;
 use Backend\Core\Engine\Authentication as BackendAuthentication;
@@ -24,9 +18,7 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
  */
 class IndexPlayers extends BackendBaseActionIndex
 {
-    /**
-     * Execute the action
-     */
+
     public function execute()
     {
         parent::execute();
@@ -36,9 +28,7 @@ class IndexPlayers extends BackendBaseActionIndex
 
     }
 
-    /**
-     * Load the datagrids
-     */
+
     private function loadDataGrid()
     {
         $this->dataGrid = new BackendDataGridDB(
@@ -69,9 +59,7 @@ class IndexPlayers extends BackendBaseActionIndex
 
     }
 
-    /**
-     * Parse the datagrid 
-     */
+
     protected function parse()
     {
         parent::parse();

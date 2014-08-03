@@ -2,12 +2,6 @@
 
 namespace Frontend\Modules\EloRating\Engine;
 
-/*
- * This file is part of Fork CMS.
- *
- * For the full copyright and license information, please view the license
- * file that was distributed with this source code.
- */
 
 use Frontend\Core\Engine\Language as FL;
 use Frontend\Core\Engine\Model as FrontendModel;
@@ -119,13 +113,13 @@ class Model
         return $dates;
     }
 
+
     /**
      * Get the top X of players ordered by Elo-rating.
-     * Players with the same rating get the same position, bu are ordered by games played
+     * Players with the same rating get the same position, but are ordered by number of games played
      *
      * @return array
-     */
-    
+     */    
     public static function getTotalRanking()
     {
         $db = FrontendModel::getContainer()->get('database');
@@ -146,13 +140,11 @@ class Model
 
 
 
-    //@todo: add caching
     /**
-     * Get all the active players and add there played games
+     * Get all the active players and add their played games
      *
      * @return array
      */
-    
     public static function getPlayersWithGames()
     {
         $db = FrontendModel::getContainer()->get('database');
@@ -207,13 +199,13 @@ class Model
         return $players;
     }
 
+
     /**
      * Get the top X of players ordered by Elo-rating.
-     * Players with the same rating get the same position, bu are ordered by games played
+     * Players with the same rating get the same position, but are ordered by number of games played
      *
      * @return array
      */
-    
     public static function getTopRanking()
     {
         $db = FrontendModel::getContainer()->get('database');

@@ -2,12 +2,6 @@
 
 namespace Frontend\Modules\EloRating\Actions;
 
-/*
- * This file is part of Fork CMS.
- *
- * For the full copyright and license information, please view the license
- * file that was distributed with this source code.
- */
 
 use Frontend\Core\Engine\Base\Block as FrontendBaseBlock;
 use Frontend\Core\Engine\Navigation as FrontendNavigation;
@@ -47,7 +41,7 @@ class Games extends FrontendBaseBlock
 
 
 /*
-  // we will cache this widget for 15minutes
+  // add caching later ...
         $this->tpl->cache(FRONTEND_LANGUAGE . '_blogWidgetArchiveCache', (24 * 60 * 60));
 
         // if the widget isn't cached, assign the variables
