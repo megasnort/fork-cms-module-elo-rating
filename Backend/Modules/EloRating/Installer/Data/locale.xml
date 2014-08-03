@@ -233,8 +233,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
       </item>
       
       <item type="message" name="EloGamesPlayed">
-        <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played.<strong>%2$s</strong> of these games were won by %3$s, <strong>%4$s</strong> of the games were won by %5$s and <strong>%6$s</strong> games ended in a draw.]]></translation>
-        <translation language="nl"><![CDATA[Er werden al <strong>%1$s</strong> partijen gespeeld.<strong>%2$s</strong> daarvan werden wonnen door %3$s, <strong>%4$s</strong> door %5$s en <strong>%6$s</strong> partijen eindigde in remise.]]></translation>
+        <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played. 
+<strong>%2$s</strong> of these games were won by %3$s, <strong>%4$s</strong> of the games were won by %5$s and <strong>%6$s</strong> games ended in a draw.]]></translation>
+        <translation language="nl"><![CDATA[Er werden al <strong>%1$s</strong> partijen gespeeld.
+<strong>%2$s</strong> daarvan werden wonnen door %3$s, <strong>%4$s</strong> door %5$s en <strong>%6$s</strong> partijen eindigde in remise.]]></translation>
       </item>
       
       <item type="message" name="HasEloAndRanking">
@@ -253,6 +255,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
       <item type="message" name="NoRankingYet">
         <translation language="en"><![CDATA[%1$s hasn't got a ranking or Elo-rating because he/she played not enough games.]]></translation>
         <translation language="nl"><![CDATA[%1$s heeft nog geen ranking omdat hij/zij nog niet genoeg partijen heeft gespeeld.]]></translation>
+      </item>
+      <item type="message" name="NoGamesYet">
+        <translation language="nl"><![CDATA[Er werden nog geen partijen gespeeld.]]></translation>
+        <translation language="nl"><![CDATA[No games played yet.]]></translation>
       </item>
     </Core>
   </Frontend>
