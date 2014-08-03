@@ -85,7 +85,6 @@ class Model
      *
      * @return array
      */
-    
     public static function getAllGames()
     {
         $db = FrontendModel::getContainer()->get('database');
@@ -115,33 +114,39 @@ class Model
 
 
     /**
-     * Get the top X of players ordered by Elo-rating.
-     * Players with the same rating get the same position, but are ordered by number of games played
+     * Generate some stats about how many games were played, won ...
      *
      * @return array
-     */    
-    public static function getTotalRanking()
+     */
+    public static function getGamesPlayed()
     {
-        $db = FrontendModel::getContainer()->get('database');
-
-        // Set the vars to 0 because the session stays open.
-        $db->execute(self::QRY_VARS_RANKING);
-
-        $return = (array) $db->getRecords(
-            self::QRY_RANKING,
-            array(
-                (string) 'Y',
-                (int) FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5)
-            )
+        $games = (array) FrontendModel::getContainer()->get('database')->getRecords(
+            'SELECT score1 FROM elo_rating_games'
         );
 
-        return $return;
+        $data = array(
+            'total' => count($games),
+            'p1won' => 0,
+            'p2won' => 0,
+            'draw' => 0,
+        );
+
+        foreach ($games as $game) {
+            if ($game["score1"] == 1) {
+                $data["p1won"]++;
+            } else if ($game["score1"] == 0) {
+                $data["p2won"]++;
+            } else {
+                $data["draw"]++;
+            }
+        }
+
+        return $data;
     }
-
-
+ 
 
     /**
-     * Get all the active players and add their played games
+     * Get all the active players with their played games
      *
      * @return array
      */
@@ -225,29 +230,28 @@ class Model
         return $return;
     }
 
-    public static function getGamesPlayed()
+
+    /**
+     * Get the top X of players ordered by Elo-rating.
+     * Players with the same rating get the same position, but are ordered by number of games played
+     *
+     * @return array
+     */
+    public static function getTotalRanking()
     {
-        $games = (array) FrontendModel::getContainer()->get('database')->getRecords(
-            'SELECT score1 FROM elo_rating_games'
+        $db = FrontendModel::getContainer()->get('database');
+
+        // Set the vars to 0 because the session stays open.
+        $db->execute(self::QRY_VARS_RANKING);
+
+        $return = (array) $db->getRecords(
+            self::QRY_RANKING,
+            array(
+                (string) 'Y',
+                (int) FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5)
+            )
         );
 
-        $data = array(
-            'total' => count($games),
-            'p1won' => 0,
-            'p2won' => 0,
-            'draw' => 0,
-        );
-
-        foreach ($games as $game) {
-            if ($game["score1"] == 1) {
-                $data["p1won"]++;
-            } else if ($game["score1"] == 0) {
-                $data["p2won"]++;
-            } else {
-                $data["draw"]++;
-            }
-        }
-
-        return $data;
+        return $return;
     }
 }

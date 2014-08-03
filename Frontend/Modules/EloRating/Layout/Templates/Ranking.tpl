@@ -8,11 +8,6 @@
 			{/option:!ranking}
 			{option:ranking}
 				
-				<!--
-				<header class="hd">
-					<h3>{$lblRanking|ucfirst}</h3>
-				</header>
-				-->
 				<table class="bd content">
 					<tr>
 						<th>#</th>

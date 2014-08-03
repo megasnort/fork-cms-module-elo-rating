@@ -25,15 +25,13 @@
 		<p>
 			<label for="start_elo">{$lblStartElo|ucfirst}<abbr title="required field">*</abbr></label>
 			{$txtStartElo} {$txtStartEloError}
-			<p>{$msgStartElo|sprintf:{$default_elo}}</p>
+			<br />{$msgStartElo|sprintf:{$default_elo}}
 		</p>
 
 		<p>
 			<label for="active">{$lblActive|ucfirst}</label>
 			{$chkActive} {$chkActiveError}
-			<p>
-				{$msgActive}
-			</p>
+			<br />{$msgActive}
 		</p>
 
 	</div>

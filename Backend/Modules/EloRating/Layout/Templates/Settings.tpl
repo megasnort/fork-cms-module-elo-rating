@@ -7,7 +7,7 @@
 
 {form:settings}
 	<div class="box">
-	<div class="heading">
+		<div class="heading">
 			<h3>{$lblEloRating|ucfirst}</h3>
 		</div>
 		<div class="options">
@@ -21,8 +21,7 @@
 			<p>{$msgTopRankingCount} </p>
 		</div>
 	</div>
-
-	
+		
 
 	<div class="fullwidthOptions">
 		<div class="buttonHolderRight">

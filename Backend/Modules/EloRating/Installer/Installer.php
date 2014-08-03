@@ -75,9 +75,5 @@ class Installer extends ModuleInstaller
         $this->insertExtra('EloRating', 'widget', 'GamesPlayed', 'GamesPlayed', null, 'N', 1704);
         $this->insertExtra('EloRating', 'widget', 'TopRanking', 'TopRanking', null, 'N', 1705);
 
-
-
-        
-
     }
 }

@@ -2,12 +2,6 @@
 
 namespace Backend\Modules\EloRating\Actions;
 
-/*
- * This file is part of Fork CMS.
- *
- * For the full copyright and license information, please view the license
- * file that was distributed with this source code.
- */
 
 use Backend\Core\Engine\Base\ActionIndex as BackendBaseActionIndex;
 use Backend\Core\Engine\Authentication as BackendAuthentication;
@@ -24,9 +18,7 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
  */
 class Index extends BackendBaseActionIndex
 {
-    /**
-     * Execute the action
-     */
+    
     public function execute()
     {
         parent::execute();
@@ -36,9 +28,7 @@ class Index extends BackendBaseActionIndex
 
     }
 
-    /**
-     * Load the datagrids
-     */
+    
     private function loadDataGrid()
     {
         $this->dataGrid = new BackendDataGridDB(
@@ -47,10 +37,10 @@ class Index extends BackendBaseActionIndex
         );
 
 
-        $this->dataGrid->setSortParameter('desc'); 
+        $this->dataGrid->setSortParameter('desc');
         $this->dataGrid->setSortingColumns(array('date'), 'date');
 
-        // set column functions
+        // get the date to show not as a unix timestamp but as a readable date
         $this->dataGrid->setColumnFunction(
             array(new BackendDataGridFunctions(), 'getLongDate'),
             array('[date]'),
@@ -58,6 +48,7 @@ class Index extends BackendBaseActionIndex
             true
         );
 
+        // show the edit button
         if (BackendAuthentication::isAllowedAction('Edit')) {
 
             $this->dataGrid->addColumn(
@@ -69,6 +60,7 @@ class Index extends BackendBaseActionIndex
             );
         }
 
+        // show the delete button
         if (BackendAuthentication::isAllowedAction('Delete')) {
 
             $this->dataGrid->addColumn(
@@ -81,14 +73,10 @@ class Index extends BackendBaseActionIndex
         }
     }
 
-    /**
-     * Parse the datagrid 
-     */
+    
     protected function parse()
     {
         parent::parse();
-
         $this->tpl->assign('dgGames', (string) $this->dataGrid->getContent());
     }
-
 }

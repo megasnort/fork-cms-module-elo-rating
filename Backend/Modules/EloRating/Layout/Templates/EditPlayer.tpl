@@ -24,23 +24,22 @@
 
 		<p>
 			<label>{$lblCurrentElo|ucfirst}</label>
-			<p>{$msgCurrentElo|sprintf:{$item.name}:{$item.current_elo}}</p>
+			<br />{$msgCurrentElo|sprintf:{$item.name}:{$item.current_elo}}
 		</p>
 
 
 		<p>
-			<label for="start_elo">{$lblStartElo|ucfirst}<abbr title="required field">*</abbr></label>
+			<label for="startElo">{$lblStartElo|ucfirst}<abbr title="required field">*</abbr></label>
 			{$txtStartElo} {$txtStartEloError|sprintf:{$min_elo}:{$max_elo}}
-			<p>{$msgStartElo|sprintf:{$default_elo}}</p>
+			<br />{$msgStartElo|sprintf:{$default_elo}}
 		</p>
 
 
 		<p>
 			<label for="active">{$lblActive|ucfirst}</label>
 			{$chkActive} {$chkActiveError}
-			<p>
-				{$msgActive}
-			</p>
+			<br />
+			{$msgActive}
 		</p>
 
 	</div>

@@ -13,7 +13,7 @@
 			Every game played adds/subtracts points to a player's Elo-rating depending on the Elo-rating of his/hers oponent.
 			The more games are played, the more acurate the ratings become.
 			
-			The basic install is suited voor chess, checkers, go ... every game that uses 'black' and 'white'.
+			The basic install is suited voor Chess, Checkers, Go ...: every game that uses 'black' and 'white'.
 			By adjusting the Locale/Translations you can change this to any game (f.e. Player 1 en Player 2).
 		]]>
 	</description>
@@ -24,7 +24,7 @@
 		</author>
 	</authors>
 	<events>
-		<event application="backend" name="generate_ratings"><![CDATA[Triggered when the scores are recalculated.]]></event>
+		<event application="backend" name="generate_ratings"><![CDATA[Triggered when the ratings are recalculated, which is, after every modification to the Players or Games page.]]></event>
 	</events>
 	<cronjobs>
 	</cronjobs>

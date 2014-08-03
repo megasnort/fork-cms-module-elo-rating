@@ -2,12 +2,6 @@
 
 namespace Backend\Modules\EloRating\Actions;
 
-/*
- * This file is part of Fork CMS.
- *
- * For the full copyright and license information, please view the license
- * file that was distributed with this source code.
- */
 
 use Backend\Core\Engine\Base\ActionEdit as BackendBaseActionEdit;
 use Backend\Core\Engine\Authentication as BackendAuthentication;
@@ -19,17 +13,11 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
 /**
  * This is the add-action, it will display a form to fill in a newly played game
  *
- * @author Lester Lievens <lester.lievens@netlash.com>
- * @author Matthias Mullie <forkcms@mullie.eu>
- * @author Annelies Van Extergem <annelies.vanextergem@netlash.com>
- * @author Jelmer Snoeck <jelmer@siphoc.com>
  * @author Stef Bastiaansen <stef@megasnort.com>
  */
 class Edit extends BackendBaseActionEdit
 {
-    /**
-     * Execute the action
-     */
+
     public function execute()
     {
         $this->id = $this->getParameter('id', 'int');
@@ -50,9 +38,7 @@ class Edit extends BackendBaseActionEdit
         
     }
 
-    /**
-     * Load the form
-     */
+
     private function loadForm()
     {
         // create form
@@ -84,41 +70,20 @@ class Edit extends BackendBaseActionEdit
 
     }
 
-    /**
-     * Parse the page
-     */
+    
     protected function parse()
     {
         parent::parse();
 
         $this->tpl->assign('item', $this->record);
-
-        $p1Name = BackendModel::getModuleSetting('EloRating', 'p1_name', 'white');
-        $p2Name = BackendModel::getModuleSetting('EloRating', 'p2_name', 'black');
-
-        $this->tpl->assign('p1_name', $p1Name);
-        $this->tpl->assign('p2_name', $p2Name);
-
-        // get url
-        
-        // $url = BackendModel::getURLForBlock($this->URL->getModule(), 'detail');
-        // $url404 = BackendModel::getURL(404);
-
-        // // parse additional variables
-        // if ($url404 != $url) {
-        //     $this->tpl->assign('detailURL', SITE_URL . $url);
-        // }
     }
 
-    /**
-     * Validate the form
-     */
+
     private function validateForm()
     {
         if ($this->frm->isSubmitted()) {
             $this->frm->cleanupFields();
 
-            // validate fields
             $this->frm->getField('player1')->isFilled(BL::err('PlayerIsRequired'));
             $this->frm->getField('player2')->isFilled(BL::err('PlayerIsRequired'));
             $this->frm->getField('score1')->isFilled(BL::err('Score1IsRequired'));
@@ -127,10 +92,12 @@ class Edit extends BackendBaseActionEdit
             $this->frm->getField('date')->isValid(BL::err('DateIsRequired'));
             $this->frm->getField('time')->isValid(BL::err('TimeIsRequired'));
           
-            if ($this->frm->getField('player1')->getValue() == $this->frm->getField('player2')->getValue() && $this->frm->getField('player1')->getValue() != '') {
+            // Both players should be different. The error should only be displayed when a value is actually submitted (otherwise: two errors)
+            if ($this->frm->getField('player1')->getValue() == $this->frm->getField('player2')->getValue()  && $this->frm->getField('player1')->getValue() != '') {
                  $this->frm->getField('player2')->addError(BL::err('Player1VsPlayer2'));
             }
 
+            // The total submitted score should always be 1 (0+1, 0.5+0.5, 1+0)
             if ($this->frm->getField('score1')->getValue() + $this->frm->getField('score2')->getValue() != 1) {
                  $this->frm->getField('score2')->addError(BL::err('InvalidScoreEntered'));
             }

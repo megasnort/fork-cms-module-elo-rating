@@ -12,9 +12,6 @@ use Backend\Core\Engine\Language as BL;
 /**
  * This is the settings-action, it will display a set of settings to customize the Elo-ratings module
  *
- * @author Tijs Verkoyen <tijs@sumocoders.be>
- * @author Dave Lens <dave.lens@netlash.com>
- * @author Jelmer Snoeck <jelmer@siphoc.com>
  * @author Stef Bastiaansen <stef@megasnort.com>
  */
 class Settings extends BackendBaseActionEdit
@@ -35,7 +32,6 @@ class Settings extends BackendBaseActionEdit
 
         $this->frm = new BackendForm('settings');
 
-        // add fields for pagination
         $this->frm->addDropdown(
             'minimum_played_games',
             array_combine(range(1, 10), range(1, 10)),
@@ -49,6 +45,7 @@ class Settings extends BackendBaseActionEdit
         
     }
 
+
     protected function parse()
     {
         parent::parse();
@@ -59,19 +56,15 @@ class Settings extends BackendBaseActionEdit
     {
         if ($this->frm->isSubmitted()) {
 
-            // validation
             $this->frm->getField('minimum_played_games')->isFilled(BL::err('FieldIsRequired'));
             $this->frm->getField('top_ranking_count')->isFilled(BL::err('FieldIsRequired'));
 
 
             if ($this->frm->isCorrect()) {
-                // set our settings
+
                 BackendModel::setModuleSetting($this->URL->getModule(), 'minimum_played_games', (int) $this->frm->getField('minimum_played_games')->getValue());
                 BackendModel::setModuleSetting($this->URL->getModule(), 'top_ranking_count', (int) $this->frm->getField('top_ranking_count')->getValue());
                 
-                BackendModel::triggerEvent($this->getModule(), 'after_saved_settings');
-
-                // redirect to the settings page
                 $this->redirect(BackendModel::createURLForAction('Settings') . '&report=saved');
             }
         }

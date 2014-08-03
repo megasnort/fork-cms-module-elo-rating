@@ -42,8 +42,6 @@ class TopRanking extends FrontendBaseWidget
         // If the Players page is not found, no link should be displayed
         if (!strpos($playerUrl, '404')) {
             $this->tpl->assign('playerUrl', $playerUrl);
-        }
-
-        
+        }        
     }
 }

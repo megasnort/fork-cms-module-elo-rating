@@ -25,7 +25,7 @@ jsBackend.elo_rating =
 		});
 
 		// make sure that the total score is always 1.
-		// (this is dubbelchecked serverside, no worries
+		// (this is dubbelchecked serverside, no worries, this is just for a better UX)
 		$('#score1').change(function(){
 			$('#score2').val(1 - $('#score1').val());
 		});

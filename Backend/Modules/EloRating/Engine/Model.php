@@ -10,7 +10,7 @@ use Backend\Core\Engine\Model as BackendModel;
 use Frontend\Core\Engine\Language as FL;
 
 /**
- * In this file we store all generic functions that we will be using in the EloRating module
+ * In this file we store all generic functions that we will be using in the Backend EloRating module
  *
  * @author Stef Bastiaansen <stef@megasnort.com>
  */
@@ -18,13 +18,13 @@ class Model
 {
 
     
-    const K = 16;               // indicates the importance of games. (if a game has players with really high ratings, this should rise. Should ...)
+    const K = 16;               // Indicates the importance of games. (Note: if a game has players with really high ratings, this should rise. Should ...)
     const F = 400;              // K-factor. A standard in Elo-ratings calculatings.
 
     const MIN_ELO = 1000;       // Starting with an Elo-rating lower then 1000 is nonsense
     const MAX_ELO = 3000;       // Starting with an Elo-rating higher then 3000 is nonsense
 
-    const DEFAULT_ELO = 1450;   // Starting with an Elo-rating higher then 3000 is nonsense
+    const DEFAULT_ELO = 1450;   // 1450 is the standard Elo-rating for a new player
 
     const QRY_GAMES =
         'SELECT
@@ -56,31 +56,6 @@ class Model
         FROM
             elo_rating_players AS p';
 
-   
-    /**
-     * Delete a game
-     *
-     * @param int $id
-     */
-    public static function delete($id)
-    {
-        BackendModel::getContainer()->get('database')->delete('elo_rating_games', 'id = ?', array((int) $id));
-        self::generateEloRatings();
-    }
-
-    /**
-     * Delete a player
-     *
-     * @param int $id
-     */
-    public static function deletePlayer($id)
-    {
-        BackendModel::getContainer()->get('database')->delete('elo_rating_players', 'id = ?', array((int) $id));
-        BackendModel::getContainer()->get('database')->delete('elo_rating_games', 'player1 = ? OR player2 = ?', array((int) $id, (int) $id));
-
-        self::generateEloRatings();
-    }
-
 
     /**
      * Generate the new Elo-ratings of two players after they compete in a game
@@ -98,7 +73,32 @@ class Model
         $elo2 = self::K * ($p2result - (1 / pow(10, (- ($p2rating - $p1rating) / self::F) + 1)));
 
         return array('p1' => $p1rating + $elo1, 'p2' => $p2rating + $elo2);
+    }
 
+   
+    /**
+     * Delete a game
+     *
+     * @param int $id
+     */
+    public static function delete($id)
+    {
+        BackendModel::getContainer()->get('database')->delete('elo_rating_games', 'id = ?', array((int) $id));
+        self::generateEloRatings();
+    }
+
+
+    /**
+     * Delete a player
+     *
+     * @param int $id
+     */
+    public static function deletePlayer($id)
+    {
+        BackendModel::getContainer()->get('database')->delete('elo_rating_players', 'id = ?', array((int) $id));
+        BackendModel::getContainer()->get('database')->delete('elo_rating_games', 'player1 = ? OR player2 = ?', array((int) $id, (int) $id));
+
+        self::generateEloRatings();
     }
 
 
@@ -172,8 +172,9 @@ class Model
         }
 
 
-        // It doesn't make sense to add triggers to the add/edit/delete game/player events
-        // because it's possible that one player or game changes everybody's rating.
+
+        // Because it's possible that changes to one player or game changes everybody's rating.
+        // there is just one trigger.
         BackendModel::triggerEvent('EloRating', 'generate_ratings', $players);
 
       
@@ -189,24 +190,8 @@ class Model
     public static function get($id)
     {
         $return = (array) BackendModel::getContainer()->get('database')->getRecord(
-            'SELECT g.id, g.player1, g.player2, g.score1, g.score2, UNIX_TIMESTAMP(g.`date`) AS `date`	FROM elo_rating_games AS g WHERE g.id = ?',
-            (int) $id
-        );
-
-        return $return;
-    }
-
-
-    /**
-     * Get all data for a player.
-     *
-     * @param int $id       The id of the player to get.
-     * @return array
-     */
-    public static function getPlayer($id)
-    {
-        $return = (array) BackendModel::getContainer()->get('database')->getRecord(
-            'SELECT p.id, p.name, p.start_elo, p.current_elo, p.active FROM elo_rating_players AS p WHERE p.id = ?',
+            'SELECT g.id, g.player1, g.player2, g.score1, g.score2, UNIX_TIMESTAMP(g.`date`) AS `date`
+             FROM elo_rating_games AS g WHERE g.id = ?',
             (int) $id
         );
 
@@ -229,14 +214,30 @@ class Model
 
 
     /**
+     * Get all data for a player.
+     *
+     * @param int $id           The id of the player to get.
+     * @return array
+     */
+    public static function getPlayer($id)
+    {
+        $return = (array) BackendModel::getContainer()->get('database')->getRecord(
+            'SELECT p.id, p.name, p.start_elo, p.current_elo, p.active FROM elo_rating_players AS p WHERE p.id = ?',
+            (int) $id
+        );
+
+        return $return;
+    }
+
+
+    /**
      * Insert a game
      *
-     * @return int          the id of the newly added game
-     * @param array $item     record with the fields of the game to be added
+     * @return int              the id of the newly added game
+     * @param array $item       record with the fields of the game to be added
      */
     public static function insert(array $item)
     {
-
         $insertId = BackendModel::getContainer()->get('database')->insert('elo_rating_games', $item);
         
         self::generateEloRatings();
@@ -251,15 +252,12 @@ class Model
     /**
      * Insert a player
      *
-     * @return int          the id of the newly added player
-     * @param array $item     record with the fields of the player to be added
+     * @return int              the id of the newly added player
+     * @param array $item       record with the fields of the player to be added
      */
     public static function insertPlayer(array $item)
     {
-
         $insertId = BackendModel::getContainer()->get('database')->insert('elo_rating_players', $item);
-
-        //BackendModel::invalidateFrontendCache('Faq', BL::getWorkingLanguage());
 
         return $insertId;
     }
@@ -272,22 +270,19 @@ class Model
      */
     public static function update(array $item)
     {
-
         BackendModel::getContainer()->get('database')->update('elo_rating_games', $item, 'id = ?', array((int) $item['id']));
         self::generateEloRatings();
-        //BackendModel::invalidateFrontendCache('Faq', BL::getWorkingLanguage());
     }
 
+
     /**
-     * Update a game
+     * Update a player
      *
      * @param array $item     record with the fields of the player to be altered
      */
     public static function updatePlayer(array $item)
     {
-
         BackendModel::getContainer()->get('database')->update('elo_rating_players', $item, 'id = ?', array((int) $item['id']));
         self::generateEloRatings();
-        //BackendModel::invalidateFrontendCache('Faq', BL::getWorkingLanguage());
-    } 
+    }
 }

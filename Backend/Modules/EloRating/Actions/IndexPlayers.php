@@ -25,7 +25,6 @@ class IndexPlayers extends BackendBaseActionIndex
         $this->loadDataGrid();
         $this->parse();
         $this->display();
-
     }
 
 
@@ -45,7 +44,6 @@ class IndexPlayers extends BackendBaseActionIndex
         ));
  
       
-        // check if edit action is allowed
         if (BackendAuthentication::isAllowedAction('EditPlayer')) {
 
             $this->dataGrid->addColumn(
@@ -56,7 +54,6 @@ class IndexPlayers extends BackendBaseActionIndex
                 BL::getLabel('Edit')
             );
         }
-
     }
 
 
@@ -66,5 +63,4 @@ class IndexPlayers extends BackendBaseActionIndex
 
         $this->tpl->assign('dgPlayers', (string) $this->dataGrid->getContent());
     }
-
 }
