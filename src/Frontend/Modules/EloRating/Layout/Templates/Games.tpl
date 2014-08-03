@@ -11,7 +11,7 @@
 					
 					{iteration:games}
 						<header class="hd">
-							<h3>{$games.date|date:{$dateFormatLong}}</h3>
+							<h3>{$games.date|date:{$dateFormatLong}:{$LANGUAGE}}</h3>
 						</header>
 
 						<table>
