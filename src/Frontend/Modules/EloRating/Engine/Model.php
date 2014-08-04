@@ -28,6 +28,8 @@ class Model
                 elo_rating_players AS p
             WHERE
                 `active` = ?
+                AND
+                `games_played` > ?
    
             ORDER BY 
                 p.name";
@@ -57,12 +59,14 @@ class Model
                 p.draws DESC,
                 p.lost ASC";
 
-    const QRY_GAMES = 'SELECT
+    const QRY_GAMES = "SELECT
                 g.id,
                 g.player1,
                 g.player2,
                 p1.name as player1name,
                 p2.name as player2name,
+                IF(p1.active = 'Y', 1, null) as player1active,
+                IF(p2.active = 'Y', 1, null) as player2active,
                 g.score1,
                 g.score2,
                 UNIX_TIMESTAMP(g.`date`) AS `date`,
@@ -75,7 +79,7 @@ class Model
             INNER JOIN elo_rating_players AS p2
                 ON p2.id = g.player2
             ORDER BY
-                `date` DESC';
+                `date` DESC";
 
     const QRY_VARS_RANKING = "SET @pos = 0, @prevElo = 0";
 
@@ -96,10 +100,8 @@ class Model
         $previousDate = '';
 
         foreach ($games as $game) {
-            // echo '<pre>'. print_r($previousDate . ' ----- ' . $game["compareDate"], 1) .'</pre>';
 
             if ($previousDate != $game["compareDate"]) {
-              //  echo '<b>niet hetzelfde</b>';
                 $dates[] = array('date' => $game["date"], 'games' => (array) array());
             }
 
@@ -159,7 +161,8 @@ class Model
         $players = (array) $db->getRecords(
             self::QRY_PLAYERS,
             array(
-                (string) 'Y'
+                (string) 'Y',
+                (int) 0
             )
         );
 
@@ -169,7 +172,7 @@ class Model
 
             $games = (array) $db->getRecords(
                 "SELECT
-                    g.id, g.player1, g.player2, score1, score2, UNIX_TIMESTAMP(`date`) AS `date`, p1.name AS player1name, p2.name AS player2name
+                    g.id, g.player1, g.player2, IF(g.player1 = ?,1,null) AS isplayer1, score1, score2, UNIX_TIMESTAMP(`date`) AS `date`, p1.name AS player1name, p2.name AS player2name
                 FROM
                     elo_rating_games AS g
                 INNER JOIN
@@ -179,6 +182,7 @@ class Model
                 WHERE player1 = ? OR player2 = ?
                 ORDER BY date DESC",
                 array(
+                    (int) $player['id'],
                     (int) $player['id'],
                     (int) $player['id']
                 )

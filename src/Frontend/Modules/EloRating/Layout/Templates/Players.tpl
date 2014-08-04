@@ -37,8 +37,27 @@
 							{iteration:players.games}
 
 								<tr>
-									<td>{$players.games.player1name}</td>
-									<td>{$players.games.player2name}</td>
+									<td>
+										{option:!players.games.isplayer1}
+										<a href="#p{$players.games.player1}">
+										{/option:!players.games.isplayer1}
+
+											{$players.games.player1name}
+
+										{option:!players.games.isplayer1}
+										</a>
+										{/option:!players.games.isplayer1}
+									</td>
+									<td>
+										{option:players.games.isplayer1}
+										<a href="#p{$players.games.player2}">
+										{/option:players.games.isplayer1}
+
+											{$players.games.player2name}
+										{option:players.games.isplayer1}
+										</a>
+										{/option:players.games.isplayer1}
+									</td>
 									<td>{$players.games.score1}</td>
 									<td>{$players.games.score2}</td>
 									<td>{$players.games.date|date:{$dateFormatShort}}</td>

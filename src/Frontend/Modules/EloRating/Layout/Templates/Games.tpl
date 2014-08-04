@@ -26,18 +26,22 @@
 
 							<tr>
 								<td>
-									{option:playerUrl}
-										<a href="{$playerUrl}#p{$games.games.player1}">
-									{/option:playerUrl}
+									{option:games.games.player1active}
+										{option:playerUrl}
+											<a href="{$playerUrl}#p{$games.games.player1}">
+										{/option:playerUrl}
+									{/option:games.games.player1active}
 									{$games.games.player1name}
 									{option:playerUrl}
 										</a>
 									{/option:playerUrl}
 								</td>
 								<td>
-									{option:playerUrl}
-										<a href="{$playerUrl}#p{$games.games.player2}">
-									{/option:playerUrl}
+									{option:games.games.player2active}
+										{option:playerUrl}
+											<a href="{$playerUrl}#p{$games.games.player2}">
+										{/option:playerUrl}
+									{/option:games.games.player2active}
 									{$games.games.player2name}
 									{option:playerUrl}
 										</a>
