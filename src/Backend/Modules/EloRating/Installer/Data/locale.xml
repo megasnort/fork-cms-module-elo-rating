@@ -260,6 +260,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="nl"><![CDATA[Er werden nog geen partijen gespeeld.]]></translation>
         <translation language="nl"><![CDATA[No games played yet.]]></translation>
       </item>
+      <item type="action" name="Player">
+        <translation language="en"><![CDATA[player]]></translation>
+        <translation language="nl"><![CDATA[speler]]></translation>
+      </item>
     </Core>
   </Frontend>
 </locale>

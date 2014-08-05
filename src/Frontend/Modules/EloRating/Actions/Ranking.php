@@ -34,7 +34,7 @@ class Ranking extends FrontendBaseBlock
         $this->tpl->assign('minimum_played_games', FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5));
         $this->tpl->assign('ranking', $ranking);
 
-        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Players');
+        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'player');
 
         // If the Players page is not found, no link should be displayed
         if (!strpos($playerUrl, '404')) {

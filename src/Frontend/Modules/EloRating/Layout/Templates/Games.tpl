@@ -28,7 +28,7 @@
 								<td>
 									{option:games.games.player1active}
 										{option:playerUrl}
-											<a href="{$playerUrl}#p{$games.games.player1}">
+											<a href="{$playerUrl}/{$games.games.player1url}">
 										{/option:playerUrl}
 									{/option:games.games.player1active}
 									{$games.games.player1name}
@@ -39,7 +39,7 @@
 								<td>
 									{option:games.games.player2active}
 										{option:playerUrl}
-											<a href="{$playerUrl}#p{$games.games.player2}">
+											<a href="{$playerUrl}/{$games.games.player2url}">
 										{/option:playerUrl}
 									{/option:games.games.player2active}
 									{$games.games.player2name}

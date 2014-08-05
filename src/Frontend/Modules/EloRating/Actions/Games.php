@@ -5,7 +5,6 @@ namespace Frontend\Modules\EloRating\Actions;
 
 use Frontend\Core\Engine\Base\Block as FrontendBaseBlock;
 use Frontend\Core\Engine\Navigation as FrontendNavigation;
-use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 
 /**
@@ -30,7 +29,7 @@ class Games extends FrontendBaseBlock
         
         $this->tpl->assign('games', $games);
 
-        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Players');
+        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Player');
 
         // If the Players page is not found, no link should be displayed
         if (!strpos($playerUrl, '404')) {

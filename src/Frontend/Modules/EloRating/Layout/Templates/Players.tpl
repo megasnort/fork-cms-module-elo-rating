@@ -1,6 +1,7 @@
 <div id="eloRatingIndex">
 	<section class="mod">
 		<div class="inner">
+
 			{option:!players}
 				<div class="bd content">
 					<p>{$msgNoPlayersYet}</p>
@@ -10,8 +11,7 @@
 				<div class="bd content">
 					{iteration:players}
 						<header class="hd">
-							
-							<h3><a name="p{$players.id}"></a>{$players.name}</h3>
+							<h3><a href="{$playerUrl}/{$players.url}">{$players.name}</a></h3>
 						</header>
 
 						<p>
@@ -39,7 +39,9 @@
 								<tr>
 									<td>
 										{option:!players.games.isplayer1}
-										<a href="#p{$players.games.player1}">
+											{option:players.games.player1active}
+												<a href="{$playerUrl}/{$players.games.player1url}">
+											{/option:players.games.player1active}
 										{/option:!players.games.isplayer1}
 
 											{$players.games.player1name}
@@ -50,7 +52,9 @@
 									</td>
 									<td>
 										{option:players.games.isplayer1}
-										<a href="#p{$players.games.player2}">
+											{option:players.games.player2active}
+												<a href="{$playerUrl}/{$players.games.player2url}">
+											{/option:players.games.player2active}
 										{/option:players.games.isplayer1}
 
 											{$players.games.player2name}

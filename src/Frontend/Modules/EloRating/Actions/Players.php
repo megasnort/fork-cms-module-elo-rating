@@ -9,7 +9,7 @@ use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 
 /**
- * This is the Player Action. It shows all the (active) players with all the games they played. 
+ * This is the Players Action. It shows all the (active) players with all the games they played. 
  *
  * @author Stef Bastiaansen <stef@megasnort.com>
  */
@@ -29,5 +29,9 @@ class Players extends FrontendBaseBlock
         $players = FrontendEloRatingModel::getPlayersWithGames();
         
         $this->tpl->assign('players', $players);
+
+        $this->tpl->assign('playerUrl', FrontendNavigation::getURLForBlock('EloRating', 'player'));
+
+        
     }
 }

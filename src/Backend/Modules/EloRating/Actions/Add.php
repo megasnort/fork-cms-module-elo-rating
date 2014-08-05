@@ -92,6 +92,7 @@ class Add extends BackendBaseActionAdd
 
             if ($this->frm->isCorrect()) {
 
+                
                 $item['player1'] = $this->frm->getField('player1')->getValue();
                 $item['player2'] = $this->frm->getField('player2')->getValue();
 
@@ -103,6 +104,12 @@ class Add extends BackendBaseActionAdd
 
                 $item['id'] = BackendEloRatingModel::insert($item);
                 
+
+                //Save meta. Do it without the form.
+                
+
+                
+
                 $this->redirect(
                     BackendModel::createURLForAction('Index') . '&report=added&highlight=row-' . $item['id']
                 );

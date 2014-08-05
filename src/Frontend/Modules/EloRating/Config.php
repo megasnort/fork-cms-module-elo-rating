@@ -17,7 +17,7 @@ class Config extends FrontendBaseConfig
      *
      * @var	string
      */
-    protected $defaultAction = 'Ranking';
+    protected $defaultAction = 'Players';
 
     /**
      * The disabled actions

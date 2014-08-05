@@ -81,6 +81,8 @@ class EditPlayer extends BackendBaseActionAdd
 
                 $item['id'] = $this->id;
                 $item['name'] = $this->frm->getField('name')->getValue();
+
+                $item['meta_id'] = $this->record["meta_id"];
                 
                 $item['start_elo'] = $start_elo;
                 $item['current_elo'] = $start_elo;

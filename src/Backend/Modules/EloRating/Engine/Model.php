@@ -95,8 +95,14 @@ class Model
      */
     public static function deletePlayer($id)
     {
-        BackendModel::getContainer()->get('database')->delete('elo_rating_players', 'id = ?', array((int) $id));
-        BackendModel::getContainer()->get('database')->delete('elo_rating_games', 'player1 = ? OR player2 = ?', array((int) $id, (int) $id));
+        $db = BackendModel::getContainer()->get('database');
+
+        $player = self::getPlayer($id);
+
+        $db->delete('meta', 'id = ?', array((int) $player['meta_id']));
+
+        $db->delete('elo_rating_players', 'id = ?', array((int) $id));
+        $db->delete('elo_rating_games', 'player1 = ? OR player2 = ?', array((int) $id, (int) $id));
 
         self::generateEloRatings();
     }
@@ -222,7 +228,7 @@ class Model
     public static function getPlayer($id)
     {
         $return = (array) BackendModel::getContainer()->get('database')->getRecord(
-            'SELECT p.id, p.name, p.start_elo, p.current_elo, p.active FROM elo_rating_players AS p WHERE p.id = ?',
+            'SELECT p.id, p.name, p.start_elo, p.current_elo, p.active, p.meta_id FROM elo_rating_players AS p WHERE p.id = ?',
             (int) $id
         );
 
@@ -238,6 +244,8 @@ class Model
      */
     public static function insert(array $item)
     {
+
+       
         $insertId = BackendModel::getContainer()->get('database')->insert('elo_rating_games', $item);
         
         self::generateEloRatings();
@@ -257,11 +265,44 @@ class Model
      */
     public static function insertPlayer(array $item)
     {
-        $insertId = BackendModel::getContainer()->get('database')->insert('elo_rating_players', $item);
+        $db = BackendModel::getContainer()->get('database');
+
+        $meta_id = $db->insert('meta', array(
+            'keywords' => $item["name"],
+            'description' => $item["name"],
+            'title' => $item["name"],
+            'url' =>  self::urlOk($item["name"])
+        ));
+
+        $item['meta_id'] = $meta_id;
+
+        $insertId = $db->insert('elo_rating_players', $item);
 
         return $insertId;
     }
   
+    /**
+     * function for creating better url's for the players
+     *
+     * @param array $item     record with the fields of the game to be altered
+     */
+    public static function urlOk($str)
+    {
+        $str = strToLower($str);
+        $search = explode(",", "ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,ø,Ø,Å,Á,À,Â,Ä,È,É,Ê,Ë,Í,Î,Ï,Ì,Ò,Ó,Ô,Ö,Ú,Ù,Û,Ü,Ÿ,Ç,Æ,Œ");
+        $replace = explode(",", "c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,o,O,A,A,A,A,A,E,E,E,E,I,I,I,I,O,O,O,O,U,U,U,U,Y,C,AE,OE");
+        $str = str_replace($search, $replace, $str);
+
+        $str = str_replace(' ', '-', $str);
+        $str = str_replace(' ', '-', $str);
+
+        $str = preg_replace('/[^\x20-\x7E]/', '', $str);
+
+
+
+        return $str;
+    }
+
 
    /**
      * Update a game
@@ -282,7 +323,17 @@ class Model
      */
     public static function updatePlayer(array $item)
     {
-        BackendModel::getContainer()->get('database')->update('elo_rating_players', $item, 'id = ?', array((int) $item['id']));
+
+        $db = BackendModel::getContainer()->get('database');
+
+        $db->update('meta', array(
+            'keywords' => $item["name"],
+            'description' => $item["name"],
+            'title' => $item["name"],
+            'url' => self::urlOk($item["name"])
+        ), 'id = ?', array((int) $item['meta_id']));
+
+        $db->update('elo_rating_players', $item, 'id = ?', array((int) $item['id']));
         self::generateEloRatings();
     }
 }

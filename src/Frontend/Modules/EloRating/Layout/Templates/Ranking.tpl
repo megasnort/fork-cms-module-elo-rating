@@ -24,7 +24,7 @@
 							<td>
 								
 								{option:playerUrl}
-								<a href="{$playerUrl}#p{$ranking.id}">
+								<a href="{$playerUrl}/{$ranking.url}">
 								{/option:playerUrl}
 								{$ranking.name}
 								{option:playerUrl}

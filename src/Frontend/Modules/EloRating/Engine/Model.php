@@ -3,10 +3,7 @@
 namespace Frontend\Modules\EloRating\Engine;
 
 
-use Frontend\Core\Engine\Language as FL;
 use Frontend\Core\Engine\Model as FrontendModel;
-use Frontend\Core\Engine\Navigation as FrontendNavigation;
-use Frontend\Core\Engine\Url as FrontendURL;
 
 /**
  * In this file we store all generic functions that we will be using in the Elo Rating module
@@ -16,6 +13,7 @@ use Frontend\Core\Engine\Url as FrontendURL;
 class Model
 {
    
+    
     const QRY_PLAYERS = "SELECT
                 p.id,
                 p.name,
@@ -23,9 +21,12 @@ class Model
                 p.games_played,
                 p.won,
                 p.lost,
-                p.draws
+                p.draws,
+                m.url
             FROM
                 elo_rating_players AS p
+            INNER JOIN
+                `meta` AS m ON `p`.meta_id = m.id
             WHERE
                 `active` = ?
                 AND
@@ -43,11 +44,14 @@ class Model
                 p.won,
                 p.lost,
                 p.draws,
+                m.url,
                 @pos := IFNULL(@pos,0) + 1,
                 IF(@prevElo = p.current_elo, '-', @pos) AS position,
                 @prevElo := p.current_elo
             FROM
                 elo_rating_players AS p
+            INNER JOIN meta as m
+                ON m.id = p.meta_id
             WHERE
                 `active` = ?
                  AND
@@ -69,15 +73,20 @@ class Model
                 IF(p2.active = 'Y', 1, null) as player2active,
                 g.score1,
                 g.score2,
+                m1.url as player1url,
+                m2.url as player2url,
                 UNIX_TIMESTAMP(g.`date`) AS `date`,
                 SUBSTRING(g.`date`,1, 10) AS compareDate
             FROM
                 elo_rating_games AS g
-            INNER JOIN
-                elo_rating_players AS p1
+            INNER JOIN elo_rating_players AS p1
                 ON p1.id = g.player1
             INNER JOIN elo_rating_players AS p2
                 ON p2.id = g.player2
+            INNER JOIN meta AS m1
+                ON m1.id = p1.meta_id
+            INNER JOIN meta AS m2
+                ON m2.id = p1.meta_id
             ORDER BY
                 `date` DESC";
 
@@ -148,6 +157,109 @@ class Model
  
 
     /**
+     * Get the player with the given name
+     *
+     * @return array
+     */
+    public static function getPlayer($url)
+    {
+        $db = FrontendModel::getContainer()->get('database');
+
+        // Set the vars to 0 because the session stays open.
+
+        if( $player = (array) $db->getRecord(
+            "SELECT
+                p.id,
+                p.name,
+                p.current_elo as elo,
+                p.games_played,
+                p.won,
+                p.lost,
+                p.draws,
+                m.keywords AS meta_keywords, m.keywords_overwrite AS meta_keywords_overwrite,
+                m.description AS meta_description, m.description_overwrite AS meta_description_overwrite,
+                m.title AS meta_title, m.title_overwrite AS meta_title_overwrite,
+                m.url,
+                m.data AS meta_data
+            FROM
+                elo_rating_players AS p
+            INNER JOIN
+                meta AS m ON p.meta_id = m.id
+            WHERE
+                `active` = ?
+                AND
+                `games_played` > ?
+                AND
+                `m`.`url` = ?
+            LIMIT 1",
+            array(
+                (string) 'Y',
+                (int) 0,
+                (string) $url
+            )
+        )
+        ) {
+
+            $minimum_played_games = FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5);
+
+            $games = (array) $db->getRecords(
+                "SELECT
+                    g.id,
+                    g.player1,
+                    g.player2,
+                    IF(g.player1 = ?,1,null) AS isplayer1,
+                    score1,
+                    score2,
+                    UNIX_TIMESTAMP(`date`) AS `date`,
+                    p1.name AS player1name,
+                    p2.name AS player2name,
+                    m1.url as player1url,
+                    m2.url as player2url,
+                    IF(p1.active = 'Y', 1, null) as player1active,
+                    IF(p2.active = 'Y', 1, null) as player2active
+                FROM
+                    elo_rating_games AS g
+                INNER JOIN
+                    `elo_rating_players` AS p1 ON `p1`.id = g.player1
+                INNER JOIN
+                    `elo_rating_players` AS p2 ON `p2`.id = g.player2
+                INNER JOIN
+                    `meta` AS m1 ON `p1`.meta_id = m1.id
+                INNER JOIN
+                    `meta` AS m2 ON `p2`.meta_id = m2.id
+                WHERE player1 = ? OR player2 = ?
+                ORDER BY date DESC",
+                array(
+                    (int) $player['id'],
+                    (int) $player['id'],
+                    (int) $player['id']
+                )
+            );
+
+            $player["games"] = $games;
+
+            if ($player["games_played"] < $minimum_played_games) {
+                $player["ranking"] = false;
+            } else {
+
+                $player["ranking"] = $db->getVar(
+                    "SELECT COUNT(*)+1 FROM elo_rating_players WHERE current_elo > ? AND active = ? AND games_played >= ?",
+                    array(
+                        (string) $player["elo"],
+                        (string) 'Y',
+                        (int) $minimum_played_games
+                    )
+                );
+            }
+        
+
+            return $player;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Get all the active players with their played games
      *
      * @return array
@@ -172,13 +284,28 @@ class Model
 
             $games = (array) $db->getRecords(
                 "SELECT
-                    g.id, g.player1, g.player2, IF(g.player1 = ?,1,null) AS isplayer1, score1, score2, UNIX_TIMESTAMP(`date`) AS `date`, p1.name AS player1name, p2.name AS player2name
+                    g.id, g.player1, g.player2,
+                    IF(g.player1 = ?,1,null) AS isplayer1,
+                    score1,
+                    score2,
+                    UNIX_TIMESTAMP(`date`) AS `date`,
+                    p1.name AS player1name,
+                    p2.name AS player2name,
+                    m1.url as player1url,
+                    m2.url as player2url,
+                    IF(p1.active = 'Y', 1, null) as player1active,
+                    IF(p2.active = 'Y', 1, null) as player2active
                 FROM
                     elo_rating_games AS g
                 INNER JOIN
                     `elo_rating_players` AS p1 ON `p1`.id = g.player1
                 INNER JOIN
                     `elo_rating_players` AS p2 ON `p2`.id = g.player2
+                INNER JOIN
+                    `meta` AS m1 ON `p1`.meta_id = m1.id
+                INNER JOIN
+                    `meta` AS m2 ON `p2`.meta_id = m2.id
+
                 WHERE player1 = ? OR player2 = ?
                 ORDER BY date DESC",
                 array(

@@ -37,7 +37,7 @@ class TopRanking extends FrontendBaseWidget
         $this->tpl->assign('topRankingCount', $topRankingCount);
 
 
-        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Players');
+        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Player');
 
         // If the Players page is not found, no link should be displayed
         if (!strpos($playerUrl, '404')) {

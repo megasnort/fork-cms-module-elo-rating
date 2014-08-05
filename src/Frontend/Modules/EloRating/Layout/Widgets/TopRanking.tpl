@@ -23,7 +23,7 @@
 						<td>{$widgetTopRanking.position}</td>
 						<td>
 							{option:playerUrl}
-							<a href="{$playerUrl}#p{$widgetTopRanking.id}">
+							<a href="{$playerUrl}/{$widgetTopRanking.url}">
 							{/option:playerUrl}
 							{$widgetTopRanking.name}
 							{option:playerUrl}
