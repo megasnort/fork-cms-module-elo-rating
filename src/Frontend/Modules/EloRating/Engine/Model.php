@@ -54,7 +54,7 @@ class Model
             INNER JOIN meta as m
                 ON m.id = p.meta_id
             WHERE
-                g.`active` = ?
+                p.`active` = ?
                  AND
                 `games_played` >= ?
             ORDER BY 
