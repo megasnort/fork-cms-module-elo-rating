@@ -88,6 +88,8 @@ class Model
                 ON m1.id = p1.meta_id
             INNER JOIN meta AS m2
                 ON m2.id = p1.meta_id
+            WHERE
+                active = 'Y'
             ORDER BY
                 `date` DESC";
 
@@ -193,6 +195,8 @@ class Model
             (int) FrontendModel::getModuleSetting('EloRating', 'top_latest_games', 5)
         );
 
+        /*
+        
         $previousDate = '';
 
         foreach ($games as &$game) {
@@ -204,6 +208,7 @@ class Model
             $previousDate = $game["compareDate"];
 
         }
+         */
 
         return $games;
     }
@@ -280,7 +285,7 @@ class Model
                     `meta` AS m1 ON `p1`.meta_id = m1.id
                 INNER JOIN
                     `meta` AS m2 ON `p2`.meta_id = m2.id
-                WHERE player1 = ? OR player2 = ?
+                WHERE (player1 = ? OR player2) = ? AND g.active = 'Y'
                 ORDER BY date DESC",
                 array(
                     (int) $player['id'],
@@ -369,7 +374,7 @@ class Model
                 INNER JOIN
                     `meta` AS m2 ON `p2`.meta_id = m2.id
 
-                WHERE player1 = ? OR player2 = ?
+                WHERE (player1 = ? OR player2 = ?) AND g.active = 'Y'
                 ORDER BY date DESC",
                 array(
                     (int) $player['id'],
