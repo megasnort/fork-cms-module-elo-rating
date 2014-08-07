@@ -49,7 +49,7 @@ class Edit extends BackendBaseActionEdit
         // $rbtHiddenValues[] = array('label' => BL::lbl('Published'), 'value' => 'N');
 
         // get categories
-        $players = BackendEloRatingModel::getActivePlayers();
+        $players = BackendEloRatingModel::getActivePlayers((int) $this->record["player1"], (int) $this->record["player2"]);
 
         $scores = array();
 

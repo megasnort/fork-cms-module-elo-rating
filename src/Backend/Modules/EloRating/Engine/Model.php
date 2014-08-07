@@ -229,15 +229,31 @@ class Model
 
     /**
      * Get a list of pairs for each player that is still in competition
-     *
+     * @param  int $player1       The id of player that should be visible, inactive or not
+     * @param  int $player2       The id of player that should be visible, inactive or not
      * @return array
      */
-    public static function getActivePlayers()
+    public static function getActivePlayers($player1 = null, $player2 = null)
     {
-        return (array) BackendModel::getContainer()->get('database')->getPairs(
-            'SELECT id, name FROM elo_rating_players WHERE active = ? ORDER BY name',
-            (string) 'Y'
-        );
+
+        $sql = 'SELECT id, name FROM elo_rating_players WHERE active = ? ';
+        $params = array((string) 'Y');
+
+        if (is_int($player1)) {
+            $sql .= ' OR id = ? ';
+            $params[] = (int) $player1;
+        }
+
+        if (is_int($player2)) {
+            $sql .= ' OR id = ? ';
+            $params[] = (int) $player2;
+        }
+
+        $sql .= ' ORDER BY name';
+
+        
+
+        return (array) BackendModel::getContainer()->get('database')->getPairs($sql, $params);
     }
 
 
