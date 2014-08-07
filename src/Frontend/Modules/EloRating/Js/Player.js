@@ -147,7 +147,7 @@ jsFrontend.elo_rating =
                     .enter().append("svg:circle")
                      .attr("cx", function(d, i) { return xRange(d.date) })
                      .attr("cy", function(d, i) { return yRange(d.elo) })
-                     .attr("r", 4.5)
+                     .attr("r", 3.5)
                      .append("svg:title").text( function(d, i) { return 'Elo: ' + d.elo + ' - ' + parseDate(d.date) })
 
         }

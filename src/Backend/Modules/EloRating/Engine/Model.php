@@ -343,7 +343,8 @@ class Model
         $str = str_replace($search, $replace, $str);
 
         $str = str_replace(' ', '-', $str);
-        $str = str_replace(' ', '-', $str);
+        $str = str_replace('_', '-', $str);
+        $str = str_replace('.', '-', $str);
 
         $str = preg_replace('/[^\x20-\x7E]/', '', $str);
 

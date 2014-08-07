@@ -29,7 +29,7 @@ class Model
             INNER JOIN
                 `meta` AS m ON `p`.meta_id = m.id
             WHERE
-                g.`active` = ?
+                p.`active` = ?
                 AND
                 `games_played` > ?
    
@@ -285,7 +285,7 @@ class Model
                     `meta` AS m1 ON `p1`.meta_id = m1.id
                 INNER JOIN
                     `meta` AS m2 ON `p2`.meta_id = m2.id
-                WHERE (player1 = ? OR player2) = ? AND g.active = 'Y'
+                WHERE (g.player1 = ? OR g.player2 = ?) AND g.active = 'Y'
                 ORDER BY date DESC",
                 array(
                     (int) $player['id'],
