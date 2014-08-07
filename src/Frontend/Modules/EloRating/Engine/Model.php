@@ -29,7 +29,7 @@ class Model
             INNER JOIN
                 `meta` AS m ON `p`.meta_id = m.id
             WHERE
-                `active` = ?
+                g.`active` = ?
                 AND
                 `games_played` > ?
    
@@ -54,7 +54,7 @@ class Model
             INNER JOIN meta as m
                 ON m.id = p.meta_id
             WHERE
-                `active` = ?
+                g.`active` = ?
                  AND
                 `games_played` >= ?
             ORDER BY 
@@ -89,7 +89,7 @@ class Model
             INNER JOIN meta AS m2
                 ON m2.id = p1.meta_id
             WHERE
-                active = 'Y'
+                g.active = 'Y'
             ORDER BY
                 `date` DESC";
 
@@ -244,7 +244,7 @@ class Model
             INNER JOIN
                 meta AS m ON p.meta_id = m.id
             WHERE
-                `active` = ?
+                p.`active` = ?
                 AND
                 `games_played` > ?
                 AND

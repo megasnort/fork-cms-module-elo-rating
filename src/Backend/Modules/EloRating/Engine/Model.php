@@ -151,7 +151,7 @@ class Model
             FROM
                 elo_rating_games AS g
             WHERE
-                active = ?
+                g.active = ?
             ORDER BY `date`',
             (string) 'Y'
         );
