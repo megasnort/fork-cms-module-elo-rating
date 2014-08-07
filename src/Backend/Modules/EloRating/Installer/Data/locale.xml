@@ -12,6 +12,10 @@
         <translation language="en"><![CDATA[latest games]]></translation>
         <translation language="nl"><![CDATA[recentste partijen]]></translation>
       </item>
+      <item type="label" name="AddGame">
+        <translation language="en"><![CDATA[Add a game]]></translation>
+        <translation language="nl"><![CDATA[Voeg een partij toe]]></translation>
+      </item>
       <item type="label" name="Games">
         <translation language="en"><![CDATA[games]]></translation>
         <translation language="nl"><![CDATA[partijen]]></translation>
@@ -35,18 +39,15 @@
         <translation language="nl"><![CDATA[top ranking]]></translation>
       </item>
     </Pages>
-    <EloRating>
-      <item type="label" name="TopLatestGames">
-        <translation language="en"><![CDATA[Number of games in the Latest Games Widget]]></translation>
-        <translation language="nl"><![CDATA[Aantal partijen in de Recentste partijen widget]]></translation>
-      </item>
-      <item type="message" name="TopLatestGames">
-        <translation language="en"><![CDATA[The Latest Games-Widget shows just the most recent games that were played. Here you can set how big that top is.]]></translation>
-        <translation language="nl"><![CDATA[De Recentste partijen widget toont, jawel, de meest recente partijen. Hier kan je instellen hoeveel dat dat er precies moeten zijn.]]></translation>
-      </item>
+<EloRating>
       <item type="message" name="Active">
         <translation language="en"><![CDATA[Should a player suddenly disappear (other school, company ...) you can hide him/her here by unchecking. The player won't show up anywhere on the website but the games that he/she played still count for the Elo-ratings of the players who are active.]]></translation>
         <translation language="nl"><![CDATA[Je kan een speler deactiveren door het vinkje alhier uit te vinken. Dit zorgt ervoor dat de speler nergens meer op de website verschijnt, maar zijn/haar partijen wel blijven meetellen voor de ratings van andere spelers.]]></translation>
+      </item>
+      <item type="message" name="ActiveGame">
+        <translation language="en"><![CDATA[When players add a game with the "Add a game" widget, by default, the game is inactive and doesn't have any influence on the website.
+With this option, you can activate this game.]]></translation>
+        <translation language="nl"><![CDATA[Wanneer er via de 'Voeg een partij toe'-widget partijen worden toegevoegd staan deze standaard op 'niet actief'. Met dit vinkje kan je deze partij activeren en telt ze wel mee voor de berekening van de rankings.]]></translation>
       </item>
       <item type="message" name="ConfirmDeletePlayer">
         <translation language="en"><![CDATA[Are you sure you want to delete %1$s?
@@ -60,6 +61,11 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="en"><![CDATA[The current Elo-rating of %1$s is %2$s. It's not possible to change this rating directly because it's a calculated value.]]></translation>
         <translation language="nl"><![CDATA[De huidige Elo-rating van %1$s is %2$s. Je kan deze niet handmatig veranderen daar deze wordt berekend op basis van de gespeelde partijen.]]></translation>
       </item>
+      <item type="message" name="ImmediateRecalculation">
+        <translation language="en"><![CDATA[Games added with the "Add a game" widget are inactive by default. The administrator, probably you, has to activate them before the recalculations of the ratings happen.
+If you check this option, the recalculations will happen immediate after the adding of the game so you don't have login.]]></translation>
+        <translation language="nl"><![CDATA[Wanneer er via de 'Voeg een partij toe'-widget partijen worden toegevoegd staan deze standaard op 'niet actief' en zijn ze van geen tel voor de berekening van de ratings tot de adminstrator deze partijen activeert. Met deze optie kan je de activeren stap laten overslaan.]]></translation>
+      </item>
       <item type="message" name="MinimumPlayedGames">
         <translation language="en"><![CDATA[Players have to play a certain number of games before they show up in the ranking.]]></translation>
         <translation language="nl"><![CDATA[Spelers moeten een aantal partijen spelen alvorens ze in de de ranking verschijnen. Dit aantal stel je hier in.]]></translation>
@@ -72,9 +78,19 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="en"><![CDATA[There are no players yet.]]></translation>
         <translation language="nl"><![CDATA[Er zijn nog geen spelers.]]></translation>
       </item>
+      <item type="message" name="Password">
+        <translation language="en"><![CDATA[With the "Add a game" widget it's possible to let your players add games by themselves in the Frontend.
+To add a little bit of security it's mandatory to fill in a password. This password can be set here.
+The current password is encrypted and cannot be retrieved. You can however always set a new one by filling in this field.]]></translation>
+        <translation language="nl"><![CDATA[Om een partij toe te voegen via de 'Voeg een partij toe' widget moet er een wachtwoord ingegeven worden. Dat wachtwoord kan je hier kiezen. Laat het veld leeg om het huidige wachtwoord te behouden.]]></translation>
+      </item>
       <item type="message" name="StartElo">
         <translation language="en"><![CDATA[Normally this value should be %1$s for every player. However, should you want to give someone a head start it's possible to do this here.]]></translation>
         <translation language="nl"><![CDATA[Normaal gezien moet deze waarde %1$s zijn voor elke speler. Wil je iemand echter een voorsprong geven, dan kan dat eventueel.]]></translation>
+      </item>
+      <item type="message" name="TopLatestGames">
+        <translation language="en"><![CDATA[The Latest Games-Widget shows just the most recent games that were played. Here you can set how big that top is.]]></translation>
+        <translation language="nl"><![CDATA[De Recentste partijen widget toont, jawel, de meest recente partijen. Hier kan je instellen hoeveel dat dat er precies moeten zijn.]]></translation>
       </item>
       <item type="message" name="TopRankingCount">
         <translation language="en"><![CDATA[The Top Ranking-Widget shows just the top of the ranking. Here you can set how big that top is.]]></translation>
@@ -87,6 +103,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
       <item type="label" name="AddAPlayer">
         <translation language="en"><![CDATA[add a player]]></translation>
         <translation language="nl"><![CDATA[voeg een speler toe]]></translation>
+      </item>
+      <item type="label" name="AddGameWidget">
+        <translation language="en"><![CDATA[add a game - widget]]></translation>
+        <translation language="nl"><![CDATA[voeg een partij toe - widget]]></translation>
       </item>
       <item type="label" name="CurrentElo">
         <translation language="en"><![CDATA[current Elo-rating]]></translation>
@@ -124,13 +144,25 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
       </item>
+      <item type="label" name="GeneralNumbers">
+        <translation language="en"><![CDATA[general numbers]]></translation>
+        <translation language="nl"><![CDATA[aantallen]]></translation>
+      </item>
+      <item type="label" name="ImmediateRecalculation">
+        <translation language="en"><![CDATA[immediate recalculation]]></translation>
+        <translation language="nl"><![CDATA[meteen herbereken]]></translation>
+      </item>
+      <item type="label" name="Info">
+        <translation language="en"><![CDATA[Extra information (place ...)]]></translation>
+        <translation language="nl"><![CDATA[Extra informatie (plaats, ...)]]></translation>
+      </item>
       <item type="label" name="Lost">
         <translation language="en"><![CDATA[lost]]></translation>
         <translation language="nl"><![CDATA[verloren]]></translation>
       </item>
       <item type="label" name="MinimumPlayedGames">
         <translation language="en"><![CDATA[Minimum number of games]]></translation>
-        <translation language="nl"><![CDATA[Minimum aantal games]]></translation>
+        <translation language="nl"><![CDATA[Minimum aantal gespeelde partijen]]></translation>
       </item>
       <item type="label" name="Player1">
         <translation language="en"><![CDATA[white]]></translation>
@@ -156,9 +188,13 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="en"><![CDATA[start Elo-rating]]></translation>
         <translation language="nl"><![CDATA[start Elo-rating]]></translation>
       </item>
+      <item type="label" name="TopLatestGames">
+        <translation language="en"><![CDATA[Number of games in the Latest Games Widget]]></translation>
+        <translation language="nl"><![CDATA[Aantal partijen in de Recentste partijen widget]]></translation>
+      </item>
       <item type="label" name="TopRankingCount">
         <translation language="en"><![CDATA[Number of players in the Top Ranking Widget]]></translation>
-        <translation language="nl"><![CDATA[Aantal spelers in the Top Ranking Widget]]></translation>
+        <translation language="nl"><![CDATA[Aantal spelers in de Top Ranking Widget]]></translation>
       </item>
       <item type="label" name="Won">
         <translation language="en"><![CDATA[won]]></translation>
@@ -171,6 +207,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
       <item type="error" name="InvalidScoreEntered">
         <translation language="en"><![CDATA[Invalid score entered]]></translation>
         <translation language="nl"><![CDATA[ongeldige score ingevuld]]></translation>
+      </item>
+      <item type="error" name="Password">
+        <translation language="en"><![CDATA[Fill in a valid password. The maximum length is 15 characters.]]></translation>
+        <translation language="nl"><![CDATA[Vul een geldig wachtwoord in. De maximum lengte is 15 karakters.]]></translation>
       </item>
       <item type="error" name="Player1VsPlayer2">
         <translation language="en"><![CDATA[One cannot play against him/herself.]]></translation>
@@ -187,6 +227,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
       <item type="error" name="TimeIsRequired">
         <translation language="en"><![CDATA[you need to fill in a valid time]]></translation>
         <translation language="nl"><![CDATA[vul een geldige tijd in]]></translation>
+      </item>
+      <item type="error" name="TopLatestGames">
+        <translation language="en"><![CDATA[Fill in a valid number.]]></translation>
+        <translation language="nl"><![CDATA[Vul een geldig getal in.]]></translation>
       </item>
     </EloRating>
   </Backend>
@@ -288,6 +332,43 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="en"><![CDATA[latest games]]></translation>
         <translation language="nl"><![CDATA[recentste partijen]]></translation>
       </item>
+      <item type="label" name="Info">
+        <translation language="nl"><![CDATA[Extra informatie (plaats, ...)]]></translation>
+        <translation language="en"><![CDATA[Extra information (place, ...)]]></translation>
+      </item>
+       <item type="error" name="InvalidPassword">
+        <translation language="nl"><![CDATA[Ongeldig wachtwoord.]]></translation>
+        <translation language="en"><![CDATA[Invalid password.]]></translation>
+      </item>
+      <item type="error" name="InvalidPlayers">
+        <translation language="en"><![CDATA[Select two different players.]]></translation>
+        <translation language="nl"><![CDATA[Selecteer twee verschillende spelers.]]></translation>
+      </item>
+      <item type="error" name="InvalidScore">
+        <translation language="en"><![CDATA[Invalid score.]]></translation>
+        <translation language="nl"><![CDATA[Ongeldige score.]]></translation>
+      </item>
+      <item type="error" name="WrongPassword">
+        <translation language="en"><![CDATA[Wrong password.]]></translation>
+        <translation language="nl"><![CDATA[Verkeerd wachtwoord.]]></translation>
+      </item>
+      <item type="label" name="AddGame">
+        <translation language="en"><![CDATA[Add a game]]></translation>
+        <translation language="nl"><![CDATA[Voeg een partij toe]]></translation>
+      </item>
+      <item type="label" name="AddTheGame">
+        <translation language="en"><![CDATA[add the game]]></translation>
+        <translation language="nl"><![CDATA[Voeg partij toe]]></translation>
+      </item>
+      <item type="label" name="EloGamesPlayed">
+        <translation language="en"><![CDATA[games played]]></translation>
+        <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
+      </item>
+      <item type="label" name="GameAdded">
+        <translation language="en"><![CDATA[Game added.]]></translation>
+        <translation language="nl"><![CDATA[Partij toegevoegd]]></translation>
+      </item>
+      
     </Core>
   </Frontend>
 </locale>
