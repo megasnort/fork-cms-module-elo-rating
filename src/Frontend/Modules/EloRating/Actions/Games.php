@@ -8,7 +8,7 @@ use Frontend\Core\Engine\Navigation as FrontendNavigation;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 
 /**
- * This is the Player Action. It shows all the (active) players with all the games they played. 
+ * This is the Games Action. It shows all the games games played. 
  *
  * @author Stef Bastiaansen <stef@megasnort.com>
  */

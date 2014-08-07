@@ -5,13 +5,15 @@
  */
 jsFrontend.elo_rating =
 {
-    // init, something like a constructor
     init: function()
     {
         
-        if (jsFrontend.data.exists('EloRating.history')) {
+        
+        if (jsFrontend.data.exists('EloRating')) {
 
             var history = jsFrontend.data.get('EloRating.history');
+
+
 
             history.forEach(function(d){
                 d.date = new Date(d.date);
@@ -147,9 +149,6 @@ jsFrontend.elo_rating =
                      .attr("cy", function(d, i) { return yRange(d.elo) })
                      .attr("r", 4.5)
                      .append("svg:title").text( function(d, i) { return 'Elo: ' + d.elo + ' - ' + parseDate(d.date) })
-
-
-           
 
         }
         

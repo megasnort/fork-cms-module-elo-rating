@@ -25,8 +25,11 @@ class Installer extends ModuleInstaller
 
         $this->setSetting('EloRating', 'minimum_played_games', 5);
         $this->setSetting('EloRating', 'top_ranking_count', 5);
+        $this->setSetting('EloRating', 'top_latest_games', 5);
+
         
-        // Giva Administrator access to Module and Actions
+        
+        // Give Administrator access to Module and Actions
         $this->setModuleRights(1, 'EloRating');
 
         $this->setActionRights(1, 'EloRating', 'Index');
@@ -74,6 +77,7 @@ class Installer extends ModuleInstaller
 
         $this->insertExtra('EloRating', 'widget', 'GamesPlayed', 'GamesPlayed', null, 'N', 1704);
         $this->insertExtra('EloRating', 'widget', 'TopRanking', 'TopRanking', null, 'N', 1705);
+        $this->insertExtra('EloRating', 'widget', 'LatestGames', 'LatestGames', null, 'N', 1706);
 
     }
 }

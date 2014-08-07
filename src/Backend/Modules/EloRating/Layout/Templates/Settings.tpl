@@ -20,6 +20,11 @@
 			{$ddmTopRankingCount} {$ddmTopRankingCountError}
 			<p>{$msgTopRankingCount} </p>
 		</div>
+		<div class="options">
+			<label for="topLatestGames">{$lblTopLatestGames|ucfirst}</label>
+			{$ddmTopLatestGames} {$ddmTopLatestGamesError}
+			<p>{$msgTopLatestGames} </p>
+		</div>
 	</div>
 		
 

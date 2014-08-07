@@ -42,6 +42,12 @@ class Settings extends BackendBaseActionEdit
             array_combine(range(2, 20), range(2, 20)),
             BackendModel::getModuleSetting($this->URL->getModule(), 'top_ranking_count', 5)
         );
+
+        $this->frm->addDropdown(
+            'top_latest_games',
+            array_combine(range(2, 20), range(2, 20)),
+            BackendModel::getModuleSetting($this->URL->getModule(), 'top_latest_games', 5)
+        );
         
     }
 
@@ -58,12 +64,14 @@ class Settings extends BackendBaseActionEdit
 
             $this->frm->getField('minimum_played_games')->isFilled(BL::err('FieldIsRequired'));
             $this->frm->getField('top_ranking_count')->isFilled(BL::err('FieldIsRequired'));
+            $this->frm->getField('top_latest_games')->isFilled(BL::err('FieldIsRequired'));
 
 
             if ($this->frm->isCorrect()) {
 
                 BackendModel::setModuleSetting($this->URL->getModule(), 'minimum_played_games', (int) $this->frm->getField('minimum_played_games')->getValue());
                 BackendModel::setModuleSetting($this->URL->getModule(), 'top_ranking_count', (int) $this->frm->getField('top_ranking_count')->getValue());
+                BackendModel::setModuleSetting($this->URL->getModule(), 'top_latest_games', (int) $this->frm->getField('top_latest_games')->getValue());
                 
                 $this->redirect(BackendModel::createURLForAction('Settings') . '&report=saved');
             }

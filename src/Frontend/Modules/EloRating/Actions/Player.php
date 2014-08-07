@@ -83,7 +83,10 @@ class Player extends FrontendBaseBlock
         
         $this->tpl->assign('player', $this->record);
 
-        $this->addJSData('history', $this->record["history"]);
+        if (isset($this->record["history"])) {
+            $this->addJSData('history', $this->record["history"]);    
+        }
+        
 
 
     }

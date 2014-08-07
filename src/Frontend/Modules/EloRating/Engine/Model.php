@@ -157,6 +157,37 @@ class Model
  
 
     /**
+     * Get the latest games
+     *
+     * @return array
+     */
+    public static function getLatestGames()
+    {
+        $db = FrontendModel::getContainer()->get('database');
+
+
+        $games = (array) $db->getRecords(
+            self::QRY_GAMES . ' LIMIT ?',
+            (int) FrontendModel::getModuleSetting('EloRating', 'top_latest_games', 5)
+        );
+
+        $previousDate = '';
+
+        foreach ($games as &$game) {
+
+            if ($previousDate == $game["compareDate"]) {
+                $game['date'] = null;
+            }
+
+            $previousDate = $game["compareDate"];
+
+        }
+
+        return $games;
+    }
+
+
+    /**
      * Get the player with the given name
      *
      * @return array
@@ -167,7 +198,7 @@ class Model
 
         // Set the vars to 0 because the session stays open.
 
-        if( $player = (array) $db->getRecord(
+        if ($player = (array) $db->getRecord(
             "SELECT
                 p.id,
                 p.name,
@@ -240,6 +271,7 @@ class Model
 
             if ($player["games_played"] < $minimum_played_games) {
                 $player["ranking"] = false;
+                
             } else {
 
                 $player["ranking"] = $db->getVar(

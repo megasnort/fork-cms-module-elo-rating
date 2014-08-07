@@ -8,6 +8,10 @@
       </item>
      </Core>
      <Pages>
+       <item type="label" name="LatestGames">
+        <translation language="en"><![CDATA[latest games]]></translation>
+        <translation language="nl"><![CDATA[recentste partijen]]></translation>
+      </item>
       <item type="label" name="Games">
         <translation language="en"><![CDATA[games]]></translation>
         <translation language="nl"><![CDATA[partijen]]></translation>
@@ -32,6 +36,14 @@
       </item>
     </Pages>
     <EloRating>
+      <item type="label" name="TopLatestGames">
+        <translation language="en"><![CDATA[Number of games in the Latest Games Widget]]></translation>
+        <translation language="nl"><![CDATA[Aantal partijen in de Recentste partijen widget]]></translation>
+      </item>
+      <item type="message" name="TopLatestGames">
+        <translation language="en"><![CDATA[The Latest Games-Widget shows just the most recent games that were played. Here you can set how big that top is.]]></translation>
+        <translation language="nl"><![CDATA[De Recentste partijen widget toont, jawel, de meest recente partijen. Hier kan je instellen hoeveel dat dat er precies moeten zijn.]]></translation>
+      </item>
       <item type="message" name="Active">
         <translation language="en"><![CDATA[Should a player suddenly disappear (other school, company ...) you can hide him/her here by unchecking. The player won't show up anywhere on the website but the games that he/she played still count for the Elo-ratings of the players who are active.]]></translation>
         <translation language="nl"><![CDATA[Je kan een speler deactiveren door het vinkje alhier uit te vinken. Dit zorgt ervoor dat de speler nergens meer op de website verschijnt, maar zijn/haar partijen wel blijven meetellen voor de ratings van andere spelers.]]></translation>
@@ -271,6 +283,10 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
       <item type="label" name="PlayersGames">
         <translation language="en"><![CDATA[%1$s's games]]></translation>
         <translation language="nl"><![CDATA[de partijen van %1$s]]></translation>
+      </item>
+       <item type="label" name="LatestGames">
+        <translation language="en"><![CDATA[latest games]]></translation>
+        <translation language="nl"><![CDATA[recentste partijen]]></translation>
       </item>
     </Core>
   </Frontend>
