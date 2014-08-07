@@ -53,9 +53,9 @@ class Edit extends BackendBaseActionEdit
 
         $scores = array();
 
-        $scores['1'] = 'winner';
-        $scores['0.5'] = 'draw';
-        $scores['0'] = 'loser';
+        $scores['1'] = BL::lbl('Won');
+        $scores['0.5'] = BL::lbl('Draw');
+        $scores['0'] = BL::lbl('Lost');
 
 
         // create elements

@@ -22,6 +22,7 @@ CREATE TABLE `elo_rating_players` (
   `won` int(11) DEFAULT '0',
   `lost` int(11) DEFAULT '0',
   `draws` int(11) DEFAULT '0',
+  `meta_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 

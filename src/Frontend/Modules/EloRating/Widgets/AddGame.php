@@ -7,6 +7,7 @@ use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Core\Engine\Base\Widget as FrontendBaseWidget;
 use Frontend\Core\Engine\Navigation as FrontendNavigation;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
+use Frontend\Core\Engine\Language as FL;
 
 use Frontend\Core\Engine\Form as FrontendForm;
 use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
@@ -37,9 +38,9 @@ class AddGame extends FrontendBaseWidget
 
         $scores = array();
 
-        $scores['1'] = 'winner';
-        $scores['0.5'] = 'draw';
-        $scores['0'] = 'loser';
+        $scores['1'] = FL::lbl('Won');
+        $scores['0.5'] = FL::lbl('Draw');
+        $scores['0'] = FL::lbl('Lost');
 
         $this->frm->addDropdown('player1', $players)->setDefaultElement('-', null);
         $this->frm->addDropdown('player2', $players)->setDefaultElement('-', null);

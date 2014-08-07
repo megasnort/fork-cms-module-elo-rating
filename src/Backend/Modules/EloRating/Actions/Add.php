@@ -33,28 +33,35 @@ class Add extends BackendBaseActionAdd
 
         $this->frm = new BackendForm('add');
 
-        $players = BackendEloRatingModel::getActivePlayers();
+        $this->players = BackendEloRatingModel::getActivePlayers();
 
-        $scores = array();
+        if (count($this->players)) {
+            $scores = array();
 
-        $scores['1'] = 'winner';
-        $scores['0.5'] = 'draw';
-        $scores['0'] = 'loser';
+            $scores['1'] = BL::lbl('Won');
+            $scores['0.5'] = BL::lbl('Draw');
+            $scores['0'] = BL::lbl('Lost');;
 
 
-        $this->frm->addDropdown('player1', $players)->setDefaultElement('-', null);
-        $this->frm->addDropdown('player2', $players)->setDefaultElement('-', null);
-        $this->frm->addDate('date');
-        $this->frm->addTime('time');
+            $this->frm->addDropdown('player1', $this->players)->setDefaultElement('-', null);
+            $this->frm->addDropdown('player2', $this->players)->setDefaultElement('-', null);
+            $this->frm->addDate('date');
+            $this->frm->addTime('time');
 
-        $this->frm->addDropdown('score1', $scores);
-        $this->frm->addDropdown('score2', $scores)->setSelected('0');
+            $this->frm->addDropdown('score1', $scores);
+            $this->frm->addDropdown('score2', $scores)->setSelected('0');    
+        }
+
+        
 
     }
 
 
     protected function parse()
     {
+        if (count($this->players)) {
+            $this->tpl->assign('hasPlayers',1);
+        }
         parent::parse();
     }
 

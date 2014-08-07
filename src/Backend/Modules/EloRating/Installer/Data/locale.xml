@@ -39,7 +39,15 @@
         <translation language="nl"><![CDATA[top ranking]]></translation>
       </item>
     </Pages>
-<EloRating>
+    <EloRating>
+      <item type="label" name="Draw">
+        <translation language="en"><![CDATA[draw]]></translation>
+        <translation language="nl"><![CDATA[remise]]></translation>
+      </item>
+      <item type="label" name="Draws">
+        <translation language="en"><![CDATA[draws]]></translation>
+        <translation language="nl"><![CDATA[remises]]></translation>
+      </item>
       <item type="message" name="Active">
         <translation language="en"><![CDATA[Should a player suddenly disappear (other school, company ...) you can hide him/her here by unchecking. The player won't show up anywhere on the website but the games that he/she played still count for the Elo-ratings of the players who are active.]]></translation>
         <translation language="nl"><![CDATA[Je kan een speler deactiveren door het vinkje alhier uit te vinken. Dit zorgt ervoor dat de speler nergens meer op de website verschijnt, maar zijn/haar partijen wel blijven meetellen voor de ratings van andere spelers.]]></translation>
@@ -170,7 +178,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
       </item>
       <item type="label" name="Player2">
         <translation language="en"><![CDATA[black]]></translation>
-        <translation language="nl"><![CDATA[black]]></translation>
+        <translation language="nl"><![CDATA[zwart]]></translation>
       </item>
       <item type="label" name="Players">
         <translation language="en"><![CDATA[players]]></translation>
@@ -297,7 +305,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
       
       <item type="message" name="HasEloAndRanking">
         <translation language="en"><![CDATA[%1$s has an Elo-rating of %2$s and is ranked at position %3$s.]]></translation>
-        <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rankschikking.]]></translation>
+        <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rangschikking.]]></translation>
       </item>
       
       <item type="message" name="NoPlayersYet">
@@ -306,7 +314,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
       </item>
       <item type="message" name="NoPlayersYetRanking">
         <translation language="en"><![CDATA[There are no players yet with enough games (%1$s) to be shown in the ranking.]]></translation>
-        <translation language="nl"><![CDATA[Er zijn nog geen spelers die genoeg wedstrijden (%1$s) hebben gespeeld om opgenomen te worden in de rankschikking.]]></translation>
+        <translation language="nl"><![CDATA[Er zijn nog geen spelers die genoeg wedstrijden (%1$s) hebben gespeeld om opgenomen te worden in de rangschikking.]]></translation>
       </item>
       <item type="message" name="NoRankingYet">
         <translation language="en"><![CDATA[%1$s hasn't got a ranking or Elo-rating because he/she played not enough games.]]></translation>
@@ -368,7 +376,14 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="en"><![CDATA[Game added.]]></translation>
         <translation language="nl"><![CDATA[Partij toegevoegd]]></translation>
       </item>
-      
+      <item type="label" name="Draw">
+        <translation language="en"><![CDATA[draw]]></translation>
+        <translation language="nl"><![CDATA[remise]]></translation>
+      </item>
+      <item type="label" name="Draws">
+        <translation language="en"><![CDATA[draws]]></translation>
+        <translation language="nl"><![CDATA[remises]]></translation>
+      </item>
     </Core>
   </Frontend>
 </locale>

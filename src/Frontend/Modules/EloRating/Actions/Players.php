@@ -30,7 +30,7 @@ class Players extends FrontendBaseBlock
         
         $this->tpl->assign('players', $players);
 
-        $this->tpl->assign('playerUrl', FrontendNavigation::getURLForBlock('EloRating', 'player'));
+        $this->tpl->assign('playerUrl', FrontendNavigation::getURLForBlock('EloRating', 'Player'));
 
         
     }
