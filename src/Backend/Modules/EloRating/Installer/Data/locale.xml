@@ -264,6 +264,14 @@ Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain un
         <translation language="en"><![CDATA[player]]></translation>
         <translation language="nl"><![CDATA[speler]]></translation>
       </item>
+      <item type="label" name="EloEvolved">
+        <translation language="en"><![CDATA[%1$s's Elo-rating evolution]]></translation>
+        <translation language="nl"><![CDATA[De evolutie van de Elo-rating van %1$s]]></translation>
+      </item>
+      <item type="label" name="PlayersGames">
+        <translation language="en"><![CDATA[%1$s's games]]></translation>
+        <translation language="nl"><![CDATA[de partijen van %1$s]]></translation>
+      </item>
     </Core>
   </Frontend>
 </locale>

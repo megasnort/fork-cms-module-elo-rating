@@ -250,6 +250,15 @@ class Model
                         (int) $minimum_played_games
                     )
                 );
+
+                $player["history"] = $db->getRecords(
+                    'SELECT elo, `date`
+                    FROM elo_history
+                    WHERE player = ?
+                    ORDER by `date`',
+                    array((int) $player["id"])
+                );
+
             }
         
 

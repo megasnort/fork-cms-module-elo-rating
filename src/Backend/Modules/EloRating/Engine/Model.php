@@ -4,10 +4,7 @@
 namespace Backend\Modules\EloRating\Engine;
 
 
-use Backend\Core\Engine\Language as BL;
 use Backend\Core\Engine\Model as BackendModel;
-
-use Frontend\Core\Engine\Language as FL;
 
 /**
  * In this file we store all generic functions that we will be using in the Backend EloRating module
@@ -34,6 +31,7 @@ class Model
             g.score1,
             g.score2,
             UNIX_TIMESTAMP(g.`date`) AS `date`
+           
         FROM
             elo_rating_games AS g
         INNER JOIN
@@ -117,6 +115,8 @@ class Model
  
         $db = BackendModel::getContainer()->get('database');
 
+        $db->delete('elo_history');
+
         // get all players, the inactive ones too
         // use pairs so we can alter the array-elements later by using the Id of the player
         $players = (array) $db->getPairs(
@@ -140,7 +140,12 @@ class Model
         // get all games, ordered by date (important for the ratings)
         $games = (array) $db->getRecords(
             'SELECT
-                g.id, g.player1, g.player2, g.score1, g.score2
+                g.id,
+                g.player1,
+                g.player2,
+                g.score1,
+                g.score2,
+                g.date
             FROM
                 elo_rating_games AS g
             ORDER BY `date`'
@@ -169,6 +174,23 @@ class Model
                 $players[$game["player1"]]['draws']++;
                 $players[$game["player2"]]['draws']++;
             }
+
+            //save the elo-history for every player, for the player action in the frontend
+            $history1 = array(
+                'player' => $game["player1"],
+                'elo' => $players[$game["player1"]]['current_elo'],
+                'date' => $game["date"]
+            );
+            
+            $db->insert('elo_history', $history1);
+
+            $history2 = array(
+                'player' => $game["player2"],
+                'elo' => $players[$game["player2"]]['current_elo'],
+                'date' => $game["date"]
+            );
+            
+            $db->insert('elo_history', $history2);
 
         }
 
@@ -250,8 +272,6 @@ class Model
         
         self::generateEloRatings();
 
-
-        //BackendModel::invalidateFrontendCache('Faq', BL::getWorkingLanguage());
 
         return $insertId;
     }
