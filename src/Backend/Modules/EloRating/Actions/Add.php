@@ -56,13 +56,6 @@ class Add extends BackendBaseActionAdd
     protected function parse()
     {
         parent::parse();
-
-        $p1Name = BackendModel::getModuleSetting('EloRating', 'p1_name', 'white');
-        $p2Name = BackendModel::getModuleSetting('EloRating', 'p2_name', 'black');
-
-        $this->tpl->assign('p1_name', $p1Name);
-        $this->tpl->assign('p2_name', $p2Name);
-
     }
 
 
@@ -103,11 +96,6 @@ class Add extends BackendBaseActionAdd
                 $item['date'] = BackendModel::getUTCDate(null, BackendModel::getUTCTimestamp($this->frm->getField('date'), $this->frm->getField('time')));
 
                 $item['id'] = BackendEloRatingModel::insert($item);
-                
-
-                //Save meta. Do it without the form.
-                
-
                 
 
                 $this->redirect(

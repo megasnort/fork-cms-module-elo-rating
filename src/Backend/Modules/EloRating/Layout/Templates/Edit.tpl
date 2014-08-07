@@ -29,6 +29,26 @@
 			{$txtDate} {$txtTime} {$txtDateError} {$txtTimeError} 
 		</p>
 	</div>
+</div>
+<div class="box">
+	<div class="heading">
+		<h3>
+			<label>{$lblActivate|ucfirst}</label>
+		</h3>
+	</div>
+
+	<div class="options">
+		<p>
+			<label for="comment">{$lblInfo|ucfirst}</label>
+			{$txtComment} {$txtCommentError}
+		</p>
+		<p>
+			<label for="active">{$lblActive|ucfirst}</label>
+			{$chkActive} {$chkActiveError}
+			<br />
+			{$msgActiveGame}
+		</p>
+	</div>
 
 	<div class="fullwidthOptions">
 		

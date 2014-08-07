@@ -8,7 +8,7 @@
 {form:settings}
 	<div class="box">
 		<div class="heading">
-			<h3>{$lblEloRating|ucfirst}</h3>
+			<h3>{$lblGeneralNumbers|ucfirst}</h3>
 		</div>
 		<div class="options">
 			<label for="minimumPlayedGames">{$lblMinimumPlayedGames|ucfirst}</label>
@@ -24,6 +24,21 @@
 			<label for="topLatestGames">{$lblTopLatestGames|ucfirst}</label>
 			{$ddmTopLatestGames} {$ddmTopLatestGamesError}
 			<p>{$msgTopLatestGames} </p>
+		</div>
+	</div>
+	<div class="box">
+		<div class="heading">
+			<h3>{$lblAddGameWidget|ucfirst}</h3>
+		</div>
+		<div class="options">
+			<label for="password">{$lblPassword|ucfirst}</label>
+			{$txtPassword} {$txtPasswordError}
+			<p>{$msgPassword|nl2br} </p>
+		</div>
+		<div class="options">
+			<label for="immediateRecalculation">{$lblImmediateRecalculation|ucfirst}</label>
+			{$chkImmediateRecalculation} {$chkImmediateRecalculationError}
+			<p>{$msgImmediateRecalculation|nl2br} </p>
 		</div>
 	</div>
 		

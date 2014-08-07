@@ -68,6 +68,10 @@ class Edit extends BackendBaseActionEdit
         $this->frm->addDropdown('score1', $scores, $this->record["score1"]);
         $this->frm->addDropdown('score2', $scores, $this->record["score2"]);
 
+        $this->frm->addTextarea('comment', $this->record["comment"]);
+
+        $this->frm->addCheckbox('active', $this->record["active"] == 'Y');
+
     }
 
     
@@ -113,6 +117,9 @@ class Edit extends BackendBaseActionEdit
 
                 $item['user_id'] = BackendAuthentication::getUser()->getUserId();
                 $item['date'] = BackendModel::getUTCDate(null, BackendModel::getUTCTimestamp($this->frm->getField('date'), $this->frm->getField('time')));
+
+                $item['active'] = $this->frm->getField('active')->getChecked() ? 'Y' : 'N';
+                $item['comment'] = $this->frm->getField('comment')->getValue();
 
                 BackendEloRatingModel::update($item);
 

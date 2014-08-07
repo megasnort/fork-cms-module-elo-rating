@@ -8,6 +8,7 @@ use Backend\Core\Engine\Authentication as BackendAuthentication;
 use Backend\Core\Engine\Model as BackendModel;
 use Backend\Core\Engine\Form as BackendForm;
 use Backend\Core\Engine\Language as BL;
+use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
 
 /**
  * This is the settings-action, it will display a set of settings to customize the Elo-ratings module
@@ -17,6 +18,7 @@ use Backend\Core\Engine\Language as BL;
 class Settings extends BackendBaseActionEdit
 {
     
+
     public function execute()
     {
         parent::execute();
@@ -48,6 +50,16 @@ class Settings extends BackendBaseActionEdit
             array_combine(range(2, 20), range(2, 20)),
             BackendModel::getModuleSetting($this->URL->getModule(), 'top_latest_games', 5)
         );
+
+
+        $this->frm->addText(
+            'password'
+        );
+
+        $this->frm->addCheckbox(
+            'immediate_recalculation',
+            BackendModel::getModuleSetting($this->URL->getModule(), 'immediate_recalculation', 'N') == 'Y'
+        );
         
     }
 
@@ -66,8 +78,23 @@ class Settings extends BackendBaseActionEdit
             $this->frm->getField('top_ranking_count')->isFilled(BL::err('FieldIsRequired'));
             $this->frm->getField('top_latest_games')->isFilled(BL::err('FieldIsRequired'));
 
+            if (strlen($this->frm->getField('password')->getValue()) > 15) {
+                $this->frm->getField('password')->addError(BL::err('Password'));
+            }
 
             if ($this->frm->isCorrect()) {
+
+                if (strlen($this->frm->getField('password')->getValue()) > 0) {
+                    BackendModel::setModuleSetting(
+                        $this->URL->getModule(),
+                        'password',
+                        sha1(
+                            $this->frm->getField('password')->getValue() . BackendEloRatingModel::SALT . strlen($this->frm->getField('password')->getValue())
+                        )
+                    );
+                }
+
+                BackendModel::setModuleSetting($this->URL->getModule(), 'immediate_recalculation', $this->frm->getField('immediate_recalculation')->getChecked() ? 'Y' : 'N');
 
                 BackendModel::setModuleSetting($this->URL->getModule(), 'minimum_played_games', (int) $this->frm->getField('minimum_played_games')->getValue());
                 BackendModel::setModuleSetting($this->URL->getModule(), 'top_ranking_count', (int) $this->frm->getField('top_ranking_count')->getValue());

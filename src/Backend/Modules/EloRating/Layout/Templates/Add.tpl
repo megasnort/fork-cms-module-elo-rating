@@ -18,11 +18,11 @@
 	
 	<div class="options">
 		<p>
-			<label for="player1">{$p1_name|ucfirst}<abbr title="required field">*</abbr></label>
+			<label for="player1">{$lblPlayer1|ucfirst}<abbr title="required field">*</abbr></label>
 			{$ddmPlayer1} {$ddmScore1} {$ddmPlayer1Error}
 		</p>
 		<p>
-			<label for="player2">{$p2_name|ucfirst}<abbr title="required field">*</abbr></label>
+			<label for="player2">{$lblPlayer2|ucfirst}<abbr title="required field">*</abbr></label>
 			{$ddmPlayer2} {$ddmScore2} {$ddmPlayer2Error} {$ddmScore2Error}
 		</p>
 

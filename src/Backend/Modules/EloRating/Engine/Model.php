@@ -14,6 +14,7 @@ use Backend\Core\Engine\Model as BackendModel;
 class Model
 {
 
+    const SALT = 'witteedegejalzoutoepdepatattegedaon???'; // Used for the password of the add a game widget. You can change if you want ...
     
     const K = 16;               // Indicates the importance of games. (Note: if a game has players with really high ratings, this should rise. Should ...)
     const F = 400;              // K-factor. A standard in Elo-ratings calculatings.
@@ -30,6 +31,7 @@ class Model
             p2.name as player2,
             g.score1,
             g.score2,
+            g.active,
             UNIX_TIMESTAMP(g.`date`) AS `date`
            
         FROM
@@ -148,7 +150,10 @@ class Model
                 g.date
             FROM
                 elo_rating_games AS g
-            ORDER BY `date`'
+            WHERE
+                active = ?
+            ORDER BY `date`',
+            (string) 'Y'
         );
 
         // walk all games and step by step, recalculate every rating throughout the time
@@ -218,7 +223,15 @@ class Model
     public static function get($id)
     {
         $return = (array) BackendModel::getContainer()->get('database')->getRecord(
-            'SELECT g.id, g.player1, g.player2, g.score1, g.score2, UNIX_TIMESTAMP(g.`date`) AS `date`
+            'SELECT
+                g.id,
+                g.player1,
+                g.player2,
+                g.score1,
+                g.score2,
+                UNIX_TIMESTAMP(g.`date`) AS `date`,
+                g.active,
+                g.comment
              FROM elo_rating_games AS g WHERE g.id = ?',
             (int) $id
         );

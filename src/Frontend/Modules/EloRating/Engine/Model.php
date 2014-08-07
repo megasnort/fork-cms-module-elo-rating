@@ -4,6 +4,7 @@ namespace Frontend\Modules\EloRating\Engine;
 
 
 use Frontend\Core\Engine\Model as FrontendModel;
+use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
 
 /**
  * In this file we store all generic functions that we will be using in the Elo Rating module
@@ -91,6 +92,27 @@ class Model
                 `date` DESC";
 
     const QRY_VARS_RANKING = "SET @pos = 0, @prevElo = 0";
+
+
+    /**
+     * Funtion to add a game
+     *
+     * @return array
+     */
+    public static function addGame($item)
+    {
+        $db = FrontendModel::getContainer()->get('database');
+
+        if (FrontendModel::getModuleSetting('EloRating', 'immediate_recalculation', 'N') == 'Y') {
+            $item['active'] = 'Y';
+            $db->insert('elo_rating_games', $item);
+            BackendEloRatingModel::generateEloRatings();
+        } else {
+            $db->insert('elo_rating_games', $item);
+        }
+
+    }
+
 
 
     /**
@@ -271,7 +293,7 @@ class Model
 
             if ($player["games_played"] < $minimum_played_games) {
                 $player["ranking"] = false;
-                
+
             } else {
 
                 $player["ranking"] = $db->getVar(
