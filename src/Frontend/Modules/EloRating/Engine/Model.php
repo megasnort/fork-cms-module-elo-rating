@@ -32,6 +32,7 @@ class Model
                 p.`active` = ?
                 AND
                 `games_played` > ?
+                
    
             ORDER BY 
                 p.name";
@@ -110,6 +111,7 @@ class Model
             $db->insert('elo_rating_games', $item);
             BackendEloRatingModel::generateEloRatings();
         } else {
+            $item['active'] = 'N';
             $db->insert('elo_rating_games', $item);
         }
 
