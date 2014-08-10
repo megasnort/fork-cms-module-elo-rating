@@ -28,6 +28,7 @@ class Installer extends ModuleInstaller
         $this->setSetting('EloRating', 'top_latest_games', 5);
 
         
+        $this->makeSearchable('EloRating');
         
         // Give Administrator access to Module and Actions
         $this->setModuleRights(1, 'EloRating');
@@ -71,9 +72,8 @@ class Installer extends ModuleInstaller
 
 
         // add extra's for the frontend
-        $this->insertExtra('EloRating', 'block', 'Ranking', 'Ranking', null, 'N', 1701);
+        $this->insertExtra('EloRating', 'block', 'Ranking', null, null, 'N', 1701);
         $this->insertExtra('EloRating', 'block', 'Games', 'Games', null, 'N', 1702);
-        $this->insertExtra('EloRating', 'block', 'Players', null, null, 'N', 1703);
 
         $this->insertExtra('EloRating', 'widget', 'GamesPlayed', 'GamesPlayed', null, 'N', 1704);
         $this->insertExtra('EloRating', 'widget', 'TopRanking', 'TopRanking', null, 'N', 1705);

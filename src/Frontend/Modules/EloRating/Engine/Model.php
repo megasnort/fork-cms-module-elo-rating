@@ -4,6 +4,7 @@ namespace Frontend\Modules\EloRating\Engine;
 
 
 use Frontend\Core\Engine\Model as FrontendModel;
+use Frontend\Core\Engine\Navigation as FrontendNavigation;
 use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
 
 /**
@@ -329,81 +330,7 @@ class Model
         }
     }
 
-    /**
-     * Get all the active players with their played games
-     *
-     * @return array
-     */
-    public static function getPlayersWithGames()
-    {
-        $db = FrontendModel::getContainer()->get('database');
-
-        // Set the vars to 0 because the session stays open.
-
-        $players = (array) $db->getRecords(
-            self::QRY_PLAYERS,
-            array(
-                (string) 'Y',
-                (int) 0
-            )
-        );
-
-        $minimum_played_games = FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5);
-
-        foreach ($players as &$player) {
-
-            $games = (array) $db->getRecords(
-                "SELECT
-                    g.id, g.player1, g.player2,
-                    IF(g.player1 = ?,1,null) AS isplayer1,
-                    score1,
-                    score2,
-                    UNIX_TIMESTAMP(`date`) AS `date`,
-                    p1.name AS player1name,
-                    p2.name AS player2name,
-                    m1.url as player1url,
-                    m2.url as player2url,
-                    IF(p1.active = 'Y', 1, null) as player1active,
-                    IF(p2.active = 'Y', 1, null) as player2active
-                FROM
-                    elo_rating_games AS g
-                INNER JOIN
-                    `elo_rating_players` AS p1 ON `p1`.id = g.player1
-                INNER JOIN
-                    `elo_rating_players` AS p2 ON `p2`.id = g.player2
-                INNER JOIN
-                    `meta` AS m1 ON `p1`.meta_id = m1.id
-                INNER JOIN
-                    `meta` AS m2 ON `p2`.meta_id = m2.id
-
-                WHERE (player1 = ? OR player2 = ?) AND g.active = 'Y'
-                ORDER BY date DESC",
-                array(
-                    (int) $player['id'],
-                    (int) $player['id'],
-                    (int) $player['id']
-                )
-            );
-
-            $player["games"] = $games;
-
-            if ($player["games_played"] < $minimum_played_games) {
-                $player["ranking"] = false;
-            } else {
-
-                $player["ranking"] = $db->getVar(
-                    "SELECT COUNT(*)+1 FROM elo_rating_players WHERE current_elo > ? AND active = ? AND games_played >= ?",
-                    array(
-                        (string) $player["elo"],
-                        (string) 'Y',
-                        (int) $minimum_played_games
-                    )
-                );
-            }
-        }
-
-        return $players;
-    }
+  
 
 
     /**
@@ -454,5 +381,42 @@ class Model
         );
 
         return $return;
+    }
+
+     /**
+     * Parse the search results for this module
+     *
+     * Note: a module's search function should always:
+     *        - accept an array of entry id's
+     *        - return only the entries that are allowed to be displayed, with their array's index being the entry's id
+     *
+     *
+     * @param array $ids The ids of the found results.
+     * @return array
+     */
+    public static function search(array $ids)
+    {
+        $playerUrl = FrontendNavigation::getURLForBlock('EloRating', 'Player');
+
+        // If the Players page is not found, no search results should be displayed
+        if (strpos($playerUrl, '404')) {
+            $items = array();
+        } else {
+            $items = (array) FrontendModel::getContainer()->get('database')->getRecords(
+                "SELECT
+                    p.id,
+                    p.name as title,
+                    concat(p.name,' - Elo: ', p.current_elo) as text,
+                    concat('" .$playerUrl. "','/',m.url) as full_url
+                 FROM elo_rating_players AS p
+                 INNER JOIN meta AS m ON p.meta_id = m.id
+                 WHERE p.active = ? AND p.games_played > ? AND p.id IN (" . implode(',', $ids) . ")",
+                array('Y', 0),
+                'id'
+            );
+
+        }
+
+        return $items;
     }
 }

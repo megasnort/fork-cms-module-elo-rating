@@ -9,6 +9,8 @@ use Backend\Core\Engine\Form as BackendForm;
 use Backend\Core\Engine\Language as BL;
 use Backend\Core\Engine\Model as BackendModel;
 use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
+use Backend\Modules\Search\Engine\Model as BackendSearchModel;
+
 
 /**
  * This is the Edit-action, it will display a form to add a player
@@ -88,6 +90,15 @@ class EditPlayer extends BackendBaseActionAdd
                 $item['current_elo'] = $start_elo;
 
                 $item['active'] = $this->frm->getField('active')->getChecked() ? 'Y' : 'N';
+
+                if ($item['active'] == 'Y') {
+                    $languages = BL::getActiveLanguages();
+
+                    foreach ($languages as $lang) {
+                        BackendSearchModel::saveIndex($this->getModule(), $item['id'], array('title' => $item['name'], 'text' => $item['name']), $lang);
+                    }
+                    
+                }
 
                 BackendEloRatingModel::updatePlayer($item);
 

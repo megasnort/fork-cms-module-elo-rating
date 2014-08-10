@@ -9,6 +9,7 @@ use Backend\Core\Engine\Form as BackendForm;
 use Backend\Core\Engine\Language as BL;
 use Backend\Core\Engine\Model as BackendModel;
 use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
+use Backend\Modules\Search\Engine\Model as BackendSearchModel;
 
 /**
  * This is the add-action, it will display a form to add a player
