@@ -1,7 +1,7 @@
 Fork CMS Module - Elo-rating
 ==========================
 
-Imagine you're playing some game (chess, pool, football ...) regularly at your company, school, neighbourhood ... and you want to keep score of who's the best, without having to organise knock-out tournaments (which is a hassle).
+Imagine you're playing some game (chess, pool, football ...) regularly at your company, school, neighbourhood ... and you want to keep score of who's the best without having to organise knock-out tournaments (which is a hassle).
  
 Comes in: ***The Elo-rating Module for Fork CMS***
 
@@ -16,7 +16,7 @@ Comes in: ***The Elo-rating Module for Fork CMS***
 * Four frontend widgets
  	* **Top Ranking**: List of the best players
 	* **Number of Games played**: Some global stats
-	* **Latest Games**: List of most recent games
+	* **Latest Games**: List of the most recent games
 	* **Add a Game**: Form to let players submit their own games (with password protection)
 
 
