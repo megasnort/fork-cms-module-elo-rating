@@ -1,13 +1,13 @@
-Fork CMS Module - Elo-rating
-==========================
+Fork CMS Module - Elo Rating
+============================
 
 Imagine you're playing some game (chess, pool, football ...) regularly at your company, school, neighbourhood ... and you want to keep score of who's the best without having to organise knock-out tournaments (which is a hassle).
  
-Comes in: ***The Elo-rating Module for Fork CMS***
+Comes in: ***The Elo Rating Module for Fork CMS***
 
 ## What's inside?
 * Backend actions for organizing your players and games
-* Automated calculation of the Elo-ratings
+* Automated calculation of the Elo ratings
 * Three frontend actions
 	* **Ranking**: List of players with some basic stats
 	* **Games**: Overview of all the games ever played
