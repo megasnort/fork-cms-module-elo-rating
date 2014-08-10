@@ -1,6 +1,7 @@
 <?php
-    
-namespace Frontend\Modules\EloRating\Ajax;
+
+    namespace Frontend\Modules\EloRating\Ajax;
+
 
 use Frontend\Core\Engine\Base\AjaxAction as FrontendBaseAJAXAction;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;

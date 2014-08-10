@@ -335,7 +335,7 @@ class Model
      *
      * @param array $item     record with the fields of the game to be altered
      */
-    public static function urlOk($str)
+    public static function urlOk($str, $excludeId = null)
     {
         $str = strToLower($str);
         $search = explode(",", "ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,ø,Ø,Å,Á,À,Â,Ä,È,É,Ê,Ë,Í,Î,Ï,Ì,Ò,Ó,Ô,Ö,Ú,Ù,Û,Ü,Ÿ,Ç,Æ,Œ");
@@ -348,8 +348,28 @@ class Model
 
         $str = preg_replace('/[^\x20-\x7E]/', '', $str);
 
+        $db = BackendModel::getContainer()->get('database');
 
+        $counter = 0;
+        $baseStr = $str;
+        $sql = 'SELECT url FROM meta WHERE url = ?';
+        $params = array($str);
 
+        if (is_int($excludeId)) {
+            $sql .= ' AND id != ?';
+            $params[] = $excludeId;
+        }
+
+        do {
+
+            if ($urlFound = $db->getVar($sql, $params)) {
+                $counter++;
+                $str = $baseStr . $counter;
+                $params[0] = $str;
+            }
+
+        } while ($urlFound);
+        
         return $str;
     }
 
@@ -380,7 +400,7 @@ class Model
             'keywords' => $item["name"],
             'description' => $item["name"],
             'title' => $item["name"],
-            'url' => self::urlOk($item["name"])
+            'url' => self::urlOk($item["name"], (int) $item["meta_id"])
         ), 'id = ?', array((int) $item['meta_id']));
 
         $db->update('elo_rating_players', $item, 'id = ?', array((int) $item['id']));
