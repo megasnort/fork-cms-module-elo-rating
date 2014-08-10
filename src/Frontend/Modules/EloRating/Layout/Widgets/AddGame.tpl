@@ -10,6 +10,9 @@
 
         {form:addGameForm}
             <p>
+                <em>{$msgNotAPlayerYet|ucfirst}</em>
+            </p>
+            <p>
                 <label for="player1">{$lblPlayer1|ucfirst}<abbr title="required field">*</abbr></label>
                 {$ddmPlayer1} {$ddmScore1}
             </p>

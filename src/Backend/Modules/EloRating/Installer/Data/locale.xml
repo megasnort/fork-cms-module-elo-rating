@@ -295,7 +295,10 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="en"><![CDATA[won]]></translation>
         <translation language="nl"><![CDATA[gewonnen]]></translation>
       </item>
-      
+      <item type="message" name="NotAPlayerYet">
+        <translation language="nl"><![CDATA[Gebruik onderstaand formulier om je partijen toe te voegen. Staat jouw naam, of die van je tegenstander niet in de lijst met spelers? Neem contact op met de webmaster.]]></translation>
+        <translation language="en"><![CDATA[Use the form below to add your games. The list with players hasn't got your or your opponent's name yet? Contact the webmaster.]]></translation>
+      </item>
       <item type="message" name="EloGamesPlayed">
         <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played. 
 <strong>%2$s</strong> of these games were won by %3$s, <strong>%4$s</strong> of the games were won by %5$s and <strong>%6$s</strong> games ended in a draw.]]></translation>
@@ -304,10 +307,11 @@ The current password is encrypted and cannot be retrieved. You can however alway
       </item>
       
       <item type="message" name="HasEloAndRanking">
-        <translation language="en"><![CDATA[%1$s has an Elo-rating of %2$s and is ranked at position %3$s.]]></translation>
-        <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rangschikking.]]></translation>
-      </item>
-      
+        <translation language="en"><![CDATA[%1$s has an Elo-rating of %2$s and is ranked at position %3$s.
+%1$s won %4$s games, lost %5$s and played a draw %6$s times.]]></translation>
+        <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rankschikking.
+%1$s won %4$s partijen, verloor er %5$s en speelde %6$s keer gelijk.   ]]></translation>
+      </item>      
       <item type="message" name="NoPlayersYet">
         <translation language="en"><![CDATA[There are no active players.]]></translation>
         <translation language="nl"><![CDATA[Er zijn nog geen actieve spelers.]]></translation>
