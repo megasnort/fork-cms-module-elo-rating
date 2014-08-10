@@ -60,13 +60,13 @@ With this option, you can activate this game.]]></translation>
       <item type="message" name="ConfirmDeletePlayer">
         <translation language="en"><![CDATA[Are you sure you want to delete %1$s?
 
-If you do, all %1$s's games will be deleted too. That way all the Elo-ratings of the other players will change like they would have never played against %1$s.
+If you do, all %1$s's games will be deleted too. That way all the Elo ratings of the other players will change like they would have never played against %1$s.
 
-Tip: If you just deactivate %1$s, the Elo-ratings of the other players remain unchanged but %1$s won't be visible on the site anymore too.]]></translation>
+Tip: If you just deactivate %1$s, the Elo ratings of the other players remain unchanged but %1$s won't be visible on the site anymore too.]]></translation>
         <translation language="nl"><![CDATA[Ben je zeker dat je %1$s wil verwijderen? Als je dat doet worden ook al %1$s zijn/haar partijen verwijderd wat als gevolg heeft dat de Elo-ratings van alle andere spelers ook zullen veranderen alsof ze nooit tegen %1$s gespeeld zouden hebben. Tip: Misschien is beter om %1$s te deactiveren? Dan wordt %1$s onzichtbaar op de site, maar blijven alle ratings behouden.]]></translation>
       </item>
       <item type="message" name="CurrentElo">
-        <translation language="en"><![CDATA[The current Elo-rating of %1$s is %2$s. It's not possible to change this rating directly because it's a calculated value.]]></translation>
+        <translation language="en"><![CDATA[The current Elo rating of %1$s is %2$s. It's not possible to change this rating directly because it's a calculated value.]]></translation>
         <translation language="nl"><![CDATA[De huidige Elo-rating van %1$s is %2$s. Je kan deze niet handmatig veranderen daar deze wordt berekend op basis van de gespeelde partijen.]]></translation>
       </item>
       <item type="message" name="ImmediateRecalculation">
@@ -117,7 +117,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[voeg een partij toe - widget]]></translation>
       </item>
       <item type="label" name="CurrentElo">
-        <translation language="en"><![CDATA[current Elo-rating]]></translation>
+        <translation language="en"><![CDATA[current Elo rating]]></translation>
         <translation language="nl"><![CDATA[huidige Elo-rating]]></translation>
       </item>
       <item type="label" name="DatePlayed">
@@ -193,7 +193,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[score zwart]]></translation>
       </item>
       <item type="label" name="StartElo">
-        <translation language="en"><![CDATA[start Elo-rating]]></translation>
+        <translation language="en"><![CDATA[start Elo rating]]></translation>
         <translation language="nl"><![CDATA[start Elo-rating]]></translation>
       </item>
       <item type="label" name="TopLatestGames">
@@ -229,7 +229,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[%1$s is een verplicht veld]]></translation>
       </item>
       <item type="error" name="StartEloRange">
-        <translation language="en"><![CDATA[The start Elo-rating has to be a value between %1$s and %2$s.]]></translation>
+        <translation language="en"><![CDATA[The start Elo rating has to be a value between %1$s and %2$s.]]></translation>
         <translation language="nl"><![CDATA[de start Elo-rating moet een getal tussen %1$s en %2$s zijn]]></translation>
       </item>
       <item type="error" name="TimeIsRequired">
@@ -255,7 +255,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
       </item>
       <item type="label" name="EloRating">
-        <translation language="en"><![CDATA[elo-rating]]></translation>
+        <translation language="en"><![CDATA[elo rating]]></translation>
         <translation language="nl"><![CDATA[elo-rating]]></translation>
       </item>
       <item type="label" name="EloTopRanking">
@@ -307,7 +307,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
       </item>
       
       <item type="message" name="HasEloAndRanking">
-        <translation language="en"><![CDATA[%1$s has an Elo-rating of %2$s and is ranked at position %3$s.
+        <translation language="en"><![CDATA[%1$s has an Elo rating of %2$s and is ranked at position %3$s.
 %1$s won %4$s games, lost %5$s and played a draw %6$s times.]]></translation>
         <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rankschikking.
 %1$s won %4$s partijen, verloor er %5$s en speelde %6$s keer gelijk.   ]]></translation>
@@ -321,7 +321,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[Er zijn nog geen spelers die genoeg wedstrijden (%1$s) hebben gespeeld om opgenomen te worden in de rangschikking.]]></translation>
       </item>
       <item type="message" name="NoRankingYet">
-        <translation language="en"><![CDATA[%1$s hasn't got a ranking or Elo-rating because he/she played not enough games.]]></translation>
+        <translation language="en"><![CDATA[%1$s hasn't got a ranking or Elo rating because he/she played not enough games.]]></translation>
         <translation language="nl"><![CDATA[%1$s heeft nog geen ranking omdat hij/zij nog niet genoeg partijen heeft gespeeld.]]></translation>
       </item>
       <item type="message" name="NoGamesYet">
@@ -333,7 +333,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[speler]]></translation>
       </item>
       <item type="label" name="EloEvolved">
-        <translation language="en"><![CDATA[%1$s's Elo-rating evolution]]></translation>
+        <translation language="en"><![CDATA[%1$s's Elo rating evolution]]></translation>
         <translation language="nl"><![CDATA[De evolutie van de Elo-rating van %1$s]]></translation>
       </item>
       <item type="label" name="PlayersGames">
