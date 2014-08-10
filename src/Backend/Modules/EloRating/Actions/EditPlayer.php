@@ -97,7 +97,6 @@ class EditPlayer extends BackendBaseActionAdd
                     foreach ($languages as $lang) {
                         BackendSearchModel::saveIndex($this->getModule(), $item['id'], array('title' => $item['name'], 'text' => $item['name']), $lang);
                     }
-                    
                 }
 
                 BackendEloRatingModel::updatePlayer($item);

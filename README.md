@@ -8,9 +8,17 @@ Comes in: ***The Elo-rating Module for Fork CMS***
 ## What's inside?
 * Backend actions for organizing your players and games
 * Automated calculation of the Elo-ratings
-* Two frontend actions (Ranking and Games)
-* Four frontend widgets (Top Ranking, Number of Games played, Latest Game and Add a Game)
 * Support for English and Dutch
+* Three frontend actions
+	* **Ranking**: List of players with some basic stats
+	* **Games**: Overview of all the games ever played
+	* **Player**: Info about a player: (evolution) of his/her rating, current ranking, number of games played ...
+* Four frontend widgets
+ 	* **Top Ranking**: List of the best players
+	* **Number of Games played**: Some global stats
+	* **Latest Games**: List of most recent games
+	* **Add a Game**: Form to let players submit their own games (with password protection)
+
 
 You can see an example here: [schakenopviso.megasnort.com](http://schakenopviso.megasnort.com) (in Dutch)
 

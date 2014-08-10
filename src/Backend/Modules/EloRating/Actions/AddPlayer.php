@@ -76,6 +76,15 @@ class AddPlayer extends BackendBaseActionAdd
                 $item['active'] = $this->frm->getField('active')->getChecked() ? 'Y' : 'N';
 
                 $item['id'] = BackendEloRatingModel::insertPlayer($item);
+
+                
+                if ($item['active'] == 'Y') {
+                    $languages = BL::getActiveLanguages();
+
+                    foreach ($languages as $lang) {
+                        BackendSearchModel::saveIndex($this->getModule(), $item['id'], array('title' => $item['name'], 'text' => $item['name']), $lang);
+                    }
+                }
                 
                 $this->redirect(
                     BackendModel::createURLForAction('IndexPlayers') . '&report=added&highlight=row-' . $item['id']
