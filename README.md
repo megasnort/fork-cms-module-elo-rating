@@ -11,7 +11,7 @@ Comes in: ***The Elo-rating Module for Fork CMS***
 * Three frontend actions
 	* **Ranking**: List of players with some basic stats
 	* **Games**: Overview of all the games ever played
-	* **Player**: Info about a player: (evolution) of his/her rating in a chart, current ranking, number of games played ...
+	* **Player**: (Evolution) of his/her rating in a chart, current ranking, number of games played ...
 * Four frontend widgets
  	* **Top Ranking**: List of the best players
 	* **Number of Games played**: Some global stats
