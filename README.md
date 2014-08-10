@@ -8,7 +8,7 @@ Comes in: ***The Elo-rating Module for Fork CMS***
 ## What's inside?
 * Backend actions for organizing your players and games
 * Automated calculation of the Elo-ratings
-* Three frontend actions (Ranking, Players en Games)
+* Two frontend actions (Ranking and Games)
 * Four frontend widgets (Top Ranking, Number of Games played, Latest Game and Add a Game)
 * Support for English and Dutch
 
