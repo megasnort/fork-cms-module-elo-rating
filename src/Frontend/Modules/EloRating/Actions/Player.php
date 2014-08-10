@@ -36,22 +36,15 @@ class Player extends FrontendBaseBlock
         // check if a player is given
         if ($this->URL->getParameter(1) === null) {
 
-            // if not, try to get the players page
-            $playersUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Players');
+            // if not, go to the ranking
+            $this->redirect(FrontendNavigation::getUrlForBlock('EloRating', 'Ranking'));
 
-            // If the Players page is not found, go to the 404
-            if (strpos($playerUrl, '404')) {
+        } else {
+
+            if (!($this->record = FrontendEloRatingModel::getPlayer($this->URL->getParameter(1)))) {
                 $this->redirect(FrontendNavigation::getURL(404));
-            } else {
-                $this->redirect($playersUrl);
             }
-
         }
-
-        if (!($this->record = FrontendEloRatingModel::getPlayer($this->URL->getParameter(1)))) {
-            $this->redirect(FrontendNavigation::getURL(404));
-        }
-        
     }
 
  
@@ -79,15 +72,12 @@ class Player extends FrontendBaseBlock
             ($this->record['meta_keywords_overwrite'] == 'Y')
         );
         
-        $this->tpl->assign('playerUrl', FrontendNavigation::getURLForBlock('EloRating', 'player'));
+        $this->tpl->assign('playerUrl', FrontendNavigation::getURLForBlock('EloRating', 'Player'));
         
         $this->tpl->assign('player', $this->record);
 
         if (isset($this->record["history"])) {
-            $this->addJSData('history', $this->record["history"]);    
+            $this->addJSData('history', $this->record["history"]);
         }
-        
-
-
     }
 }

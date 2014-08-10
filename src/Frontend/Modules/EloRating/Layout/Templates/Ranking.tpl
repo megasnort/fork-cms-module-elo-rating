@@ -21,15 +21,10 @@
 					{iteration:ranking}
 						<tr>
 							<td>{$ranking.position}</td>
-							<td>
-								
-								{option:playerUrl}
+							<td>								
 								<a href="{$playerUrl}/{$ranking.url}">
-								{/option:playerUrl}
 								{$ranking.name}
-								{option:playerUrl}
 								</a>
-								{/option:playerUrl}
 							</td>
 							<td>{$ranking.elo}</td>
 							<td>{$ranking.games_played}</td>

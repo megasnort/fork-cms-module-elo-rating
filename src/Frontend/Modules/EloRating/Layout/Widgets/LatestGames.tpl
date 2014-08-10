@@ -27,25 +27,21 @@
 				<tr>
 					<td>
 						{option:widgetLatestGames.player1active}
-							{option:playerUrl}
-								<a href="{$playerUrl}/{$widgetLatestGames.player1url}">
-							{/option:playerUrl}
+							<a href="{$playerUrl}/{$widgetLatestGames.player1url}">
 						{/option:widgetLatestGames.player1active}
 						{$widgetLatestGames.player1name}
-						{option:playerUrl}
+						{option:widgetLatestGames.player1active}
 							</a>
-						{/option:playerUrl}
+						{/option:widgetLatestGames.player1active}
 					</td>
 					<td>
 						{option:widgetLatestGames.player2active}
-							{option:playerUrl}
-								<a href="{$playerUrl}/{$widgetLatestGames.player2url}">
-							{/option:playerUrl}
+							<a href="{$playerUrl}/{$widgetLatestGames.player2url}">
 						{/option:widgetLatestGames.player2active}
 						{$widgetLatestGames.player2name}
-						{option:playerUrl}
+						{option:widgetLatestGames.player2active}
 							</a>
-						{/option:playerUrl}
+						{/option:widgetLatestGames.player2active}
 					</td>
 					<td>{$widgetLatestGames.score1}</td>
 					<td>{$widgetLatestGames.score2}</td>

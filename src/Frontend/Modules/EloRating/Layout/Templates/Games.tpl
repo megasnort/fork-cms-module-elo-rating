@@ -27,33 +27,27 @@
 							<tr>
 								<td>
 									{option:games.games.player1active}
-										{option:playerUrl}
-											<a href="{$playerUrl}/{$games.games.player1url}">
-										{/option:playerUrl}
+										<a href="{$playerUrl}/{$games.games.player1url}">
 									{/option:games.games.player1active}
 									{$games.games.player1name}
-									{option:playerUrl}
+									{option:games.games.player1active}
 										</a>
-									{/option:playerUrl}
+									{/option:games.games.player1active}
 								</td>
 								<td>
 									{option:games.games.player2active}
-										{option:playerUrl}
-											<a href="{$playerUrl}/{$games.games.player2url}">
-										{/option:playerUrl}
+										<a href="{$playerUrl}/{$games.games.player2url}">
 									{/option:games.games.player2active}
 									{$games.games.player2name}
-									{option:playerUrl}
+									{option:games.games.player2active}
 										</a>
-									{/option:playerUrl}
+									{/option:games.games.player2active}
 								</td>
 								<td>{$games.games.score1}</td>
 								<td>{$games.games.score2}</td>
-
 							</tr>
 
 						{/iteration:games.games}
-						
 
 						</table>
 						
