@@ -12,7 +12,7 @@
 
 					<p>
 					{option:player.ranking}
-						{$msgHasEloAndRanking|sprintf:{$player.name}:{$player.elo}:{$player.ranking}}
+						{$msgHasEloAndRanking|sprintf:{$player.name}:{$player.elo}:{$player.ranking}:{$player.won}:{$player.lost}:{$player.draws}|nl2br}
 					{/option:player.ranking}
 					{option:!player.ranking}
 						{$msgNoRankingYet|sprintf:{$player.name}}
