@@ -332,25 +332,24 @@ class Model
                 );
             }
 
+            // walk games backwards            
+            $previous = $player['start_elo'];
+
+            for ($i = count($player["games"]) - 1; $i >= 0; $i--) {
+                
+                $player["games"][$i]['gainLoss'] = $player["games"][$i]['elo'] - $previous;
+                
+                if ($player["games"][$i]['gainLoss'] > 0) {
+                    $player["games"][$i]['gainLoss'] = '+' . $player["games"][$i]['gainLoss'];
+                }
+
+                $previous = $player["games"][$i]['elo'];
+            }
+            
             $opponents = array();
-            $previous = null;
             foreach($player["games"] as &$game)
             {
-                $opponents[] = (int) (($game['player1'] == $player['id']) ? $game['player2'] : $game['player1']);
-
-                if (!empty($previous)) {
-                    $previous['gainLoss'] = $previous['elo'] - $game['elo'];
-                    if ($previous['gainLoss'] > 0) {
-                        $previous['gainLoss'] = '+' . $previous['gainLoss'];
-                    }
-                }
-                $previous = &$game;
-            }
-
-            $game['gainLoss'] = $previous['elo'] - $player['start_elo'];
-            
-            if ($game['gainLoss'] > 0) {
-                $game['gainLoss'] = '+' . $game['gainLoss'];
+                $opponents[] = (int) (($game['player1'] == $player['id']) ? $game['player2'] : $game['player1']);                
             }
 
             if (!empty($opponents)) {

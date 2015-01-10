@@ -16,7 +16,7 @@ class Model
 
     const SALT = 'witteedegejalzoutoepdepatattegedaon???'; // Used for the password of the add a game widget. You can change if you want ...
     
-    const K = 16;               // Indicates the importance of games. (Note: if a game has players with really high ratings, this should rise. Should ...)
+    const K = 32;               // Indicates the importance of games. (Note: if a game has players with really high ratings, this should rise. Should ...)
     const F = 400;              // K-factor. A standard in Elo-ratings calculatings.
 
     const MIN_ELO = 1000;       // Starting with an Elo-rating lower then 1000 is nonsense
@@ -69,13 +69,12 @@ class Model
     public static function calculateEloRating($p1rating, $p2rating, $p1result, $p2result)
     {
 
-        $elo1 = self::K * ($p1result - (1 / pow(10, (- ($p1rating - $p2rating) / self::F) + 1)));
-        $elo2 = self::K * ($p2result - (1 / pow(10, (- ($p2rating - $p1rating) / self::F) + 1)));
+        $elo1 = self::K * ($p1result - (1 / (1 + pow(10, ($p1rating - $p2rating) / self::F))));
+        $elo2 = self::K * ($p2result - (1 / (1 + pow(10, ($p2rating - $p1rating) / self::F))));
 
         return array('p1' => $p1rating + $elo1, 'p2' => $p2rating + $elo2);
     }
 
-   
     /**
      * Delete a game
      *
@@ -86,7 +85,6 @@ class Model
         BackendModel::getContainer()->get('database')->delete('elo_rating_games', 'id = ?', array((int) $id));
         self::generateEloRatings();
     }
-
 
     /**
      * Delete a player
