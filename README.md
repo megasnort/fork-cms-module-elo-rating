@@ -22,8 +22,10 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 You can see an example here: [schakenopviso.megasnort.com](http://schakenopviso.megasnort.com) (in Dutch)
 
 ##Changelog
+**10th of January 2015**
+
 * Added a select with opponents to the Player-action so you can compare better between the player an one opponents
-* Modified a label ($lblPlayerGames) because it gets followed by a &lt;select&gt;
+* Modified a label ($lblPlayersGames) because it gets followed by a &lt;select&gt;
 
 ##License
 
