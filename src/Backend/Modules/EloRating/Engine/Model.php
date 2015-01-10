@@ -69,8 +69,8 @@ class Model
     public static function calculateEloRating($p1rating, $p2rating, $p1result, $p2result)
     {
 
-        $elo1 = self::K * ($p1result - (1 / (1 + pow(10, ($p1rating - $p2rating) / self::F))));
-        $elo2 = self::K * ($p2result - (1 / (1 + pow(10, ($p2rating - $p1rating) / self::F))));
+        $elo1 = self::K * ($p1result - (1 / (1 + pow(10, ($p2rating - $p1rating) / self::F))));
+        $elo2 = self::K * ($p2result - (1 / (1 + pow(10, ($p1rating - $p2rating) / self::F))));
 
         return array('p1' => $p1rating + $elo1, 'p2' => $p2rating + $elo2);
     }
