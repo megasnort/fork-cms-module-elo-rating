@@ -16,7 +16,7 @@ class Model
 {
    
     
-    const QRY_PLAYERS = "SELECT
+    const QRY_PLAYERS = 'SELECT
                 p.id,
                 p.name,
                 p.current_elo as elo,
@@ -32,12 +32,9 @@ class Model
             WHERE
                 p.`active` = ?
                 AND
-                `games_played` > ?
-                
-   
+                `games_played` > ?   
             ORDER BY 
-                p.name";
-
+                p.name';
 
     const QRY_RANKING = "SELECT
                 p.id,
@@ -216,6 +213,16 @@ class Model
         return $games;
     }
 
+    /**
+     * Get all the players a player has played against
+     * 
+     * @param  int $playerId
+     * @return array array of of players, with name, slug and id
+     */
+    public static function getOpponents($playerId)
+    {
+        return array();
+    }
 
     /**
      * Get the player with the given name
@@ -263,7 +270,7 @@ class Model
 
             $minimum_played_games = FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5);
 
-            $games = (array) $db->getRecords(
+            $player["games"] = (array) $db->getRecords(
                 "SELECT
                     g.id,
                     g.player1,
@@ -297,8 +304,6 @@ class Model
                 )
             );
 
-            $player["games"] = $games;
-
             if ($player["games_played"] < $minimum_played_games) {
                 $player["ranking"] = false;
 
@@ -320,9 +325,29 @@ class Model
                     ORDER by `date`',
                     array((int) $player["id"])
                 );
-
             }
-        
+
+            $opponents = array();
+
+            foreach($player["games"] as $game)
+            {
+                $opponents[] = (int) (($game['player1'] == $player['id']) ? $game['player2'] : $game['player1']);
+            }
+
+
+            if (!empty($opponents)) {
+                $player['opponents'] = (array) $db->getRecords("SELECT
+                        p.id,
+                        p.name
+                    FROM
+                        elo_rating_players AS p
+                    WHERE
+                        p.id IN (" . implode(',', $opponents). ")
+                    ORDER BY 
+                        p.name"
+                    );
+            }
+             
 
             return $player;
         } else {

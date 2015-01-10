@@ -337,8 +337,8 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[De evolutie van de Elo-rating van %1$s]]></translation>
       </item>
       <item type="label" name="PlayersGames">
-        <translation language="en"><![CDATA[%1$s's games]]></translation>
-        <translation language="nl"><![CDATA[de partijen van %1$s]]></translation>
+        <translation language="en"><![CDATA[%1$s's games against]]></translation>
+        <translation language="nl"><![CDATA[de partijen van %1$s tegen]]></translation>
       </item>
        <item type="label" name="LatestGames">
         <translation language="en"><![CDATA[latest games]]></translation>

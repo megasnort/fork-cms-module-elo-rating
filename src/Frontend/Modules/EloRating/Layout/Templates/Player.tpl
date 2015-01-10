@@ -1,39 +1,39 @@
 <div id="eloRatingPlayer">
 	<section class="mod">
 		<div class="inner">			
-			
 			<div class="bd content">
-
 					<header class="hd">
 						<h3>
 							{$player.name}
 						</h3>
 					</header>
-
 					<p>
 					{option:player.ranking}
 						{$msgHasEloAndRanking|sprintf:{$player.name}:{$player.elo}:{$player.ranking}:{$player.won}:{$player.lost}:{$player.draws}|nl2br}
 					{/option:player.ranking}
+
 					{option:!player.ranking}
 						{$msgNoRankingYet|sprintf:{$player.name}}
 					{/option:!player.ranking}
 					</p>
-
-
 					{option:player.history}
-
 						<h4>
 							{$lblEloEvolved|sprintf:{$player.name}|ucfirst}
 						</h4>
 						<svg id="evolution" width="100%" height="310"></svg>
 					{/option:player.history}
 
-					{option:player.games}							
-
+					{option:player.games}
 						<h4>
 							{$lblPlayersGames|sprintf:{$player.name}|ucfirst}
+							<select id="opponents">
+								<option value="0">-</option>
+								{iteration:player.opponents}
+									<option value="{$player.opponents.id}">{$player.opponents.name}</option>
+								{/iteration:player.opponents}
+							</select>
 						</h4>
-						<table>
+						<table id="games">
 							<tr>
 								<th>{$lblPlayer1}</th>
 								<th>{$lblPlayer2}</th>
@@ -41,10 +41,8 @@
 								<th></th>
 								<th>{$lblDate}</th>
 							</tr>
-
-						{iteration:player.games}
-
-							<tr>
+							{iteration:player.games}
+							<tr data-id="{option:player.games.isplayer1}{$player.games.player2}{/option:player.games.isplayer1}{option:!player.games.isplayer1}{$player.games.player1}{/option:!player.games.isplayer1}">
 								<td>
 									{option:!player.games.isplayer1}
 										{option:player.games.player1active}
@@ -73,20 +71,11 @@
 								<td>{$player.games.score1}</td>
 								<td>{$player.games.score2}</td>
 								<td>{$player.games.date|date:{$dateFormatShort}}</td>
-
 							</tr>
-
-
 						{/iteration:player.games}
-
 						</table>
-
-
 					{/option:player.games}							
-
-
 			</div>
-
 		</div>
 	</section>
 </div>

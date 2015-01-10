@@ -21,6 +21,10 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 
 You can see an example here: [schakenopviso.megasnort.com](http://schakenopviso.megasnort.com) (in Dutch)
 
+##Changelog
+* Added a select with opponents to the Player-action so you can compare better between the player an one opponents
+* Modified a label ($lblPlayerGames) because it gets followed by a &lt;select&gt;
+
 ##License
 
 The module is licensed under MIT. In short, this license allows you to do everything as long as the copyright statement stays present.

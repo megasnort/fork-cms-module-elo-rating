@@ -33,34 +33,22 @@ class Player extends FrontendBaseBlock
 
     private function getData()
     {
-        // check if a player is given
+        // check if a player is not given, go to the index
         if ($this->URL->getParameter(1) === null) {
-
-            // if not, go to the ranking
             $this->redirect(FrontendNavigation::getUrlForBlock('EloRating', 'Ranking'));
-
-        } else {
-
-            if (!($this->record = FrontendEloRatingModel::getPlayer($this->URL->getParameter(1)))) {
-                $this->redirect(FrontendNavigation::getURL(404));
-            }
+        } else if (!($this->record = FrontendEloRatingModel::getPlayer($this->URL->getParameter(1)))) {
+            $this->redirect(FrontendNavigation::getURL(404));
         }
     }
 
- 
     private function parse()
     {
-        
-        //$this->header->addJS('http://d3js.org/d3.v3.min.js', false);
         $this->header->addJS('/src/Frontend/Modules/EloRating/Js/d3.v3.min.js', false);
         $this->header->addCSS('/src/Frontend/Modules/EloRating/Css/Player.css', false);
         
-
         //add into breadcrumb
         $this->breadcrumb->addElement($this->record['name']);
-
-        
-        
+    
         // set meta
         $this->header->setPageTitle($this->record['meta_title'], ($this->record['meta_title_overwrite'] == 'Y'));
         $this->header->addMetaDescription(

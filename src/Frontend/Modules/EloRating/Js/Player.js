@@ -7,13 +7,32 @@ jsFrontend.elo_rating =
 {
     init: function()
     {
+        jsFrontend.elo_rating.initGraph();
+        jsFrontend.elo_rating.initOpponentSelect();
+    },
+    initOpponentSelect: function()
+    {
+        jsFrontend.elo_rating.showHideOpponents();
+        $('#opponents').change(jsFrontend.elo_rating.showHideOpponents);
+    },
+    showHideOpponents: function() {
+        var selected = $('#opponents').val();
+        var rows = $("#games tr[data-id]");
+
+        if (selected == '0') {
+            rows.css('display', 'table-row');
+        } else {
+            rows.each(function() {
+                console.log($(this).attr('data-id'));
+                $(this).css('display', $(this).attr('data-id') == selected ? 'table-row' : 'none' );
+            });    
+        }
         
-        
+    },
+    initGraph: function()
+    {
         if (jsFrontend.data.exists('EloRating')) {
-
             var history = jsFrontend.data.get('EloRating.history');
-
-
 
             history.forEach(function(d){
                 d.date = new Date(d.date);
@@ -148,12 +167,9 @@ jsFrontend.elo_rating =
                      .attr("cx", function(d, i) { return xRange(d.date) })
                      .attr("cy", function(d, i) { return yRange(d.elo) })
                      .attr("r", 3.5)
-                     .append("svg:title").text( function(d, i) { return 'Elo: ' + d.elo + ' - ' + parseDate(d.date) })
-
-        }
-        
+                     .append("svg:title").text( function(d, i) { return 'Elo: ' + d.elo + ' - ' + parseDate(d.date) });
+        }  
     },
-
 }
 
 $(jsFrontend.elo_rating.init);
