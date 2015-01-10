@@ -196,7 +196,6 @@ class Model
             );
             
             $db->insert('elo_history', $history2);
-
         }
 
         // when the ratings are recaclulated, update every player
@@ -212,7 +211,6 @@ class Model
 
       
     }
-
 
     /**
      * Get all data for a game.

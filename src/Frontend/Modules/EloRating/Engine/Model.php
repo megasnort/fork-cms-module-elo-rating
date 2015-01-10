@@ -141,7 +141,6 @@ class Model
             $dates[count($dates)-1]['games'][] = $game;
 
             $previousDate = $game["compareDate"];
-
         }
 
         return $dates;
@@ -189,26 +188,10 @@ class Model
     {
         $db = FrontendModel::getContainer()->get('database');
 
-
         $games = (array) $db->getRecords(
             self::QRY_GAMES . ' LIMIT ?',
             (int) FrontendModel::getModuleSetting('EloRating', 'top_latest_games', 5)
         );
-
-        /*
-        
-        $previousDate = '';
-
-        foreach ($games as &$game) {
-
-            if ($previousDate == $game["compareDate"]) {
-                $game['date'] = null;
-            }
-
-            $previousDate = $game["compareDate"];
-
-        }
-         */
 
         return $games;
     }
@@ -338,6 +321,9 @@ class Model
             for ($i = count($player["games"]) - 1; $i >= 0; $i--) {
                 
                 $player["games"][$i]['gainLoss'] = $player["games"][$i]['elo'] - $previous;
+
+                $player["games"][$i]['won'] = ($player["games"][$i]['gainLoss'] > 0);
+                $player["games"][$i]['lost'] = ($player["games"][$i]['gainLoss'] < 0);
                 
                 if ($player["games"][$i]['gainLoss'] > 0) {
                     $player["games"][$i]['gainLoss'] = '+' . $player["games"][$i]['gainLoss'];

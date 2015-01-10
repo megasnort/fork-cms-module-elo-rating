@@ -72,7 +72,7 @@
 								<td>{$player.games.score1}</td>
 								<td>{$player.games.score2}</td>
 								<td>{$player.games.date|date:{$dateFormatShort}}</td>
-								<td>{$player.games.elo} ({$player.games.gainLoss})</td>
+								<td>{$player.games.elo} (<span class="{option:player.games.won}positive{/option:player.games.won}{option:player.games.lost}negative{/option:player.games.lost}">{$player.games.gainLoss}</span>)</td>
 							</tr>
 						{/iteration:player.games}
 						</table>

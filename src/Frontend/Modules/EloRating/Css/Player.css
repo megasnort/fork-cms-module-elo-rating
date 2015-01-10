@@ -33,3 +33,11 @@ circle {
     stroke:black;
     r: 10;
 }
+
+span.positive {
+    color: #090;
+}
+
+span.negative {
+    color: #F00;   
+}
