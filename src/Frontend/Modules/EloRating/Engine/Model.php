@@ -240,6 +240,7 @@ class Model
                 p.id,
                 p.name,
                 p.current_elo as elo,
+                p.start_elo,
                 p.games_played,
                 p.won,
                 p.lost,
@@ -278,13 +279,14 @@ class Model
                     IF(g.player1 = ?,1,null) AS isplayer1,
                     score1,
                     score2,
-                    UNIX_TIMESTAMP(`date`) AS `date`,
+                    UNIX_TIMESTAMP(g.`date`) AS `date`,
                     p1.name AS player1name,
                     p2.name AS player2name,
                     m1.url as player1url,
                     m2.url as player2url,
                     IF(p1.active = 'Y', 1, null) as player1active,
-                    IF(p2.active = 'Y', 1, null) as player2active
+                    IF(p2.active = 'Y', 1, null) as player2active,
+                    h.elo
                 FROM
                     elo_rating_games AS g
                 INNER JOIN
@@ -295,9 +297,12 @@ class Model
                     `meta` AS m1 ON `p1`.meta_id = m1.id
                 INNER JOIN
                     `meta` AS m2 ON `p2`.meta_id = m2.id
+                INNER JOIN
+                    `elo_history` AS h ON h.game = g.id AND h.player = ?
                 WHERE (g.player1 = ? OR g.player2 = ?) AND g.active = 'Y'
-                ORDER BY date DESC",
+                ORDER BY g.date DESC, g.id DESC",
                 array(
+                    (int) $player['id'],
                     (int) $player['id'],
                     (int) $player['id'],
                     (int) $player['id']
@@ -328,12 +333,25 @@ class Model
             }
 
             $opponents = array();
-
-            foreach($player["games"] as $game)
+            $previous = null;
+            foreach($player["games"] as &$game)
             {
                 $opponents[] = (int) (($game['player1'] == $player['id']) ? $game['player2'] : $game['player1']);
+
+                if (!empty($previous)) {
+                    $previous['gainLoss'] = $previous['elo'] - $game['elo'];
+                    if ($previous['gainLoss'] > 0) {
+                        $previous['gainLoss'] = '+' . $previous['gainLoss'];
+                    }
+                }
+                $previous = &$game;
             }
 
+            $game['gainLoss'] = $previous['elo'] - $player['start_elo'];
+            
+            if ($game['gainLoss'] > 0) {
+                $game['gainLoss'] = '+' . $game['gainLoss'];
+            }
 
             if (!empty($opponents)) {
                 $player['opponents'] = (array) $db->getRecords("SELECT

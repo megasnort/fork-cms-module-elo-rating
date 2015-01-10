@@ -40,6 +40,7 @@
 								<th></th>
 								<th></th>
 								<th>{$lblDate}</th>
+								<th>{$lblEloRating}</th>
 							</tr>
 							{iteration:player.games}
 							<tr data-id="{option:player.games.isplayer1}{$player.games.player2}{/option:player.games.isplayer1}{option:!player.games.isplayer1}{$player.games.player1}{/option:!player.games.isplayer1}">
@@ -71,6 +72,7 @@
 								<td>{$player.games.score1}</td>
 								<td>{$player.games.score2}</td>
 								<td>{$player.games.date|date:{$dateFormatShort}}</td>
+								<td>{$player.games.elo} ({$player.games.gainLoss})</td>
 							</tr>
 						{/iteration:player.games}
 						</table>

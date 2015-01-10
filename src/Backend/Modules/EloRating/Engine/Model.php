@@ -184,7 +184,8 @@ class Model
             $history1 = array(
                 'player' => $game["player1"],
                 'elo' => $players[$game["player1"]]['current_elo'],
-                'date' => $game["date"]
+                'date' => $game["date"],
+                'game' => $game["id"]
             );
             
             $db->insert('elo_history', $history1);
@@ -192,7 +193,8 @@ class Model
             $history2 = array(
                 'player' => $game["player2"],
                 'elo' => $players[$game["player2"]]['current_elo'],
-                'date' => $game["date"]
+                'date' => $game["date"],
+                'game' => $game["id"]
             );
             
             $db->insert('elo_history', $history2);
