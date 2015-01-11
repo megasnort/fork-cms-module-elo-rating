@@ -28,6 +28,7 @@ You can see an example here: [schakenopviso.megasnort.com](http://schakenopviso.
 * Modified a label ($lblPlayersGames) because it gets followed by a &lt;select&gt;
 * Added the Elo-rating + gain or loss after a game to the table on the Player-action. If you installed the first version of this module, you need to manually add the 'game'-field (INT) to the elo_history-table, and re-save a game in the backend so the elo-history-table is re-filled correctly.
 * Fixed a major bug in the Rating-generator
+* Give a fixed width to the tables in Games.tpl
 
 ##License
 
