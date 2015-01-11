@@ -16,9 +16,9 @@
 
 						<table>
 							<tr>
-								<th>{$lblPlayer1}</th>
-								<th>{$lblPlayer2}</th>
-								<th colspan="2"></th>
+								<th width="40%">{$lblPlayer1}</th>
+								<th width="40%">{$lblPlayer2}</th>
+								<th width="20%" colspan="2"></th>
 							</tr>
 
 					
