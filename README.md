@@ -19,7 +19,9 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 	* **Add a Game**: Form to let players submit their own games (with password protection)
 * Translations for English and Dutch
 
-You can see an example here: [schakenopviso.megasnort.com](http://schakenopviso.megasnort.com) (in Dutch)
+You can see an example here: 
+* [schakenopviso.megasnort.com](http://schakenopviso.megasnort.com) (in Dutch)
+* [carcassonnecup.4fan.cz](http://carcassonnecup.4fan.cz) (in Czech)
 
 ##Changelog
 **10th of January 2015**
