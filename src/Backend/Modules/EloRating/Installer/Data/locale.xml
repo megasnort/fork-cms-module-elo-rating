@@ -5,69 +5,67 @@
       <item type="label" name="EloRating">
         <translation language="en"><![CDATA[elo-rating]]></translation>
         <translation language="nl"><![CDATA[elo-rating]]></translation>
-		<translation language="cz"><![CDATA[elo-rating]]></translation>
+	<translation language="cz"><![CDATA[elo-rating]]></translation>
       </item>
      </Core>
      <Pages>
        <item type="label" name="LatestGames">
         <translation language="en"><![CDATA[latest games]]></translation>
         <translation language="nl"><![CDATA[recentste partijen]]></translation>
-		<translation language="cz"><![CDATA[poslední zápasy]]></translation>
+	<translation language="cz"><![CDATA[poslední zápasy]]></translation>
       </item>
       <item type="label" name="AddGame">
         <translation language="en"><![CDATA[Add a game]]></translation>
         <translation language="nl"><![CDATA[Voeg een partij toe]]></translation>
-		<translation language="cz"><![CDATA[Přidat zápas]]></translation>
+	<translation language="cz"><![CDATA[Přidat zápas]]></translation>
       </item>
       <item type="label" name="Games">
         <translation language="en"><![CDATA[games]]></translation>
         <translation language="nl"><![CDATA[partijen]]></translation>
-		<translation language="cz"><![CDATA[zápasy]]></translation>
+	<translation language="cz"><![CDATA[zápasy]]></translation>
       </item>
       <item type="label" name="GamesPlayed">
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
-		<translation language="cz"><![CDATA[Odehrané zápasy]]></translation>
+	<translation language="cz"><![CDATA[Odehrané zápasy]]></translation>
       </item>
-      
       <item type="label" name="Players">
         <translation language="en"><![CDATA[players]]></translation>
         <translation language="nl"><![CDATA[spelers]]></translation>
-		<translation language="cz"><![CDATA[hráči]]></translation>
+	<translation language="cz"><![CDATA[hráči]]></translation>
       </item>
       <item type="label" name="Ranking">
         <translation language="en"><![CDATA[ranking]]></translation>
         <translation language="nl"><![CDATA[ranking]]></translation>
-		<translation language="cz"><![CDATA[hodnocení]]></translation>
+	<translation language="cz"><![CDATA[hodnocení]]></translation>
       </item>
-      
       <item type="label" name="TopRanking">
         <translation language="en"><![CDATA[top ranking]]></translation>
         <translation language="nl"><![CDATA[top ranking]]></translation>
-		<translation language="cz"><![CDATA[nejvyšší hodnocení]]></translation>
+	<translation language="cz"><![CDATA[nejvyšší hodnocení]]></translation>
       </item>
     </Pages>
     <EloRating>
       <item type="label" name="Draw">
         <translation language="en"><![CDATA[draw]]></translation>
         <translation language="nl"><![CDATA[remise]]></translation>
-		<translation language="cz"><![CDATA[remíza]]></translation>
+	<translation language="cz"><![CDATA[remíza]]></translation>
       </item>
       <item type="label" name="Draws">
         <translation language="en"><![CDATA[draws]]></translation>
         <translation language="nl"><![CDATA[remises]]></translation>
-		<translation language="cz"><![CDATA[remízy]]></translation>
+	<translation language="cz"><![CDATA[remízy]]></translation>
       </item>
       <item type="message" name="Active">
         <translation language="en"><![CDATA[Should a player suddenly disappear (other school, company ...) you can hide him/her here by unchecking. The player won't show up anywhere on the website but the games that he/she played still count for the Elo-ratings of the players who are active.]]></translation>
         <translation language="nl"><![CDATA[Je kan een speler deactiveren door het vinkje alhier uit te vinken. Dit zorgt ervoor dat de speler nergens meer op de website verschijnt, maar zijn/haar partijen wel blijven meetellen voor de ratings van andere spelers.]]></translation>
-		<translation language="cz"><![CDATA[Když hráč již není aktivní (škola, práce, ...), tak ho můžete skrýt odškrtnutím této možnosti. Tento hráč se nezobrazí nikde na webových stránkách, ale hry které byly tímto hráčem odehrány zůstanou započítány pro Elo hodnocení pro aktivní hráče.]]></translation>
+	<translation language="cz"><![CDATA[Když hráč již není aktivní (škola, práce, ...), tak ho můžete skrýt odškrtnutím této možnosti. Tento hráč se nezobrazí nikde na webových stránkách, ale hry které byly tímto hráčem odehrány zůstanou započítány pro Elo hodnocení pro aktivní hráče.]]></translation>
       </item>
       <item type="message" name="ActiveGame">
         <translation language="en"><![CDATA[When players add a game with the "Add a game" widget, by default, the game is inactive and doesn't have any influence on the website.
 With this option, you can activate this game.]]></translation>
         <translation language="nl"><![CDATA[Wanneer er via de 'Voeg een partij toe'-widget partijen worden toegevoegd staan deze standaard op 'niet actief'. Met dit vinkje kan je deze partij activeren en telt ze wel mee voor de berekening van de rankings.]]></translation>
-		<translation language="cz"><![CDATA[Pokud hráč přidá zápas přes widget "Přidat zápas", defaultně je tato hra inaktivní a nemá žádný vliv na statistiky zobrazené na webu.
+	<translation language="cz"><![CDATA[Pokud hráč přidá zápas přes widget "Přidat zápas", defaultně je tato hra inaktivní a nemá žádný vliv na statistiky zobrazené na webu.
 S touto možností můžete sám aktivovat tuto hru.]]></translation>
       </item>
       <item type="message" name="ConfirmDeletePlayer">
@@ -77,7 +75,7 @@ If you do, all %1$s's games will be deleted too. That way all the Elo ratings of
 
 Tip: If you just deactivate %1$s, the Elo ratings of the other players remain unchanged but %1$s won't be visible on the site anymore too.]]></translation>
         <translation language="nl"><![CDATA[Ben je zeker dat je %1$s wil verwijderen? Als je dat doet worden ook al %1$s zijn/haar partijen verwijderd wat als gevolg heeft dat de Elo-ratings van alle andere spelers ook zullen veranderen alsof ze nooit tegen %1$s gespeeld zouden hebben. Tip: Misschien is beter om %1$s te deactiveren? Dan wordt %1$s onzichtbaar op de site, maar blijven alle ratings behouden.]]></translation>
-		<translation language="cz"><![CDATA[Jste si jist, že chcete smazat %1$s?
+	<translation language="cz"><![CDATA[Jste si jist, že chcete smazat %1$s?
 
 Pokud to uděláte, všechny zápasy hráče %1$s budou odstraněny. Tímto se změní také Elo hodnocení pro všechny ostatní hráče, pokud hráli s tímto smazaným hráčem (%1$s) zápas.
 
@@ -86,148 +84,148 @@ Poznámka: Pokud hráče %1$s pouze deaktivujete, Elo hodnocení pro ostatní hr
       <item type="message" name="CurrentElo">
         <translation language="en"><![CDATA[The current Elo rating of %1$s is %2$s. It's not possible to change this rating directly because it's a calculated value.]]></translation>
         <translation language="nl"><![CDATA[De huidige Elo-rating van %1$s is %2$s. Je kan deze niet handmatig veranderen daar deze wordt berekend op basis van de gespeelde partijen.]]></translation>
-		<translation language="cz"><![CDATA[Aktuální Elo hodnocení pro hráče %1$s je %2$s. Není možné toto hodnocení měnit přímo, protože je počítáno na základě odehraných her s ostatními hráči.]]></translation>
+	<translation language="cz"><![CDATA[Aktuální Elo hodnocení pro hráče %1$s je %2$s. Není možné toto hodnocení měnit přímo, protože je počítáno na základě odehraných her s ostatními hráči.]]></translation>
       </item>
       <item type="message" name="ImmediateRecalculation">
         <translation language="en"><![CDATA[Games added with the "Add a game" widget are inactive by default. The administrator, probably you, has to activate them before the recalculations of the ratings happen.
 If you check this option, the recalculations will happen immediate after the adding of the game so you don't have login.]]></translation>
         <translation language="nl"><![CDATA[Wanneer er via de 'Voeg een partij toe'-widget partijen worden toegevoegd staan deze standaard op 'niet actief' en zijn ze van geen tel voor de berekening van de ratings tot de adminstrator deze partijen activeert. Met deze optie kan je de activeren stap laten overslaan.]]></translation>
-		<translation language="cz"><![CDATA[Zápasy přidané pomocí "Přidat zápas" widgetu jsou defaultně neaktivní. Administrátor, pravděpodobně vy, je musí ručně potvrdit než se započítají do hodnocení a zobrazí na webu.
+	<translation language="cz"><![CDATA[Zápasy přidané pomocí "Přidat zápas" widgetu jsou defaultně neaktivní. Administrátor, pravděpodobně vy, je musí ručně potvrdit než se započítají do hodnocení a zobrazí na webu.
 Pokud zaškrnete tuto možnost, tak k přepočtu hodnocení dojde automaticky ihned po vložení zápasu, takže ho nebudete muset potvrzovat ručně.]]></translation>
       </item>
       <item type="message" name="MinimumPlayedGames">
         <translation language="en"><![CDATA[Players have to play a certain number of games before they show up in the ranking.]]></translation>
         <translation language="nl"><![CDATA[Spelers moeten een aantal partijen spelen alvorens ze in de de ranking verschijnen. Dit aantal stel je hier in.]]></translation>
-		<translation language="cz"><![CDATA[Hráči musejí odehrát určitý počet zápasů než se zobrazí v hodnocení.]]></translation>
+	<translation language="cz"><![CDATA[Hráči musejí odehrát určitý počet zápasů než se zobrazí v hodnocení.]]></translation>
       </item>
       <item type="message" name="NoGames">
         <translation language="en"><![CDATA[Until now, no games have been played.]]></translation>
         <translation language="nl"><![CDATA[Er werden nog geen partijen gespeeld.]]></translation>
-		<translation language="cz"><![CDATA[Zatím nebyly odehrány žádné zápasy.]]></translation>
+	<translation language="cz"><![CDATA[Zatím nebyly odehrány žádné zápasy.]]></translation>
       </item>
       <item type="message" name="NoPlayers">
         <translation language="en"><![CDATA[There are no players yet.]]></translation>
         <translation language="nl"><![CDATA[Er zijn nog geen spelers.]]></translation>
-		<translation language="cz"><![CDATA[Nejsou zde zatím žádní hráči.]]></translation>
+	<translation language="cz"><![CDATA[Nejsou zde zatím žádní hráči.]]></translation>
       </item>
       <item type="message" name="Password">
         <translation language="en"><![CDATA[With the "Add a game" widget it's possible to let your players add games by themselves in the Frontend.
 To add a little bit of security it's mandatory to fill in a password. This password can be set here.
 The current password is encrypted and cannot be retrieved. You can however always set a new one by filling in this field.]]></translation>
         <translation language="nl"><![CDATA[Om een partij toe te voegen via de 'Voeg een partij toe' widget moet er een wachtwoord ingegeven worden. Dat wachtwoord kan je hier kiezen. Laat het veld leeg om het huidige wachtwoord te behouden.]]></translation>
-		<translation language="cz"><![CDATA[Pomocí "Přidat zápas" widgetu je možné umožnit hráčům přidávat odehrané zápasy.
+	<translation language="cz"><![CDATA[Pomocí "Přidat zápas" widgetu je možné umožnit hráčům přidávat odehrané zápasy.
 Pro lepší zabezpečení je nutné zadat heslo, které se nastavuje zde.
 Aktuální používané heslo je zašifrováno a nemlže být obnoveno. Nicméně si zde můžete kdykoliv nastavit heslo nové vyplněním tohoto pole.]]></translation>
       </item>
       <item type="message" name="StartElo">
         <translation language="en"><![CDATA[Normally this value should be %1$s for every player. However, should you want to give someone a head start it's possible to do this here.]]></translation>
         <translation language="nl"><![CDATA[Normaal gezien moet deze waarde %1$s zijn voor elke speler. Wil je iemand echter een voorsprong geven, dan kan dat eventueel.]]></translation>
-		<translation language="cz"><![CDATA[Obvykle má být tato hodnota %1$s pro každého hráče. Nicméně, pokud chcete dát někomu vedení ihned ze začátku, tak to můžete udělat zde.]]></translation>
+	<translation language="cz"><![CDATA[Obvykle má být tato hodnota %1$s pro každého hráče. Nicméně, pokud chcete dát někomu vedení ihned ze začátku, tak to můžete udělat zde.]]></translation>
       </item>
       <item type="message" name="TopLatestGames">
         <translation language="en"><![CDATA[The Latest Games-Widget shows just the most recent games that were played. Here you can set how big that top is.]]></translation>
         <translation language="nl"><![CDATA[De Recentste partijen widget toont, jawel, de meest recente partijen. Hier kan je instellen hoeveel dat dat er precies moeten zijn.]]></translation>
-		<translation language="cz"><![CDATA[Poslední zápasy - Widget zobrazuje poslední odehrané zápasy. Zde můžete nastavit, jak má být tento widget velký.]]></translation>
+	<translation language="cz"><![CDATA[Poslední zápasy - Widget zobrazuje poslední odehrané zápasy. Zde můžete nastavit, jak má být tento widget velký.]]></translation>
       </item>
       <item type="message" name="TopRankingCount">
         <translation language="en"><![CDATA[The Top Ranking-Widget shows just the top of the ranking. Here you can set how big that top is.]]></translation>
         <translation language="nl"><![CDATA[The Top Ranking Widget toont slecht de top van de ranking. Hier kan je instellen hoe groot die top is.]]></translation>
-		<translation language="cz"><![CDATA[Nejvyšší hodnocení - Widget zobrazuje hráče s nejvyšším hodnocením. Zde můžete nastavit, jak má být tento widget velký.]]></translation>
+	<translation language="cz"><![CDATA[Nejvyšší hodnocení - Widget zobrazuje hráče s nejvyšším hodnocením. Zde můžete nastavit, jak má být tento widget velký.]]></translation>
       </item>
       <item type="label" name="AddAGame">
         <translation language="en"><![CDATA[add a game]]></translation>
         <translation language="nl"><![CDATA[voeg een partij toe]]></translation>
-		<translation language="cz"><![CDATA[přidat zápas]]></translation>
+	<translation language="cz"><![CDATA[přidat zápas]]></translation>
       </item>
       <item type="label" name="AddAPlayer">
         <translation language="en"><![CDATA[add a player]]></translation>
         <translation language="nl"><![CDATA[voeg een speler toe]]></translation>
-		<translation language="cz"><![CDATA[přidat hráče]]></translation>
+	<translation language="cz"><![CDATA[přidat hráče]]></translation>
       </item>
       <item type="label" name="AddGameWidget">
         <translation language="en"><![CDATA[add a game - widget]]></translation>
         <translation language="nl"><![CDATA[voeg een partij toe - widget]]></translation>
-		<translation language="cz"><![CDATA[přidat zápas - widget]]></translation>
+	<translation language="cz"><![CDATA[přidat zápas - widget]]></translation>
       </item>
       <item type="label" name="CurrentElo">
         <translation language="en"><![CDATA[current Elo rating]]></translation>
         <translation language="nl"><![CDATA[huidige Elo-rating]]></translation>
-		<translation language="cz"><![CDATA[aktuální Elo hodnocení]]></translation>
+	<translation language="cz"><![CDATA[aktuální Elo hodnocení]]></translation>
       </item>
       <item type="label" name="DatePlayed">
         <translation language="en"><![CDATA[date of game]]></translation>
         <translation language="nl"><![CDATA[speeldatum]]></translation>
-		<translation language="cz"><![CDATA[datum zápasu]]></translation>
+	<translation language="cz"><![CDATA[datum zápasu]]></translation>
       </item>
       <item type="label" name="DeletePlayer">
         <translation language="en"><![CDATA[delete player %1$s]]></translation>
         <translation language="nl"><![CDATA[verwijder speler %1$s]]></translation>
-		<translation language="cz"><![CDATA[odstranit hráče %1$s]]></translation>
+	<translation language="cz"><![CDATA[odstranit hráče %1$s]]></translation>
       </item>
       <item type="label" name="Draws">
         <translation language="en"><![CDATA[draws]]></translation>
         <translation language="nl"><![CDATA[remises]]></translation>
-		<translation language="cz"><![CDATA[remízy]]></translation>
+	<translation language="cz"><![CDATA[remízy]]></translation>
       </item>
       <item type="label" name="EditGame">
         <translation language="en"><![CDATA[edit game]]></translation>
         <translation language="nl"><![CDATA[bewerk partij]]></translation>
-		<translation language="cz"><![CDATA[upravit zápas]]></translation>
+	<translation language="cz"><![CDATA[upravit zápas]]></translation>
       </item>
       <item type="label" name="EditPlayer">
         <translation language="en"><![CDATA[edit player]]></translation>
         <translation language="nl"><![CDATA[bewerk speler]]></translation>
-		<translation language="cz"><![CDATA[upravit hráče]]></translation>
+	<translation language="cz"><![CDATA[upravit hráče]]></translation>
       </item>
       <item type="label" name="EditPlayerName">
         <translation language="en"><![CDATA[edit %1$s ]]></translation>
         <translation language="nl"><![CDATA[bewerk %1$s]]></translation>
-		<translation language="cz"><![CDATA[upravit %1$s ]]></translation>
+	<translation language="cz"><![CDATA[upravit %1$s ]]></translation>
       </item>
       <item type="label" name="Games">
         <translation language="en"><![CDATA[games]]></translation>
         <translation language="nl"><![CDATA[partijen]]></translation>
-		<translation language="cz"><![CDATA[zápasy]]></translation>
+	<translation language="cz"><![CDATA[zápasy]]></translation>
       </item>
       <item type="label" name="GamesPlayed">
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
-		<translation language="cz"><![CDATA[zápasů odehráno]]></translation>
+	<translation language="cz"><![CDATA[zápasů odehráno]]></translation>
       </item>
       <item type="label" name="GeneralNumbers">
         <translation language="en"><![CDATA[general numbers]]></translation>
         <translation language="nl"><![CDATA[aantallen]]></translation>
-		<translation language="cz"><![CDATA[hlavní čísla]]></translation>
+	<translation language="cz"><![CDATA[hlavní čísla]]></translation>
       </item>
       <item type="label" name="ImmediateRecalculation">
         <translation language="en"><![CDATA[immediate recalculation]]></translation>
         <translation language="nl"><![CDATA[meteen herbereken]]></translation>
-		<translation language="cz"><![CDATA[okamžitý přepočet]]></translation>
+	<translation language="cz"><![CDATA[okamžitý přepočet]]></translation>
       </item>
       <item type="label" name="Info">
         <translation language="en"><![CDATA[Extra information (place ...)]]></translation>
         <translation language="nl"><![CDATA[Extra informatie (plaats, ...)]]></translation>
-		<translation language="cz"><![CDATA[Doplňující informace (místo, ...)]]></translation>
+	<translation language="cz"><![CDATA[Doplňující informace (místo, ...)]]></translation>
       </item>
       <item type="label" name="Lost">
         <translation language="en"><![CDATA[lost]]></translation>
         <translation language="nl"><![CDATA[verloren]]></translation>
-		<translation language="cz"><![CDATA[prohry]]></translation>
+	<translation language="cz"><![CDATA[prohry]]></translation>
       </item>
       <item type="label" name="MinimumPlayedGames">
         <translation language="en"><![CDATA[Minimum number of games]]></translation>
         <translation language="nl"><![CDATA[Minimum aantal gespeelde partijen]]></translation>
-		<translation language="cz"><![CDATA[Minimální počet zápasů]]></translation>
+	<translation language="cz"><![CDATA[Minimální počet zápasů]]></translation>
       </item>
       <item type="label" name="Player1">
         <translation language="en"><![CDATA[white]]></translation>
         <translation language="nl"><![CDATA[wit]]></translation>
-		<translation language="cz"><![CDATA[bílý]]></translation>
+	<translation language="cz"><![CDATA[bílý]]></translation>
       </item>
       <item type="label" name="Player2">
         <translation language="en"><![CDATA[black]]></translation>
         <translation language="nl"><![CDATA[zwart]]></translation>
-		<translation language="cz"><![CDATA[černý]]></translation>
+	<translation language="cz"><![CDATA[černý]]></translation>
       </item>
       <item type="label" name="Players">
         <translation language="en"><![CDATA[players]]></translation>
@@ -236,72 +234,72 @@ Aktuální používané heslo je zašifrováno a nemlže být obnoveno. Nicmén�
       <item type="label" name="Score1">
         <translation language="en"><![CDATA[score white]]></translation>
         <translation language="nl"><![CDATA[score wit]]></translation>
-		<translation language="cz"><![CDATA[skóre bílý]]></translation>
+	<translation language="cz"><![CDATA[skóre bílý]]></translation>
       </item>
       <item type="label" name="Score2">
         <translation language="en"><![CDATA[score black]]></translation>
         <translation language="nl"><![CDATA[score zwart]]></translation>
-		<translation language="cz"><![CDATA[skóre černý]]></translation>
+	<translation language="cz"><![CDATA[skóre černý]]></translation>
       </item>
       <item type="label" name="StartElo">
         <translation language="en"><![CDATA[start Elo rating]]></translation>
         <translation language="nl"><![CDATA[start Elo-rating]]></translation>
-		<translation language="cz"><![CDATA[startovní Elo hodnocení]]></translation>
+	<translation language="cz"><![CDATA[startovní Elo hodnocení]]></translation>
       </item>
       <item type="label" name="TopLatestGames">
         <translation language="en"><![CDATA[Number of games in the Latest Games Widget]]></translation>
         <translation language="nl"><![CDATA[Aantal partijen in de Recentste partijen widget]]></translation>
-		<translation language="cz"><![CDATA[Počet zápasů zobrazených ve widgetu Poslední zápasy]]></translation>
+	<translation language="cz"><![CDATA[Počet zápasů zobrazených ve widgetu Poslední zápasy]]></translation>
       </item>
       <item type="label" name="TopRankingCount">
         <translation language="en"><![CDATA[Number of players in the Top Ranking Widget]]></translation>
         <translation language="nl"><![CDATA[Aantal spelers in de Top Ranking Widget]]></translation>
-		<translation language="cz"><![CDATA[Počet hráčů zobrazených ve widgetu Nejvyšší hodnocení]]></translation>
+	<translation language="cz"><![CDATA[Počet hráčů zobrazených ve widgetu Nejvyšší hodnocení]]></translation>
       </item>
       <item type="label" name="Won">
         <translation language="en"><![CDATA[won]]></translation>
         <translation language="nl"><![CDATA[gewonnen]]></translation>
-		<translation language="cz"><![CDATA[výhra]]></translation>
+	<translation language="cz"><![CDATA[výhra]]></translation>
       </item>
       <item type="error" name="DateIsRequired">
         <translation language="en"><![CDATA[you need to fill in a valid date]]></translation>
         <translation language="nl"><![CDATA[vul een geldige datum in]]></translation>
-		<translation language="cz"><![CDATA[je potřeba vložit platné datum]]></translation>
+	<translation language="cz"><![CDATA[je potřeba vložit platné datum]]></translation>
       </item>
       <item type="error" name="InvalidScoreEntered">
         <translation language="en"><![CDATA[Invalid score entered]]></translation>
         <translation language="nl"><![CDATA[ongeldige score ingevuld]]></translation>
-		<translation language="cz"><![CDATA[Vloženo neplatné skóre]]></translation>
+	<translation language="cz"><![CDATA[Vloženo neplatné skóre]]></translation>
       </item>
       <item type="error" name="Password">
         <translation language="en"><![CDATA[Fill in a valid password. The maximum length is 15 characters.]]></translation>
         <translation language="nl"><![CDATA[Vul een geldig wachtwoord in. De maximum lengte is 15 karakters.]]></translation>
-		<translation language="cz"><![CDATA[Vložte platné heslo. Maximální délka je 15 znaků.]]></translation>
+	<translation language="cz"><![CDATA[Vložte platné heslo. Maximální délka je 15 znaků.]]></translation>
       </item>
       <item type="error" name="Player1VsPlayer2">
         <translation language="en"><![CDATA[One cannot play against him/herself.]]></translation>
         <translation language="nl"><![CDATA[iemand kan niet tegen zichzelf spelen]]></translation>
-		<translation language="cz"><![CDATA[Hráč nemůže hrát sám proti sobě.]]></translation>
+	<translation language="cz"><![CDATA[Hráč nemůže hrát sám proti sobě.]]></translation>
       </item>
       <item type="error" name="PlayerIsRequired">
         <translation language="en"><![CDATA[%1$s is a required field]]></translation>
         <translation language="nl"><![CDATA[%1$s is een verplicht veld]]></translation>
-		<translation language="cz"><![CDATA[%1$s je vyžadováno]]></translation>
+	<translation language="cz"><![CDATA[%1$s je vyžadováno]]></translation>
       </item>
       <item type="error" name="StartEloRange">
         <translation language="en"><![CDATA[The start Elo rating has to be a value between %1$s and %2$s.]]></translation>
         <translation language="nl"><![CDATA[de start Elo-rating moet een getal tussen %1$s en %2$s zijn]]></translation>
-		<translation language="cz"><![CDATA[Startovací Elo hodnocení by mělo mít hodnotu mezi %1$s a %2$s.]]></translation>
+	<translation language="cz"><![CDATA[Startovací Elo hodnocení by mělo mít hodnotu mezi %1$s a %2$s.]]></translation>
       </item>
       <item type="error" name="TimeIsRequired">
         <translation language="en"><![CDATA[you need to fill in a valid time]]></translation>
         <translation language="nl"><![CDATA[vul een geldige tijd in]]></translation>
-		<translation language="cz"><![CDATA[vložte správný čas]]></translation>
+	<translation language="cz"><![CDATA[vložte správný čas]]></translation>
       </item>
       <item type="error" name="TopLatestGames">
         <translation language="en"><![CDATA[Fill in a valid number.]]></translation>
         <translation language="nl"><![CDATA[Vul een geldig getal in.]]></translation>
-		<translation language="cz"><![CDATA[Vložte správné číslo.]]></translation>
+	<translation language="cz"><![CDATA[Vložte správné číslo.]]></translation>
       </item>
     </EloRating>
   </Backend>
@@ -312,67 +310,62 @@ Aktuální používané heslo je zašifrováno a nemlže být obnoveno. Nicmén�
       <item type="label" name="Draws">
         <translation language="en"><![CDATA[draws]]></translation>
         <translation language="nl"><![CDATA[remise]]></translation>
-		<translation language="cz"><![CDATA[remízy]]></translation>
+	<translation language="cz"><![CDATA[remízy]]></translation>
       </item>
       <item type="label" name="EloGamesPlayed">
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
-		<translation language="cz"><![CDATA[zápasů odehráno]]></translation>
+	<translation language="cz"><![CDATA[zápasů odehráno]]></translation>
       </item>
       <item type="label" name="EloRating">
         <translation language="en"><![CDATA[elo rating]]></translation>
         <translation language="nl"><![CDATA[elo-rating]]></translation>
-		<translation language="cz"><![CDATA[elo hodnocení]]></translation>
+	<translation language="cz"><![CDATA[elo hodnocení]]></translation>
       </item>
       <item type="label" name="EloTopRanking">
         <translation language="en"><![CDATA[top %1$s]]></translation>
         <translation language="nl"><![CDATA[top %1$s]]></translation>
-		<translation language="cz"><![CDATA[nejlepších %1$s]]></translation>
+	<translation language="cz"><![CDATA[nejlepších %1$s]]></translation>
       </item>
-     
       <item type="label" name="GamesPlayed">
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
-		<translation language="cz"><![CDATA[zápasů odehráno]]></translation>
+	<translation language="cz"><![CDATA[zápasů odehráno]]></translation>
       </item>
-      
       <item type="label" name="Lost">
         <translation language="en"><![CDATA[lost]]></translation>
         <translation language="nl"><![CDATA[verloren]]></translation>
-		<translation language="cz"><![CDATA[prohra]]></translation>
+	<translation language="cz"><![CDATA[prohra]]></translation>
       </item>
-     
       <item type="label" name="Player">
         <translation language="en"><![CDATA[player]]></translation>
         <translation language="nl"><![CDATA[speler]]></translation>
-		<translation language="cz"><![CDATA[hráč]]></translation>
+	<translation language="cz"><![CDATA[hráč]]></translation>
       </item>
       <item type="label" name="Player1">
         <translation language="en"><![CDATA[white]]></translation>
         <translation language="nl"><![CDATA[wit]]></translation>
-		<translation language="cz"><![CDATA[bílý]]></translation>
+	<translation language="cz"><![CDATA[bílý]]></translation>
       </item>
       <item type="label" name="Player2">
         <translation language="en"><![CDATA[black]]></translation>
         <translation language="nl"><![CDATA[zwart]]></translation>
-		<translation language="cz"><![CDATA[černý]]></translation>
+	<translation language="cz"><![CDATA[černý]]></translation>
       </item>
-     
       <item type="label" name="Ranking">
         <translation language="en"><![CDATA[ranking]]></translation>
         <translation language="nl"><![CDATA[ranking]]></translation>
-		<translation language="cz"><![CDATA[hodnocení]]></translation>
+	<translation language="cz"><![CDATA[hodnocení]]></translation>
       </item>
-     
       <item type="label" name="Won">
         <translation language="en"><![CDATA[won]]></translation>
         <translation language="nl"><![CDATA[gewonnen]]></translation>
-		<translation language="cz"><![CDATA[výhra]]></translation>
+	<translation language="cz"><![CDATA[výhra]]></translation>
       </item>
       <item type="message" name="NotAPlayerYet">
         <translation language="nl"><![CDATA[Gebruik onderstaand formulier om je partijen toe te voegen. Staat jouw naam, of die van je tegenstander niet in de lijst met spelers? Neem contact op met de webmaster.]]></translation>
         <translation language="en"><![CDATA[Use the form below to add your games. The list with players hasn't got your or your opponent's name yet? Contact the webmaster.]]></translation>
-		<translation language="cz"><![CDATA[Použijte formulář níže pro přidání nového zápasu. Seznam hráčů neobsahuje vaše nebo soupeřovo jméno? Kontaktujte prosím webmastera.]]></translation>
+	<translation language="cz"><![CDATA[Použijte formulář níže pro přidání nového zápasu. Seznam hráčů neobsahuje vaše nebo soupeřovo jméno? Kontaktujte prosím webmastera.]]></translation>
       </item>
       <item type="message" name="EloGamesPlayed">
         <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played. 
@@ -382,109 +375,108 @@ Aktuální používané heslo je zašifrováno a nemlže být obnoveno. Nicmén�
 <translation language="cz"><![CDATA[<strong>%1$s</strong> zápasů bylo celkem odehráno. 
 <strong>%2$s</strong> z těchto zápasů vyhrál %3$s, <strong>%4$s</strong> z těchto zápasů vyhrál %5$s a <strong>%6$s</strong> zápasů skončilo remízou.]]></translation>
       </item>
-      
       <item type="message" name="HasEloAndRanking">
         <translation language="en"><![CDATA[%1$s has an Elo rating of %2$s and is ranked at position %3$s.
 %1$s won %4$s games, lost %5$s and played a draw %6$s times.]]></translation>
         <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s en staat op plaats %3$s in de rankschikking.
 %1$s won %4$s partijen, verloor er %5$s en speelde %6$s keer gelijk.   ]]></translation>
-<translation language="cz"><![CDATA[%1$s má Elo hodnocení %2$s a je umístěn na pozici %3$s.
+	<translation language="cz"><![CDATA[%1$s má Elo hodnocení %2$s a je umístěn na pozici %3$s.
 %1$s vyhrál %4$s zápasů, prohrál %5$s a remizoval %6$s.]]></translation>
       </item>      
       <item type="message" name="NoPlayersYet">
         <translation language="en"><![CDATA[There are no active players.]]></translation>
         <translation language="nl"><![CDATA[Er zijn nog geen actieve spelers.]]></translation>
-		<translation language="cz"><![CDATA[Nenachází se zde žádní aktivní hráči.]]></translation>
+	<translation language="cz"><![CDATA[Nenachází se zde žádní aktivní hráči.]]></translation>
       </item>
       <item type="message" name="NoPlayersYetRanking">
         <translation language="en"><![CDATA[There are no players yet with enough games (%1$s) to be shown in the ranking.]]></translation>
         <translation language="nl"><![CDATA[Er zijn nog geen spelers die genoeg wedstrijden (%1$s) hebben gespeeld om opgenomen te worden in de rangschikking.]]></translation>
-		<translation language="cz"><![CDATA[Zatím se zde nenachází žádný hráč s dostatečným počtem odehraných zápasů (%1$s), aby mohl být zobrazen zde v hodnocení.]]></translation>
+	<translation language="cz"><![CDATA[Zatím se zde nenachází žádný hráč s dostatečným počtem odehraných zápasů (%1$s), aby mohl být zobrazen zde v hodnocení.]]></translation>
       </item>
       <item type="message" name="NoRankingYet">
         <translation language="en"><![CDATA[%1$s hasn't got a ranking or Elo rating because he/she played not enough games.]]></translation>
         <translation language="nl"><![CDATA[%1$s heeft nog geen ranking omdat hij/zij nog niet genoeg partijen heeft gespeeld.]]></translation>
-		<translation language="cz"><![CDATA[Hráč %1$s nezískal zatím žádné umístění nebo Elo hodnocení, protože neodehrál potřebný počet zápasů.]]></translation>
+	<translation language="cz"><![CDATA[Hráč %1$s nezískal zatím žádné umístění nebo Elo hodnocení, protože neodehrál potřebný počet zápasů.]]></translation>
       </item>
       <item type="message" name="NoGamesYet">
         <translation language="nl"><![CDATA[Er werden nog geen partijen gespeeld.]]></translation>
         <translation language="en"><![CDATA[No games played yet.]]></translation>
-		<translation language="cz"><![CDATA[Zatím žádný odehraný zápas.]]></translation>
+	<translation language="cz"><![CDATA[Zatím žádný odehraný zápas.]]></translation>
       </item>
       <item type="action" name="Player">
         <translation language="en"><![CDATA[player]]></translation>
         <translation language="nl"><![CDATA[speler]]></translation>
-		<translation language="cz"><![CDATA[hráč]]></translation>
+	<translation language="cz"><![CDATA[hráč]]></translation>
       </item>
       <item type="label" name="EloEvolved">
         <translation language="en"><![CDATA[%1$s's Elo rating evolution]]></translation>
         <translation language="nl"><![CDATA[De evolutie van de Elo-rating van %1$s]]></translation>
-		<translation language="cz"><![CDATA[%1$s - vývoj Elo hodnocení]]></translation>
+	<translation language="cz"><![CDATA[%1$s - vývoj Elo hodnocení]]></translation>
       </item>
       <item type="label" name="PlayersGames">
         <translation language="en"><![CDATA[%1$s's games against]]></translation>
         <translation language="nl"><![CDATA[de partijen van %1$s tegen]]></translation>
-		<translation language="cz"><![CDATA[%1$s - zápasy proti]]></translation>
+	<translation language="cz"><![CDATA[%1$s - zápasy proti]]></translation>
       </item>
        <item type="label" name="LatestGames">
         <translation language="en"><![CDATA[latest games]]></translation>
         <translation language="nl"><![CDATA[recentste partijen]]></translation>
-		<translation language="cz"><![CDATA[poslední zápasy]]></translation>
+	<translation language="cz"><![CDATA[poslední zápasy]]></translation>
       </item>
       <item type="label" name="Info">
         <translation language="nl"><![CDATA[Extra informatie (plaats, ...)]]></translation>
         <translation language="en"><![CDATA[Extra information (place, ...)]]></translation>
-		<translation language="cz"><![CDATA[Doplňující informace (místo, ...)]]></translation>
+	<translation language="cz"><![CDATA[Doplňující informace (místo, ...)]]></translation>
       </item>
        <item type="error" name="InvalidPassword">
         <translation language="nl"><![CDATA[Ongeldig wachtwoord.]]></translation>
         <translation language="en"><![CDATA[Invalid password.]]></translation>
-		<translation language="cz"><![CDATA[Neplatné heslo.]]></translation>
+	<translation language="cz"><![CDATA[Neplatné heslo.]]></translation>
       </item>
       <item type="error" name="InvalidPlayers">
         <translation language="en"><![CDATA[Select two different players.]]></translation>
         <translation language="nl"><![CDATA[Selecteer twee verschillende spelers.]]></translation>
-		<translation language="cz"><![CDATA[Vyberte dva různé hráče.]]></translation>
+	<translation language="cz"><![CDATA[Vyberte dva různé hráče.]]></translation>
       </item>
       <item type="error" name="InvalidScore">
         <translation language="en"><![CDATA[Invalid score.]]></translation>
         <translation language="nl"><![CDATA[Ongeldige score.]]></translation>
-		<translation language="cz"><![CDATA[Neplatné skóre.]]></translation>
+	<translation language="cz"><![CDATA[Neplatné skóre.]]></translation>
       </item>
       <item type="error" name="WrongPassword">
         <translation language="en"><![CDATA[Wrong password.]]></translation>
         <translation language="nl"><![CDATA[Verkeerd wachtwoord.]]></translation>
-		<translation language="cz"><![CDATA[Nesprávné heslo.]]></translation>
+	<translation language="cz"><![CDATA[Nesprávné heslo.]]></translation>
       </item>
       <item type="label" name="AddGame">
         <translation language="en"><![CDATA[Add a game]]></translation>
         <translation language="nl"><![CDATA[Voeg een partij toe]]></translation>
-		<translation language="cz"><![CDATA[Přidat zápas]]></translation>
+	<translation language="cz"><![CDATA[Přidat zápas]]></translation>
       </item>
       <item type="label" name="AddTheGame">
         <translation language="en"><![CDATA[add the game]]></translation>
         <translation language="nl"><![CDATA[Voeg partij toe]]></translation>
-		<translation language="cz"><![CDATA[přidat zápas]]></translation>
+	<translation language="cz"><![CDATA[přidat zápas]]></translation>
       </item>
       <item type="label" name="EloGamesPlayed">
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
-		<translation language="cz"><![CDATA[odehrané zápasy]]></translation>
+	<translation language="cz"><![CDATA[odehrané zápasy]]></translation>
       </item>
       <item type="label" name="GameAdded">
         <translation language="en"><![CDATA[Game added.]]></translation>
         <translation language="nl"><![CDATA[Partij toegevoegd]]></translation>
-		<translation language="cz"><![CDATA[Zápas přidán.]]></translation>
+	<translation language="cz"><![CDATA[Zápas přidán.]]></translation>
       </item>
       <item type="label" name="Draw">
         <translation language="en"><![CDATA[draw]]></translation>
         <translation language="nl"><![CDATA[remise]]></translation>
-		<translation language="cz"><![CDATA[remíza]]></translation>
+	<translation language="cz"><![CDATA[remíza]]></translation>
       </item>
       <item type="label" name="Draws">
         <translation language="en"><![CDATA[draws]]></translation>
         <translation language="nl"><![CDATA[remises]]></translation>
-		<translation language="cz"><![CDATA[remízy]]></translation>
+	<translation language="cz"><![CDATA[remízy]]></translation>
       </item>
     </Core>
   </Frontend>
