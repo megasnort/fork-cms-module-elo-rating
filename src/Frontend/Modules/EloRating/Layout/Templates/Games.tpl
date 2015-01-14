@@ -18,7 +18,7 @@
 							<tr>
 								<th width="40%">{$lblPlayer1}</th>
 								<th width="40%">{$lblPlayer2}</th>
-								<th width="20%" colspan="2"></th>
+								<th width="20%" colspan="2">{$lblResult}</th>
 							</tr>
 
 					

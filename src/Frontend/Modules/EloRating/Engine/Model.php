@@ -252,6 +252,10 @@ class Model
         )
         ) {
 
+            $player["winrate"] = round($player["won"] / $player["games_played"] * 100);
+            $player["lossrate"] = round($player["lost"] / $player["games_played"] * 100);
+            $player["drawrate"] = round($player["draws"] / $player["games_played"] * 100);
+
             $minimum_played_games = FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5);
 
             $player["games"] = (array) $db->getRecords(
