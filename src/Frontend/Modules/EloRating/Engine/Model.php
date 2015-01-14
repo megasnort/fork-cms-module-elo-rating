@@ -254,7 +254,8 @@ class Model
 
             $player["winrate"] = round($player["won"] / $player["games_played"] * 100);
             $player["lossrate"] = round($player["lost"] / $player["games_played"] * 100);
-            $player["drawrate"] = round($player["draws"] / $player["games_played"] * 100);
+            // to always have 100%
+            $player["drawrate"] = 100 - $player["winrate"] - $player["lossrate"];
 
             $minimum_played_games = FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5);
 
