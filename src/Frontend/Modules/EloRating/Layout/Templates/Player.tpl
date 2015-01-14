@@ -9,7 +9,7 @@
 					</header>
 					<p>
 					{option:player.ranking}
-						{$msgHasEloAndRanking|sprintf:{$player.name}:{$player.elo}:{$player.ranking}:{$player.won}:{$player.lost}:{$player.draws}:{$player.winrate}:{$player.lossrate}:{$player.drawrate}|nl2br}
+						{$msgHasEloAndRanking|sprintf:{$player.name}:{$player.elo}:{$player.ranking}:{$player.games_played}:{$player.won}:{$player.lost}:{$player.draws}:{$player.winrate}:{$player.lossrate}:{$player.drawrate}|nl2br}
 					{/option:player.ranking}
 
 					{option:!player.ranking}
