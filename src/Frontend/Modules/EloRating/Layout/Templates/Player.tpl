@@ -37,8 +37,7 @@
 							<tr>
 								<th>{$lblPlayer1}</th>
 								<th>{$lblPlayer2}</th>
-								<th></th>
-								<th></th>
+								<th colspan="2">{$lblResult}</th>
 								<th>{$lblDate}</th>
 								<th>{$lblEloRating}</th>
 							</tr>
