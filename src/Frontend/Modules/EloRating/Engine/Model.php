@@ -86,7 +86,7 @@ class Model
             INNER JOIN meta AS m1
                 ON m1.id = p1.meta_id
             INNER JOIN meta AS m2
-                ON m2.id = p1.meta_id
+                ON m2.id = p2.meta_id
             WHERE
                 g.active = 'Y'
             ORDER BY

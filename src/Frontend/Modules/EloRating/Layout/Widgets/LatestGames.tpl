@@ -17,7 +17,7 @@
 				<tr>
 					<th>{$lblPlayer1}</th>
 					<th>{$lblPlayer2}</th>
-					<th colspan="2"></th>
+					<th colspan="2">{$lblResult}</th>
 					<th>{$lblDate}</th>
 				</tr>
 
