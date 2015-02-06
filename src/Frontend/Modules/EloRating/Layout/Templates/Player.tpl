@@ -18,14 +18,14 @@
 					</p>
 					{option:player.history}
 						<h4>
-							{$lblEloEvolved|sprintf:{$player.name}|ucfirst}
+							{$lblEloEvolved|sprintf:{$player.name}}
 						</h4>
 						<svg id="evolution" width="100%" height="310"></svg>
 					{/option:player.history}
 
 					{option:player.games}
 						<h4>
-							{$lblPlayersGames|sprintf:{$player.name}|ucfirst}
+							{$lblPlayersGames|sprintf:{$player.name}}
 							<select id="opponents">
 								<option value="0">-</option>
 								{iteration:player.opponents}
