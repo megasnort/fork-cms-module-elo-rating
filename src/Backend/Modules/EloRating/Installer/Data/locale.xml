@@ -308,7 +308,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
       
       <item type="message" name="HasEloAndRanking">
         <translation language="en"><![CDATA[%1$s has an Elo rating of %2$s is ranked at position %3$s and played %4$s games.
-%1$s won %4$s games, lost %6$s and played a draw %7$s times.
+%1$s won %5$s games, lost %6$s and played a draw %7$s times.
 %1$s has therefore a win-rate of %8$s&#37;, a loss-rate of %9$s&#37; and a draw-rate of %10$s&#37;]]></translation>
         <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s, staat op plaats %3$s in de rankschikking en speelde %4$s partijen.
 %1$s won %5$s partijen, verloor er %6$s en speelde %7$s keer gelijk.
