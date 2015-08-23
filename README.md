@@ -5,6 +5,8 @@ Imagine you're playing some game (chess, pool, football ...) regularly at your c
  
 Comes in: ***The Elo Rating Module for Fork CMS***
 
+***Note, tested with Fork CMS 3.7.2. Should it be incompatible with the newest version of Fork, feel free to do a pull request or just send me a message. If I find the time, I will update***
+
 ## What's inside?
 * Backend actions for organizing your players and games
 * Automated calculation of the Elo ratings
@@ -18,8 +20,6 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 	* **Latest Games**: List of the most recent games
 	* **Add a Game**: Form to let players submit their own games (with password protection)
 * Translations for English and Dutch
-
-You can see an example here: [schakenopviso.megasnort.com](http://schakenopviso.megasnort.com) (in Dutch)
 
 ##Changelog
 **10th of January 2015**
