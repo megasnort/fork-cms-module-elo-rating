@@ -10,11 +10,10 @@ use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 /**
  * This is a widget that shows a simple overview about how many games were played etc.
  *
- * @author Stef Bastiaansen <stef@megasnort.be>
+ * @author Stef Bastiaansen <stef@megasnort.com>
  */
 class GamesPlayed extends FrontendBaseWidget
 {
-
     public function execute()
     {
         parent::execute();
@@ -25,8 +24,7 @@ class GamesPlayed extends FrontendBaseWidget
     private function parse()
     {
         $gamesPlayed = FrontendEloRatingModel::getGamesPlayed();
-        
+
         $this->tpl->assign('widgetGamesPlayed', $gamesPlayed);
-        
     }
 }

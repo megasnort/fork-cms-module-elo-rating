@@ -24,7 +24,7 @@
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
       </item>
-      
+
       <item type="label" name="Players">
         <translation language="en"><![CDATA[players]]></translation>
         <translation language="nl"><![CDATA[spelers]]></translation>
@@ -33,7 +33,7 @@
         <translation language="en"><![CDATA[ranking]]></translation>
         <translation language="nl"><![CDATA[ranking]]></translation>
       </item>
-      
+
       <item type="label" name="TopRanking">
         <translation language="en"><![CDATA[top ranking]]></translation>
         <translation language="nl"><![CDATA[top ranking]]></translation>
@@ -242,10 +242,10 @@ The current password is encrypted and cannot be retrieved. You can however alway
       </item>
     </EloRating>
   </Backend>
-  
+
   <Frontend>
     <Core>
-      
+
       <item type="label" name="Draws">
         <translation language="en"><![CDATA[draws]]></translation>
         <translation language="nl"><![CDATA[remise]]></translation>
@@ -262,17 +262,17 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="en"><![CDATA[top %1$s]]></translation>
         <translation language="nl"><![CDATA[top %1$s]]></translation>
       </item>
-     
+
       <item type="label" name="GamesPlayed">
         <translation language="en"><![CDATA[games played]]></translation>
         <translation language="nl"><![CDATA[partijen gespeeld]]></translation>
       </item>
-      
+
       <item type="label" name="Lost">
         <translation language="en"><![CDATA[lost]]></translation>
         <translation language="nl"><![CDATA[verloren]]></translation>
       </item>
-     
+
       <item type="label" name="Player">
         <translation language="en"><![CDATA[player]]></translation>
         <translation language="nl"><![CDATA[speler]]></translation>
@@ -285,12 +285,12 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="en"><![CDATA[black]]></translation>
         <translation language="nl"><![CDATA[zwart]]></translation>
       </item>
-     
+
       <item type="label" name="Ranking">
         <translation language="en"><![CDATA[ranking]]></translation>
         <translation language="nl"><![CDATA[ranking]]></translation>
       </item>
-     
+
       <item type="label" name="Won">
         <translation language="en"><![CDATA[won]]></translation>
         <translation language="nl"><![CDATA[gewonnen]]></translation>
@@ -300,12 +300,12 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="en"><![CDATA[Use the form below to add your games. The list with players hasn't got your or your opponent's name yet? Contact the webmaster.]]></translation>
       </item>
       <item type="message" name="EloGamesPlayed">
-        <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played. 
+        <translation language="en"><![CDATA[<strong>%1$s</strong> games have been played.
 <strong>%2$s</strong> of these games were won by %3$s, <strong>%4$s</strong> of the games were won by %5$s and <strong>%6$s</strong> games ended in a draw.]]></translation>
         <translation language="nl"><![CDATA[Er werden al <strong>%1$s</strong> partijen gespeeld.
 <strong>%2$s</strong> daarvan werden wonnen door %3$s, <strong>%4$s</strong> door %5$s en <strong>%6$s</strong> partijen eindigden in remise.]]></translation>
       </item>
-      
+
       <item type="message" name="HasEloAndRanking">
         <translation language="en"><![CDATA[%1$s has an Elo rating of %2$s is ranked at position %3$s and played %4$s games.
 %1$s won %5$s games, lost %6$s and played a draw %7$s times.
@@ -313,7 +313,7 @@ The current password is encrypted and cannot be retrieved. You can however alway
         <translation language="nl"><![CDATA[%1$s heeft een Elo-rating van %2$s, staat op plaats %3$s in de rankschikking en speelde %4$s partijen.
 %1$s won %5$s partijen, verloor er %6$s en speelde %7$s keer gelijk.
 %1$s heeft daardoor een win-rate van %8$s&#37; een verlies-rate van %9$s&#37; en een remise-rate van %10$s&#37;]]></translation>
-      </item>      
+      </item>
       <item type="message" name="NoPlayersYet">
         <translation language="en"><![CDATA[There are no active players.]]></translation>
         <translation language="nl"><![CDATA[Er zijn nog geen actieve spelers.]]></translation>
@@ -361,6 +361,10 @@ The current password is encrypted and cannot be retrieved. You can however alway
       <item type="error" name="InvalidScore">
         <translation language="en"><![CDATA[Invalid score.]]></translation>
         <translation language="nl"><![CDATA[Ongeldige score.]]></translation>
+      </item>
+      <item type="error" name="InvalidDate">
+        <translation language="en"><![CDATA[You need to fill in a valid date. (dd/mm/yyyy hh:mm)]]></translation>
+        <translation language="nl"><![CDATA[Vul een geldige datum in. (dd/mm/jjjj uu:mm)]]></translation>
       </item>
       <item type="error" name="WrongPassword">
         <translation language="en"><![CDATA[Wrong password.]]></translation>

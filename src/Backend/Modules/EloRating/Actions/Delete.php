@@ -13,24 +13,16 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
  */
 class Delete extends BackendBaseActionDelete
 {
-    
     public function execute()
     {
         $this->id = $this->getParameter('id', 'int');
 
         if ($this->record = BackendEloRatingModel::get($this->id)) {
-           
             parent::execute();
-            
             BackendEloRatingModel::delete($this->id);
-
-            $this->redirect(
-                BackendModel::createURLForAction('Index') . '&report=deleted'
-            );
+            $this->redirect(BackendModel::createURLForAction('Index') . '&report=deleted');
         } else {
-            $this->redirect(
-                BackendModel::createURLForAction('Index') . '&error=non-existing'
-            );
+            $this->redirect(BackendModel::createURLForAction('Index') . '&error=non-existing');
         }
     }
 }

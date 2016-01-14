@@ -2,7 +2,6 @@
 
 namespace Backend\Modules\EloRating\Actions;
 
-
 use Backend\Core\Engine\Base\ActionIndex as BackendBaseActionIndex;
 use Backend\Core\Engine\Authentication as BackendAuthentication;
 use Backend\Core\Engine\Model as BackendModel;
@@ -18,24 +17,21 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
  */
 class Index extends BackendBaseActionIndex
 {
-    
+
     public function execute()
     {
         parent::execute();
         $this->loadDataGrid();
         $this->parse();
         $this->display();
-
     }
 
-    
     private function loadDataGrid()
     {
         $this->dataGrid = new BackendDataGridDB(
             BackendEloRatingModel::QRY_GAMES,
             BL::getWorkingLanguage()
         );
-
 
         $this->dataGrid->setSortParameter('desc');
         $this->dataGrid->setSortingColumns(array('date'), 'date');
@@ -48,9 +44,7 @@ class Index extends BackendBaseActionIndex
             true
         );
 
-        // show the edit button
         if (BackendAuthentication::isAllowedAction('Edit')) {
-
             $this->dataGrid->addColumn(
                 'edit',
                 null,
@@ -60,9 +54,7 @@ class Index extends BackendBaseActionIndex
             );
         }
 
-        // show the delete button
         if (BackendAuthentication::isAllowedAction('Delete')) {
-
             $this->dataGrid->addColumn(
                 'delete',
                 null,
@@ -73,10 +65,9 @@ class Index extends BackendBaseActionIndex
         }
     }
 
-    
     protected function parse()
     {
         parent::parse();
-        $this->tpl->assign('dgGames', (string) $this->dataGrid->getContent());
+        $this->tpl->assign('dgGames', (string)$this->dataGrid->getContent());
     }
 }

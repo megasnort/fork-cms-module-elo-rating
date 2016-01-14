@@ -17,8 +17,6 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
  */
 class Settings extends BackendBaseActionEdit
 {
-    
-
     public function execute()
     {
         parent::execute();
@@ -28,46 +26,33 @@ class Settings extends BackendBaseActionEdit
         $this->display();
     }
 
-
     private function loadForm()
     {
-
         $this->frm = new BackendForm('settings');
 
         $this->frm->addDropdown(
             'minimum_played_games',
             array_combine(range(1, 10), range(1, 10)),
-            BackendModel::getModuleSetting($this->URL->getModule(), 'minimum_played_games', 5)
+            BackendModel::get('fork.settings')->get($this->URL->getModule(), 'minimum_played_games', 5)
         );
         $this->frm->addDropdown(
             'top_ranking_count',
             array_combine(range(2, 20), range(2, 20)),
-            BackendModel::getModuleSetting($this->URL->getModule(), 'top_ranking_count', 5)
+            BackendModel::get('fork.settings')->get($this->URL->getModule(), 'top_ranking_count', 5)
         );
 
         $this->frm->addDropdown(
             'top_latest_games',
             array_combine(range(2, 20), range(2, 20)),
-            BackendModel::getModuleSetting($this->URL->getModule(), 'top_latest_games', 5)
+            BackendModel::get('fork.settings')->get($this->URL->getModule(), 'top_latest_games', 5)
         );
 
-
-        $this->frm->addText(
-            'password'
-        );
+        $this->frm->addText('password');
 
         $this->frm->addCheckbox(
             'immediate_recalculation',
-            BackendModel::getModuleSetting($this->URL->getModule(), 'immediate_recalculation', 'N') == 'Y'
+            BackendModel::get('fork.settings')->get($this->URL->getModule(), 'immediate_recalculation', 'N') == 'Y'
         );
-        
-    }
-
-
-    protected function parse()
-    {
-        parent::parse();
-
     }
 
     private function validateForm()
@@ -94,12 +79,30 @@ class Settings extends BackendBaseActionEdit
                     );
                 }
 
-                BackendModel::setModuleSetting($this->URL->getModule(), 'immediate_recalculation', $this->frm->getField('immediate_recalculation')->getChecked() ? 'Y' : 'N');
+                BackendModel::get('fork.settings')->get(
+                    $this->URL->getModule(),
+                    'immediate_recalculation',
+                    $this->frm->getField('immediate_recalculation')->getChecked() ? 'Y' : 'N'
+                );
 
-                BackendModel::setModuleSetting($this->URL->getModule(), 'minimum_played_games', (int) $this->frm->getField('minimum_played_games')->getValue());
-                BackendModel::setModuleSetting($this->URL->getModule(), 'top_ranking_count', (int) $this->frm->getField('top_ranking_count')->getValue());
-                BackendModel::setModuleSetting($this->URL->getModule(), 'top_latest_games', (int) $this->frm->getField('top_latest_games')->getValue());
-                
+                BackendModel::get('fork.settings')->get(
+                    $this->URL->getModule(),
+                    'minimum_played_games',
+                    (int) $this->frm->getField('minimum_played_games')->getValue()
+                );
+
+                BackendModel::get('fork.settings')->get(
+                    $this->URL->getModule(),
+                    'top_ranking_count',
+                    (int) $this->frm->getField('top_ranking_count')->getValue()
+                );
+
+                BackendModel::get('fork.settings')->get(
+                    $this->URL->getModule(),
+                    'top_latest_games',
+                    (int) $this->frm->getField('top_latest_games')->getValue()
+                );
+
                 $this->redirect(BackendModel::createURLForAction('Settings') . '&report=saved');
             }
         }

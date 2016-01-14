@@ -15,23 +15,25 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
 /**
  * This is a widget that allows users to submit their own games
  *
- * @author Stef Bastiaansen <stef@megasnort.be>
+ * @author Stef Bastiaansen <stef@megasnort.com>
  */
 class AddGame extends FrontendBaseWidget
 {
+    /**
+     * @var FrontendForm
+     */
+    private $frm;
+
 
     public function execute()
     {
         parent::execute();
         $this->loadTemplate();
         $this->loadForm();
-        $this->parse();
     }
-
 
     private function loadForm()
     {
-        // create form
         $this->frm = new FrontendForm('addGameForm');
 
         $players = BackendEloRatingModel::getActivePlayers();
@@ -44,7 +46,7 @@ class AddGame extends FrontendBaseWidget
 
         $this->frm->addDropdown('player1', $players)->setDefaultElement('-', null);
         $this->frm->addDropdown('player2', $players)->setDefaultElement('-', null);
-        $this->frm->addDate('date');
+        $this->frm->addText('date', date('d/m/Y'));
         $this->frm->addTime('time');
 
         $this->frm->addDropdown('score1', $scores);
@@ -57,11 +59,5 @@ class AddGame extends FrontendBaseWidget
         $this->frm->parse($this->tpl);
 
 
-    }
-
-    private function parse()
-    {
-        
-       
     }
 }

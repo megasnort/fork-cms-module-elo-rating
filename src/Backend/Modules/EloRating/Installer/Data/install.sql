@@ -11,7 +11,6 @@ CREATE TABLE `elo_rating_games` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `elo_rating_players` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` tinytext,
@@ -26,7 +25,6 @@ CREATE TABLE `elo_rating_players` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `elo_history` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `player` int(11) DEFAULT NULL,
@@ -35,4 +33,3 @@ CREATE TABLE `elo_history` (
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
