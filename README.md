@@ -24,9 +24,10 @@ You can see an example here:
 * [carcassonnecup.4fan.cz](http://carcassonnecup.4fan.cz) (in Czech)
 
 ##Changelog
-**15th of January 2016**
+**14th of January 2016**
 
 * Bring up to date with latest Fork (3.9.x) conventions
+* Add Czech translation
 
 **10th of January 2015**
 
