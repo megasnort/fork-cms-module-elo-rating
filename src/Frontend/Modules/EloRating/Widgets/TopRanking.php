@@ -2,7 +2,6 @@
 
 namespace Frontend\Modules\EloRating\Widgets;
 
-
 use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Core\Engine\Base\Widget as FrontendBaseWidget;
 use Frontend\Core\Engine\Navigation as FrontendNavigation;

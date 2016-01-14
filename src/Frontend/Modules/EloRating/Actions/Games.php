@@ -8,13 +8,12 @@ use Frontend\Core\Engine\Navigation as FrontendNavigation;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 
 /**
- * This is the Games Action. It shows all the games games played. 
+ * This is the Games Action. It shows all the games games played.
  *
  * @author Stef Bastiaansen <stef@megasnort.com>
  */
 class Games extends FrontendBaseBlock
 {
-
     public function execute()
     {
         parent::execute();
@@ -22,13 +21,11 @@ class Games extends FrontendBaseBlock
         $this->parse();
     }
 
-    
     private function parse()
     {
         $games = FrontendEloRatingModel::getAllGames();
-        
-        $this->tpl->assign('games', $games);
 
+        $this->tpl->assign('games', $games);
         $this->tpl->assign('playerUrl', FrontendNavigation::getUrlForBlock('EloRating', 'Player'));
     }
 }

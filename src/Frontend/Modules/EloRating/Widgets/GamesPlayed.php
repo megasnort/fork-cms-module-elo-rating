@@ -23,8 +23,6 @@ class GamesPlayed extends FrontendBaseWidget
 
     private function parse()
     {
-        $gamesPlayed = FrontendEloRatingModel::getGamesPlayed();
-
-        $this->tpl->assign('widgetGamesPlayed', $gamesPlayed);
+        $this->tpl->assign('widgetGamesPlayed', FrontendEloRatingModel::getGamesPlayed());
     }
 }

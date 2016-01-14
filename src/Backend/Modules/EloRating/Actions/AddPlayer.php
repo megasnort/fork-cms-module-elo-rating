@@ -31,7 +31,8 @@ class AddPlayer extends BackendBaseActionAdd
         $this->frm = new BackendForm('add');
 
         $this->frm->addText('name');
-        $this->frm->addText('start_elo', BackendEloRatingModel::DEFAULT_ELO)->setAttribute('placeholder', BackendEloRatingModel::DEFAULT_ELO);
+        $this->frm->addText('start_elo', BackendEloRatingModel::DEFAULT_ELO)
+            ->setAttribute('placeholder', BackendEloRatingModel::DEFAULT_ELO);
         $this->frm->addCheckbox('active', true);
     }
 

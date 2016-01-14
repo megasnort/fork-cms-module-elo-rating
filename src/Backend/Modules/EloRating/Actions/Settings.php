@@ -70,7 +70,7 @@ class Settings extends BackendBaseActionEdit
             if ($this->frm->isCorrect()) {
 
                 if (strlen($this->frm->getField('password')->getValue()) > 0) {
-                    BackendModel::setModuleSetting(
+                    BackendModel::get('fork.settings')->set(
                         $this->URL->getModule(),
                         'password',
                         sha1(
@@ -79,25 +79,25 @@ class Settings extends BackendBaseActionEdit
                     );
                 }
 
-                BackendModel::get('fork.settings')->get(
+                BackendModel::get('fork.settings')->set(
                     $this->URL->getModule(),
                     'immediate_recalculation',
                     $this->frm->getField('immediate_recalculation')->getChecked() ? 'Y' : 'N'
                 );
 
-                BackendModel::get('fork.settings')->get(
+                BackendModel::get('fork.settings')->set(
                     $this->URL->getModule(),
                     'minimum_played_games',
                     (int) $this->frm->getField('minimum_played_games')->getValue()
                 );
 
-                BackendModel::get('fork.settings')->get(
+                BackendModel::get('fork.settings')->set(
                     $this->URL->getModule(),
                     'top_ranking_count',
                     (int) $this->frm->getField('top_ranking_count')->getValue()
                 );
 
-                BackendModel::get('fork.settings')->get(
+                BackendModel::get('fork.settings')->set(
                     $this->URL->getModule(),
                     'top_latest_games',
                     (int) $this->frm->getField('top_latest_games')->getValue()

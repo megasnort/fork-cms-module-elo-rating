@@ -2,13 +2,8 @@
 
 namespace Frontend\Modules\EloRating\Widgets;
 
-
-use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Core\Engine\Base\Widget as FrontendBaseWidget;
-use Frontend\Core\Engine\Navigation as FrontendNavigation;
-use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
 use Frontend\Core\Engine\Language as FL;
-
 use Frontend\Core\Engine\Form as FrontendForm;
 use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
 
@@ -23,7 +18,6 @@ class AddGame extends FrontendBaseWidget
      * @var FrontendForm
      */
     private $frm;
-
 
     public function execute()
     {
@@ -55,9 +49,6 @@ class AddGame extends FrontendBaseWidget
         $this->frm->addTextarea('comment', '');
         $this->frm->addPassword('password', '');
 
-        // parse the form
         $this->frm->parse($this->tpl);
-
-
     }
 }

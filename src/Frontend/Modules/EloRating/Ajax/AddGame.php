@@ -1,38 +1,37 @@
 <?php
 
-    namespace Frontend\Modules\EloRating\Ajax;
-
+namespace Frontend\Modules\EloRating\Ajax;
 
 use Frontend\Core\Engine\Base\AjaxAction as FrontendBaseAJAXAction;
 use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
-use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
-use Frontend\Core\Engine\Language as FL;
 use Frontend\Core\Engine\Model as FrontendModel;
+use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
+
 
 class AddGame extends FrontendBaseAJAXAction
 {
     public function execute()
     {
-        $player1 = (int) \SpoonFilter::getPostValue('player1', null, '', 'int');
-        $player2 = (int) \SpoonFilter::getPostValue('player2', null, '', 'int');
+        $player1 = (int)\SpoonFilter::getPostValue('player1', null, '', 'int');
+        $player2 = (int)\SpoonFilter::getPostValue('player2', null, '', 'int');
 
         $player1def = false;
         $player2def = false;
 
-        $score1 = (float) \SpoonFilter::getPostValue('score1', null, '', 'float');
-        $score2 = (float) \SpoonFilter::getPostValue('score2', null, '', 'float');
+        $score1 = (float)\SpoonFilter::getPostValue('score1', null, '', 'float');
+        $score2 = (float)\SpoonFilter::getPostValue('score2', null, '', 'float');
 
-        $date = (string) \SpoonFilter::getPostValue('date', null, '', 'string');
-        $time = (string) \SpoonFilter::getPostValue('time', null, '', 'string');
+        $date = (string)\SpoonFilter::getPostValue('date', null, '', 'string');
+        $time = (string)\SpoonFilter::getPostValue('time', null, '', 'string');
 
-        $comment = (string) \SpoonFilter::getPostValue('comment', null, '', 'string');
+        $comment = (string)\SpoonFilter::getPostValue('comment', null, '', 'string');
 
         // shorten password (sending really big password and hashing them isn't server friendly
-        $password = substr((string) \SpoonFilter::getPostValue('password', null, '', 'string'), 0, 15);
+        $password = substr((string)\SpoonFilter::getPostValue('password', null, '', 'string'), 0, 15);
 
         $players = BackendEloRatingModel::getActivePlayers();
 
-        $scores = array(0,0.5,1);
+        $scores = array(0, 0.5, 1);
 
         foreach ($players as $id => $name) {
             if ($player1 == $id) {

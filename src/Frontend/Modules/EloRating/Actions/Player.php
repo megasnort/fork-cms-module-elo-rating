@@ -14,9 +14,9 @@ use Frontend\Core\Engine\Navigation as FrontendNavigation;
  */
 class Player extends FrontendBaseBlock
 {
-   
+
     /**
-     * Record with the player that will be shown. 
+     * Record with the player that will be shown.
      *
      * @var    array
      */
@@ -33,10 +33,13 @@ class Player extends FrontendBaseBlock
 
     private function getData()
     {
-        // check if a player is not given, go to the index
-        if ($this->URL->getParameter(1) === null) {
+        if (empty($this->URL->getParameter(1))) {
             $this->redirect(FrontendNavigation::getUrlForBlock('EloRating', 'Ranking'));
-        } else if (!($this->record = FrontendEloRatingModel::getPlayer($this->URL->getParameter(1)))) {
+        }
+
+        $this->record = FrontendEloRatingModel::getPlayer($this->URL->getParameter(1));
+
+        if (empty($this->record)) {
             $this->redirect(FrontendNavigation::getURL(404));
         }
     }
@@ -45,11 +48,9 @@ class Player extends FrontendBaseBlock
     {
         $this->header->addJS('/src/Frontend/Modules/EloRating/Js/d3.v3.min.js', false);
         $this->header->addCSS('/src/Frontend/Modules/EloRating/Css/Player.css', false);
-        
-        //add into breadcrumb
+
         $this->breadcrumb->addElement($this->record['name']);
-    
-        // set meta
+
         $this->header->setPageTitle($this->record['meta_title'], ($this->record['meta_title_overwrite'] == 'Y'));
         $this->header->addMetaDescription(
             $this->record['meta_description'],
@@ -59,9 +60,9 @@ class Player extends FrontendBaseBlock
             $this->record['meta_keywords'],
             ($this->record['meta_keywords_overwrite'] == 'Y')
         );
-        
+
         $this->tpl->assign('playerUrl', FrontendNavigation::getURLForBlock('EloRating', 'Player'));
-        
+
         $this->tpl->assign('player', $this->record);
 
         if (isset($this->record["history"])) {

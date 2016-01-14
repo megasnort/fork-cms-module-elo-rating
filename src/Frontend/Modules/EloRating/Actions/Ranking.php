@@ -17,7 +17,6 @@ use Frontend\Modules\EloRating\Engine\Model as FrontendEloRatingModel;
  */
 class Ranking extends FrontendBaseBlock
 {
-
     public function execute()
     {
         parent::execute();
@@ -25,17 +24,21 @@ class Ranking extends FrontendBaseBlock
         $this->parse();
     }
 
-    
     private function parse()
     {
-        $ranking = FrontendEloRatingModel::getTotalRanking();
-        
-        
-        $this->tpl->assign('minimum_played_games', FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5));
-        $this->tpl->assign('ranking', $ranking);
+        $this->tpl->assign(
+            'minimum_played_games',
+            FrontendModel::get('fork.settings')->get('EloRating', 'minimum_played_games', 5)
+        );
 
-        $playerUrl = FrontendNavigation::getUrlForBlock('EloRating', 'Player');
+        $this->tpl->assign(
+            'ranking',
+            FrontendEloRatingModel::getTotalRanking()
+        );
 
-        $this->tpl->assign('playerUrl', $playerUrl);
+        $this->tpl->assign(
+            'playerUrl',
+            FrontendNavigation::getUrlForBlock('EloRating', 'Player')
+        );
     }
 }

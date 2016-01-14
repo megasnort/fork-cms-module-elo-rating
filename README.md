@@ -1,13 +1,11 @@
-Fork CMS Module - Elo Rating
-============================
+# Fork CMS Module - Elo Rating
 
 Imagine you're playing some game (chess, pool, football ...) regularly at your company, school, neighbourhood ... and you want to keep score of who's the best without having to organise knock-out tournaments (which is a hassle).
  
 Comes in: ***The Elo Rating Module for Fork CMS***
 
-***Note, tested with Fork CMS 3.7.2. Should it be incompatible with the newest version of Fork, feel free to do a pull request or just send me a message. If I find the time, I will update***
-
 ## What's inside?
+
 * Backend actions for organizing your players and games
 * Automated calculation of the Elo ratings
 * Three frontend actions
@@ -22,6 +20,10 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 * Translations for English and Dutch
 
 ##Changelog
+**15th of January 2016**
+
+* Bring up to date with latest Fork (3.9.x) conventions
+
 **10th of January 2015**
 
 * Added a select with opponents to the Player-action so you can compare better between the player an one of his/her opponents

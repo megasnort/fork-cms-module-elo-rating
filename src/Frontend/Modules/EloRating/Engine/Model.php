@@ -2,7 +2,6 @@
 
 namespace Frontend\Modules\EloRating\Engine;
 
-
 use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Core\Engine\Navigation as FrontendNavigation;
 use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
@@ -14,8 +13,6 @@ use Backend\Modules\EloRating\Engine\Model as BackendEloRatingModel;
  */
 class Model
 {
-   
-    
     const QRY_PLAYERS = 'SELECT
                 p.id,
                 p.name,
@@ -32,8 +29,8 @@ class Model
             WHERE
                 p.`active` = ?
                 AND
-                `games_played` > ?   
-            ORDER BY 
+                `games_played` > ?
+            ORDER BY
                 p.name';
 
     const QRY_RANKING = "SELECT
@@ -56,7 +53,7 @@ class Model
                 p.`active` = ?
                  AND
                 `games_played` >= ?
-            ORDER BY 
+            ORDER BY
                 p.current_elo DESC,
                 p.games_played DESC,
                 p.won DESC,
@@ -94,9 +91,8 @@ class Model
 
     const QRY_VARS_RANKING = "SET @pos = 0, @prevElo = 0";
 
-
     /**
-     * Funtion to add a game
+     * Function to add a game
      *
      * @return array
      */
@@ -104,7 +100,7 @@ class Model
     {
         $db = FrontendModel::getContainer()->get('database');
 
-        if (FrontendModel::getModuleSetting('EloRating', 'immediate_recalculation', 'N') == 'Y') {
+        if (FrontendModel::get('fork.settings')->get('EloRating', 'immediate_recalculation', 'N') == 'Y') {
             $item['active'] = 'Y';
             $db->insert('elo_rating_games', $item);
             BackendEloRatingModel::generateEloRatings();
@@ -112,10 +108,7 @@ class Model
             $item['active'] = 'N';
             $db->insert('elo_rating_games', $item);
         }
-
     }
-
-
 
     /**
      * Get all the games, grouped by date
@@ -125,27 +118,21 @@ class Model
     public static function getAllGames()
     {
         $db = FrontendModel::getContainer()->get('database');
-
         $dates = array();
-
-        $games = (array) $db->getRecords(self::QRY_GAMES);
-
+        $games = (array)$db->getRecords(self::QRY_GAMES);
         $previousDate = '';
 
         foreach ($games as $game) {
-
             if ($previousDate != $game["compareDate"]) {
-                $dates[] = array('date' => $game["date"], 'games' => (array) array());
+                $dates[] = array('date' => $game["date"], 'games' => (array)array());
             }
 
-            $dates[count($dates)-1]['games'][] = $game;
-
+            $dates[count($dates) - 1]['games'][] = $game;
             $previousDate = $game["compareDate"];
         }
 
         return $dates;
     }
-
 
     /**
      * Generate some stats about how many games were played, won ...
@@ -154,7 +141,7 @@ class Model
      */
     public static function getGamesPlayed()
     {
-        $games = (array) FrontendModel::getContainer()->get('database')->getRecords(
+        $games = (array)FrontendModel::getContainer()->get('database')->getRecords(
             'SELECT score1 FROM elo_rating_games'
         );
 
@@ -177,7 +164,6 @@ class Model
 
         return $data;
     }
- 
 
     /**
      * Get the latest games
@@ -188,23 +174,12 @@ class Model
     {
         $db = FrontendModel::getContainer()->get('database');
 
-        $games = (array) $db->getRecords(
+        $games = (array)$db->getRecords(
             self::QRY_GAMES . ' LIMIT ?',
-            (int) FrontendModel::getModuleSetting('EloRating', 'top_latest_games', 5)
+            (int)FrontendModel::get('fork.settings')->get('EloRating', 'top_latest_games', 5)
         );
 
         return $games;
-    }
-
-    /**
-     * Get all the players a player has played against
-     * 
-     * @param  int $playerId
-     * @return array array of of players, with name, slug and id
-     */
-    public static function getOpponents($playerId)
-    {
-        return array();
     }
 
     /**
@@ -218,7 +193,7 @@ class Model
 
         // Set the vars to 0 because the session stays open.
 
-        if ($player = (array) $db->getRecord(
+        if ($player = (array)$db->getRecord(
             "SELECT
                 p.id,
                 p.name,
@@ -245,9 +220,9 @@ class Model
                 `m`.`url` = ?
             LIMIT 1",
             array(
-                (string) 'Y',
-                (int) 0,
-                (string) $url
+                (string)'Y',
+                (int)0,
+                (string)$url
             )
         )
         ) {
@@ -257,9 +232,9 @@ class Model
             // to always have 100%
             $player["drawrate"] = 100 - $player["winrate"] - $player["lossrate"];
 
-            $minimum_played_games = FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5);
+            $minimum_played_games = FrontendModel::get('fork.settings')->get('EloRating', 'minimum_played_games', 5);
 
-            $player["games"] = (array) $db->getRecords(
+            $player["games"] = (array)$db->getRecords(
                 "SELECT
                     g.id,
                     g.player1,
@@ -290,24 +265,22 @@ class Model
                 WHERE (g.player1 = ? OR g.player2 = ?) AND g.active = 'Y'
                 ORDER BY g.date DESC, g.id DESC",
                 array(
-                    (int) $player['id'],
-                    (int) $player['id'],
-                    (int) $player['id'],
-                    (int) $player['id']
+                    (int)$player['id'],
+                    (int)$player['id'],
+                    (int)$player['id'],
+                    (int)$player['id']
                 )
             );
 
             if ($player["games_played"] < $minimum_played_games) {
                 $player["ranking"] = false;
-
             } else {
-
                 $player["ranking"] = $db->getVar(
                     "SELECT COUNT(*)+1 FROM elo_rating_players WHERE current_elo > ? AND active = ? AND games_played >= ?",
                     array(
-                        (string) $player["elo"],
-                        (string) 'Y',
-                        (int) $minimum_played_games
+                        (string)$player["elo"],
+                        (string)'Y',
+                        (int)$minimum_played_games
                     )
                 );
 
@@ -316,55 +289,49 @@ class Model
                     FROM elo_history
                     WHERE player = ?
                     ORDER by `date`',
-                    array((int) $player["id"])
+                    array((int)$player["id"])
                 );
             }
 
-            // walk games backwards            
+            // walk games backwards
             $previous = $player['start_elo'];
 
             for ($i = count($player["games"]) - 1; $i >= 0; $i--) {
-                
                 $player["games"][$i]['gainLoss'] = $player["games"][$i]['elo'] - $previous;
-
                 $player["games"][$i]['won'] = ($player["games"][$i]['gainLoss'] > 0);
                 $player["games"][$i]['lost'] = ($player["games"][$i]['gainLoss'] < 0);
-                
+
                 if ($player["games"][$i]['gainLoss'] > 0) {
                     $player["games"][$i]['gainLoss'] = '+' . $player["games"][$i]['gainLoss'];
                 }
 
                 $previous = $player["games"][$i]['elo'];
             }
-            
+
             $opponents = array();
-            foreach($player["games"] as &$game)
-            {
-                $opponents[] = (int) (($game['player1'] == $player['id']) ? $game['player2'] : $game['player1']);                
+
+            foreach ($player["games"] as &$game) {
+                $opponents[] = (int)(($game['player1'] == $player['id']) ? $game['player2'] : $game['player1']);
             }
 
             if (!empty($opponents)) {
-                $player['opponents'] = (array) $db->getRecords("SELECT
+                $player['opponents'] = (array)$db->getRecords("SELECT
                         p.id,
                         p.name
                     FROM
                         elo_rating_players AS p
                     WHERE
-                        p.id IN (" . implode(',', $opponents). ")
-                    ORDER BY 
+                        p.id IN (" . implode(',', $opponents) . ")
+                    ORDER BY
                         p.name"
-                    );
+                );
             }
-             
 
             return $player;
         } else {
             return false;
         }
     }
-
-  
-
 
     /**
      * Get the top X of players ordered by Elo-rating.
@@ -379,12 +346,12 @@ class Model
         // Set the vars to 0 because the session stays open.
         $db->execute(self::QRY_VARS_RANKING);
 
-        $return = (array) $db->getRecords(
+        $return = (array)$db->getRecords(
             self::QRY_RANKING . " LIMIT ?",
             array(
-                (string) 'Y',
-                (int) FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5),
-                (int) FrontendModel::getModuleSetting('EloRating', 'top_ranking_count', 10)
+                (string)'Y',
+                (int)FrontendModel::get('fork.settings')->get('EloRating', 'minimum_played_games', 5),
+                (int)FrontendModel::get('fork.settings')->get('EloRating', 'top_ranking_count', 10)
             )
         );
 
@@ -405,18 +372,18 @@ class Model
         // Set the vars to 0 because the session stays open.
         $db->execute(self::QRY_VARS_RANKING);
 
-        $return = (array) $db->getRecords(
+        $return = (array)$db->getRecords(
             self::QRY_RANKING,
             array(
-                (string) 'Y',
-                (int) FrontendModel::getModuleSetting('EloRating', 'minimum_played_games', 5)
+                (string)'Y',
+                (int)FrontendModel::get('fork.settings')->get('EloRating', 'minimum_played_games', 5)
             )
         );
 
         return $return;
     }
 
-     /**
+    /**
      * Parse the search results for this module
      *
      * Note: a module's search function should always:
@@ -435,19 +402,18 @@ class Model
         if (strpos($playerUrl, '404')) {
             $items = array();
         } else {
-            $items = (array) FrontendModel::getContainer()->get('database')->getRecords(
+            $items = (array)FrontendModel::getContainer()->get('database')->getRecords(
                 "SELECT
                     p.id,
                     p.name as title,
                     concat(p.name,' - Elo: ', p.current_elo) as text,
-                    concat('" .$playerUrl. "','/',m.url) as full_url
+                    concat('" . $playerUrl . "','/',m.url) as full_url
                  FROM elo_rating_players AS p
                  INNER JOIN meta AS m ON p.meta_id = m.id
                  WHERE p.active = ? AND p.games_played > ? AND p.id IN (" . implode(',', $ids) . ")",
                 array('Y', 0),
                 'id'
             );
-
         }
 
         return $items;
