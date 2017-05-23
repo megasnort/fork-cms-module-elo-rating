@@ -20,7 +20,8 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 * Translations for English, Dutch and Czech
 
 
-##Changelog
+## Changelog
+
 **14th of January 2016**
 
 * Bring up to date with latest Fork (3.9.x) conventions
@@ -34,6 +35,6 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 * Fixed a major bug in the Rating-generator
 * Give a fixed width to the tables in Games.tpl
 
-##License
+## License
 
 The module is licensed under MIT. In short, this license allows you to do everything as long as the copyright statement stays present.
