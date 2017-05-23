@@ -17,11 +17,8 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 	* **Number of Games played**: Some global stats
 	* **Latest Games**: List of the most recent games
 	* **Add a Game**: Form to let players submit their own games (with password protection)
-* Translations for English and Dutch
+* Translations for English, Dutch and Czech
 
-You can see an example here: 
-
-* [carcassonnecup.4fan.cz](http://carcassonnecup.4fan.cz) (in Czech)
 
 ##Changelog
 **14th of January 2016**
