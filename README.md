@@ -1,5 +1,7 @@
 # Fork CMS Module - Elo Rating
 
+> Works only in Fork CMS 3.9. For Fork CMS 3.8 use the [3.8.x-tag](https://github.com/megasnort/fork-cms-module-elo-rating/releases/tag/v3.8.x). For newer versions of Fork CMS, fork.
+
 Imagine you're playing some game (chess, pool, football ...) regularly at your company, school, neighbourhood ... and you want to keep score of who's the best without having to organise knock-out tournaments (which is a hassle).
  
 Comes in: ***The Elo Rating Module for Fork CMS***
@@ -18,23 +20,3 @@ Comes in: ***The Elo Rating Module for Fork CMS***
 	* **Latest Games**: List of the most recent games
 	* **Add a Game**: Form to let players submit their own games (with password protection)
 * Translations for English, Dutch and Czech
-
-
-## Changelog
-
-**14th of January 2016**
-
-* Bring up to date with latest Fork (3.9.x) conventions
-* Add Czech translation
-
-**10th of January 2015**
-
-* Added a select with opponents to the Player-action so you can compare better between the player an one of his/her opponents
-* Modified a label ($lblPlayersGames) because it gets followed by a &lt;select&gt;
-* Added the Elo-rating + gain or loss after a game to the table on the Player-action. If you installed the first version of this module, you need to manually add the 'game'-field (INT) to the elo_history-table, and re-save a game in the backend so the elo-history-table is re-filled correctly.
-* Fixed a major bug in the Rating-generator
-* Give a fixed width to the tables in Games.tpl
-
-## License
-
-The module is licensed under MIT. In short, this license allows you to do everything as long as the copyright statement stays present.
